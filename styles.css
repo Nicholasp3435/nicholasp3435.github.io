@@ -3,6 +3,7 @@ body {
     background-color: rgb(69,0,69);
     color: rgb(233,233,233);
     text-shadow: 5px 5px rgb(23,0,23);
+    /* 69 ÷ 3 = 23 */
 }
 a {
     color: rgb(233,233,233);
