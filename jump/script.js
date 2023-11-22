@@ -1,4 +1,5 @@
 var canvas = document.getElementById("myCanvas");
+canvas.style.backgroundPosition = 0;
 var ctx = canvas.getContext("2d");
 var totalFrames = 0;
 
@@ -10,14 +11,17 @@ var frameIndex = 0;
 var frameCount = 21;
 
 var x = canvas.width/4;
-var y = canvas.height-220;
+var y = 390;
 var dx = 2;
 var dy = -2;
+const grav = -0.125;
+var vy = 0;
 
 let rightPressed = false;
 let leftPressed = false;
+let spacePressed = false;
 
-function drawMe() {
+function drawSprites() {
     if (rightPressed) {
         speed = 3;
     } else if (leftPressed) {
@@ -32,12 +36,13 @@ function drawMe() {
         frameIndex %= 16;
     }
     ctx.drawImage(me, frameIndex * frameW, 0, frameW, frameH, x, y, frameW, frameH)
+    canvas.style.backgroundPositionX = `${(-totalFrames/4) % 511}px`;
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     totalFrames++;
-    drawMe();
+    drawSprites();
     handleMovement();
 }
 
@@ -50,6 +55,10 @@ function keyDownHandler(e) {
     } else if (e.key === "Left" || e.key === "ArrowLeft") {
         leftPressed = true;
     }
+    if (e.key === " ") {
+        spacePressed = true;
+    }
+    //console.log(e.key);
 }
 
 function keyUpHandler(e) {
@@ -57,6 +66,9 @@ function keyUpHandler(e) {
         rightPressed = false;
     } else if (e.key === "Left" || e.key === "ArrowLeft") {
         leftPressed = false;
+    }
+    if (e.key === " ") {
+        spacePressed = false;
     }
 }
 
@@ -67,7 +79,20 @@ function handleMovement() {
     if (leftPressed && x > 0) {
         x -= dx;
     }
+    if (spacePressed && y >= 390) {
+        vy = 10;
+    }
+    gravity();
+}
 
+function gravity() {
+    if (y >= 390 && !spacePressed) {
+        y = 390;
+        vy = 0;
+    } else {
+        vy += grav;
+        y -= dy + vy;
+    }
 }
 
 const interval = setInterval(draw, 10);
