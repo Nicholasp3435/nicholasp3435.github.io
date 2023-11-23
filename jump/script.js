@@ -13,8 +13,6 @@ var frameW = 168;
 var frameH = 208;
 var trotFrameIndex = 0;
 var flyFrameIndex = 0;
-// off-x, off-y, size-x, size-y
-var hitboxOffset = [0,0,100,100];
 
 var appleSprite = new Image();
 appleSprite.src = "appleFly.png";
@@ -44,6 +42,7 @@ const grav = -0.125;
 var vy = 0;
 
 let isFlying = false;
+let flyTimer = 255;
 
 let rightPressed = false;
 let leftPressed = false;
@@ -116,7 +115,13 @@ function drawBackground() {
 function drawUI() {
     ctx.font = "32px Monaco";
     ctx.fillStyle = "#0095DD";
-    ctx.fillText(`Score: ${score}`, 10, 40);
+    ctx.fillText(`Score: ${score}`, 10, 130);
+    ctx.fillText(`Flight:`, 10, 170);
+    ctx.fillStyle = `rgb(${255 - flyTimer}, ${flyTimer}, 0)`;
+    ctx.beginPath();
+    ctx.rect(100, 150, flyTimer / 2, 20);
+    ctx.fill();
+    ctx.closePath();
 }
 
 function draw() {
@@ -171,18 +176,24 @@ function handleMovement() {
     if (leftPressed && x > 0) {
         x -= dx;
     }
-    if (upPressed && y > -48) {
-        vy = 5;
-        isFlying = true;
+    if (upPressed && y > -48 && flyTimer > 0) {
+            vy = 5;
+            isFlying = true;
     }
+    if (upPressed && flyTimer > 0) {
+        flyTimer--;        
+}
     gravity();
 }
 
 function gravity() {
-    if (y >= 375 && !upPressed) {
+    if (y > 375) {
         y = 375;
         vy = 0;
         isFlying = false;
+        if (flyTimer < 255) {
+            flyTimer+=4;
+        }
     } else {
         vy += grav;
         y -= dy + vy;
@@ -192,7 +203,7 @@ function gravity() {
 let A = randnum(100,200);
 let B = randnum(0.01, 0.05);
 let C = randnum(0, Math.PI * 2 / B);
-let D = randnum(125,400);
+let D = randnum(175,400);
 
 function appleMovement() {
     appleX -=1.5;
@@ -212,7 +223,7 @@ function respawnApple() {
     A = randnum(100,200);
     B = randnum(0.01, 0.05);
     C = randnum(0, Math.PI * 2 / B);
-    D = randnum(125,400);
+    D = randnum(175,400);
 }
 
 function isTouching() {
