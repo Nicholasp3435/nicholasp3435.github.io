@@ -1,7 +1,6 @@
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
-ctx.imageSmoothingEnabled = false;
 var totalFrames = 0;
 
 var trotSprite = new Image();
@@ -14,15 +13,25 @@ var frameW = 168;
 var frameH = 208;
 var trotFrameIndex = 0;
 var flyFrameIndex = 0;
+// off-x, off-y, size-x, size-y
+var hitboxOffset = [0,0,100,100];
+
+var appleSprite = new Image();
+appleSprite.src = "appleFly.png";
+var appleFrameW = 72;
+var appleFrameH = 72;
+var appleFrameIndex = 0;
 
 var backImg = new Image();
 backImg.src = "backSheet.png";
 var backTiles = [];
 for (let c = 0; c < 11; c++) {
     backTiles[c] = [];
-    for (let r = 0; r < 3; r++) {
+    for (let r = 1; r < 2; r++) {
         backTiles[c][r] = { x: 24 * c, y: 24 * r, index: [0,1]};
     }
+    backTiles[c][0] = { x: 24 * c, y: 24 * 0, index: [randint(0,2),3]};
+    backTiles[c][2] = { x: 24 * c, y: 24 * 2, index: [randint(0,3),2]};
     backTiles[c][3] = { x: 24 * c, y: 24 * 3, index: [randint(1,3),1]};
     backTiles[c][4] = { x: 24 * c, y: 24 * 4, index: [randint(0,3),0]};
 }
@@ -40,6 +49,11 @@ let rightPressed = false;
 let leftPressed = false;
 let upPressed = false;
 let spacePressed = false;
+
+var appleX = 1100;
+var appleY = 100;
+
+var score = 0;
 
 function drawSprites() {
     if (rightPressed) {
@@ -67,6 +81,12 @@ function drawSprites() {
         }
         ctx.drawImage(trotSprite, trotFrameIndex * frameW, 0, frameW, frameH, x, y, frameW, frameH);
     }
+
+    if (totalFrames % 10 == 0) {
+        appleFrameIndex++;
+        appleFrameIndex %= 3;
+    }
+    ctx.drawImage(appleSprite, appleFrameIndex * appleFrameW, 0, appleFrameW, appleFrameH, appleX, appleY, appleFrameW, appleFrameH);
 }
 
 function drawBackground() {
@@ -79,7 +99,9 @@ function drawBackground() {
             }
             if (tile.x < -24) {
                 tile.x = 239;
-                if (tile.y == 24 * 3) {
+                if (tile.y == 24 * 2) {
+                    tile.index = [randint(0,3),2];
+                } else if (tile.y == 24 * 3) {
                     tile.index = [randint(1,3),1];
                 } else if (tile.y == 24 * 4) {
                     tile.index = [randint(0,3),0];
@@ -91,11 +113,22 @@ function drawBackground() {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
 }
 
+function drawUI() {
+    ctx.font = "32px Monaco";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText(`Score: ${score}`, 10, 40);
+}
+
 function draw() {
+    ctx.imageSmoothingEnabled = false;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBackground();
     drawSprites();
+    ctx.imageSmoothingEnabled = true;
+    drawUI();
     handleMovement();
+    appleMovement();
+    isTouching();
     totalFrames++;
 }
 
@@ -156,8 +189,52 @@ function gravity() {
     }
 }
 
+let A = randnum(100,200);
+let B = randnum(0.01, 0.05);
+let C = randnum(0, Math.PI * 2 / B);
+let D = randnum(125,400);
+
+function appleMovement() {
+    appleX -=1.5;
+    if (isTouching()) {
+        respawnApple();
+        score--;
+    }
+    if (appleX < -20) {
+        respawnApple();
+        score++;
+    }
+    appleY = A * Math.sin(B * (appleX - C)) + D;
+}
+
+function respawnApple() { 
+    appleX = 1100;
+    A = randnum(100,200);
+    B = randnum(0.01, 0.05);
+    C = randnum(0, Math.PI * 2 / B);
+    D = randnum(125,400);
+}
+
+function isTouching() {
+    if (appleX - x <= 168 && appleX - x >= 0) {
+        if (appleY - y <= 208 && appleY - y >= 55) {
+            return true;
+        }
+    } 
+    if (appleX - x <= 168 && appleX - x >= 84) {
+        if (appleY - y <= 208 && appleY - y >= -30) {
+            return true;
+        }
+    }
+}
+
+// inclusive integer between [a, b]
 function randint(a, b) {
     return Math.floor(Math.random() * (b - a + 1)) + a;
+}
+
+function randnum(a, b) {
+    return Math.random() * (b - a) + a;
 }
 
 const interval = setInterval(draw, 10);
