@@ -48,6 +48,7 @@ let rightPressed = false;
 let leftPressed = false;
 let upPressed = false;
 let spacePressed = false;
+let pPressed = false;
 
 var appleX = 1100;
 var appleY = 100;
@@ -139,6 +140,7 @@ function draw() {
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousedown", startHandler, false);
 
 function keyDownHandler(e) {
     if (e.key === "Right" || e.key === "ArrowRight") {
@@ -167,6 +169,15 @@ function keyUpHandler(e) {
     if (e.key === "Up" || e.key == "ArrowUp") {
         upPressed = false;
     }
+    if (e.key === "p") {
+        togglePause();
+    }
+}
+
+function startHandler(e) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    togglePause();
+    document.removeEventListener("mousedown", startHandler, false);
 }
 
 function handleMovement() {
@@ -248,4 +259,28 @@ function randnum(a, b) {
     return Math.random() * (b - a) + a;
 }
 
-const interval = setInterval(draw, 10);
+let pauseState = false;
+function togglePause() {
+    if (pauseState) {
+        interval = setInterval(draw, 10);
+        pauseState = false;
+    } else {
+        clearInterval(interval);
+        pauseState = true;
+        ctx.beginPath();
+        ctx.rect(5, 230, 400, 130);
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.closePath();
+        ctx.font = "32px Monaco";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Use the arrow keys to move", 10, 270);
+        ctx.fillText("Avoid the apples!", 10, 300);
+        ctx.fillText("Use P to pause/play", 10, 330);
+    }
+}
+
+let interval = setInterval(draw, 10);
+togglePause();
+
+ctx.fillText("Click anywhere to start!", 10, 360);
