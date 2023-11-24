@@ -14,6 +14,10 @@ const sprite2 = createSprite(100,200);
 sprite2.setHitbox(128, 64, 0, 64);
 
 const sprite3 = createSprite(100,200);
+sprite3.addAnimation("apple", "appleFly.png", 72, 72, () => {
+    sprite3.setAnimation("apple");
+});
+
 
 const camera = new Camera(0,0);
 
@@ -24,7 +28,7 @@ function drawScene() {
 }
 
 function drawUI() {
-    sprite3.draw(ctx);
+    sprite3.draw(ctx, 0.05);
 }
 
 function draw() {
