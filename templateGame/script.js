@@ -48,26 +48,28 @@ function draw() {
     ctx.restore();
     drawUI();
     debugUIHitboxes();
-    if (sprite2.mouseIsOver(canvasMousePosition)) {
+    if (sprite2.mouseIsOver(canvasMousePosition) && mouseDown(0)) {
         console.log("Mouse is over the sprite");
     }
-    if (sprite3.mouseIsOver(cameraMousePosition)) {
+    if (sprite3.mouseIsOver(cameraMousePosition) && mouseWentDown(0)) {
         console.log("Mouse is over the sprite");
     }
+    updatePreviousKeysPressed();
+    updatePreviousMousePressed();
     frameCount++;
 }
 
 sprite2.handleMovement = function() {
-    if(keydown("ArrowRight") && !this.willCollideWith(sprite, 1, 0)) {
+    if(keyDown("ArrowRight") && !this.willCollideWith(sprite, 1, 0)) {
         this.x+=2;
     }
-    if(keydown("ArrowLeft") && !this.willCollideWith(sprite, -1, 0)) {
+    if(keyDown("ArrowLeft") && !this.willCollideWith(sprite, -1, 0)) {
         this.x-=2;
     }
-    if(keydown("ArrowUp") && !this.willCollideWith(sprite, 0, -1)) {
+    if(keyDown("ArrowUp") && !this.willCollideWith(sprite, 0, -1)) {
         this.y-=2;
     }
-    if(keydown("ArrowDown") && !this.willCollideWith(sprite, 0, 1)) {
+    if(keyDown("ArrowDown") && !this.willCollideWith(sprite, 0, 1)) {
         this.y+=2;
     }
 }
@@ -75,20 +77,28 @@ sprite2.handleMovement = function() {
 
 // util functions
 
-// for keyDown
+// for keyDown and keyWentDown
 const keysPressed = {};
+const previousKeysPressed = {};
 document.addEventListener('keydown', (e) => {
     keysPressed[e.key] = true;
 });
 document.addEventListener('keyup', (e) => {
     keysPressed[e.key] = false;
 });
-function keydown(key) {
+function keyDown(key) {
     return keysPressed[key] === true;
 }
+function updatePreviousKeysPressed() {
+    Object.assign(previousKeysPressed, keysPressed);
+}
+function keyWentDown(key) {
+    return keysPressed[key] && !previousKeysPressed[key];
+}
 
-// for mouseDown
+// for mouseDown and mouseWentDown
 const mousePressed = {};
+const previousMousePressed = {};
 document.addEventListener('mousedown', (e) => {
     mousePressed[e.button] = true;
 });
@@ -98,13 +108,19 @@ document.addEventListener('mouseup', (e) => {
 function mouseDown(button) {
     return mousePressed[button] === true;
 }
+function updatePreviousMousePressed() {
+    Object.assign(previousMousePressed, mousePressed);
+}
+function mouseWentDown(button) {
+    return mousePressed[button] && !previousMousePressed[button];
+}
 
 // for mousePosition (and mouseIsOver)
 let rawMousePosition = { x: 0, y: 0 };
-canvas.addEventListener('mousemove', (event) => {
+canvas.addEventListener('mousemove', (e) => {
     const rect = canvas.getBoundingClientRect();
-    rawMousePosition.x = event.clientX - rect.left;
-    rawMousePosition.y = event.clientY - rect.top;
+    rawMousePosition.x = e.clientX - rect.left;
+    rawMousePosition.y = e.clientY - rect.top;
 });
 function getRelativeMousePosition(ctx, ui) {
     const transform = ctx.getTransform();
