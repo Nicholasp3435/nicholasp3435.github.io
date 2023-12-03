@@ -25,9 +25,9 @@ for (let c = 0; c < 16; c++) {
 }
 
 const pony = createSprite(300,200);
-pony.addAnimation("trotRight", "trotRightSheet.png", 168, 208, () => {});
-pony.addAnimation("trotLeft", "trotLeftSheet.png", 168, 208, () => {});
-pony.addAnimation("standLeft", "standLeft.png", 168, 208, () => {});
+pony.addAnimation("trotRight", "trotRightSheet.png", 168, 208);
+pony.addAnimation("trotLeft", "trotLeftSheet.png", 168, 208);
+pony.addAnimation("standLeft", "standLeft.png", 168, 208);
 pony.addAnimation("standRight", "standRight.png", 168, 208, () => {
     pony.setAnimation("standRight");
 });
