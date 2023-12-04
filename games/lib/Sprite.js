@@ -4,7 +4,7 @@ export class Sprite {
         this.y = y;
 
         this.image = new Image();
-        this.image.src = "/lib/defaultSprite.png";
+        this.image.src = "/games/lib/defaultSprite.png";
 
         this.animationSheet = new Image();
         this.animationSheet.src = null;

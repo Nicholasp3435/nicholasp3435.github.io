@@ -3,6 +3,7 @@ import { Camera } from "../lib/Camera.js";
 
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
+
 let frameCount = 0;
 
 let debuggingMode = false;
@@ -43,7 +44,7 @@ sprite3.setHitbox(72, 72);
 setUI(sprite3);
 
 
-const camera = new Camera(0,0);
+const camera = new Camera(pony.x, pony.y);
 
 function drawScene() {
     groundTiles.forEach(c => {
@@ -91,6 +92,12 @@ function draw() {
     updatePreviousKeysPressed();
     updatePreviousMousePressed();
     frameCount++;
+}
+
+function updatePonyPosition() {
+    pony.handleMovement();
+    shadow.x = pony.x + 10;
+    shadow.y = pony.y + 185;
 }
 
 pony.handleMovement = function() {
