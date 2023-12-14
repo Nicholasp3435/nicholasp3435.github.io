@@ -43,6 +43,18 @@ sprite3.addAnimation("apple", "appleFly.png", 72, 72, () => {
 sprite3.setHitbox(72, 72);
 setUI(sprite3);
 
+const house = [];
+house['roof'] = createSprite(300,200);
+house['wall'] = createSprite(300,200);
+house['wall'].setHitbox(36*16,29*16, 26*16, 29*16);
+setCollidable(house['wall']);
+house['door'] = createSprite(300,200);
+house['door'].setHitbox(23*16, 14*16, 4*16, 29*16);
+setCollidable(house['door']);
+house['roof'].setImage('sprites/houseRoof.png');
+house['wall'].setImage('sprites/houseWall.png');
+house['door'].setImage('sprites/houseDoor.png');
+
 
 const camera = new Camera(pony.x, pony.y);
 
@@ -52,8 +64,11 @@ function drawScene() {
             tile.draw(ctx);
         });
     });
+    house['wall'].draw(ctx);
+    house['door'].draw(ctx);
     shadow.draw(ctx);
     pony.draw(ctx, 0.25);
+    house['roof'].draw(ctx);
     pony.handleMovement();
 }
 
