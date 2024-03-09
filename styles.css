@@ -27,7 +27,15 @@ h1 {
     margin-bottom: 0.1em;
 }
 
+.projects img {
+    border: 0.25em solid #230c33;
+    border-radius: 1em;
+    height: 20em;
+}
 
+.projects ul {
+    padding-top: 3em;
+}
 
 .grid {
     display: flex;

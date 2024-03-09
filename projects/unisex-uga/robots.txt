@@ -1,7 +1,0 @@
-Sitemap: https://unisex.cat-boop.com/sitemap.xml
-
-User-agent: *
-Allow: /
-
-User-agent: GPTBot
-Disallow: /
