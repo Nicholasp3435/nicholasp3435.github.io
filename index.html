@@ -32,7 +32,7 @@
     
     <meta content="#af6cd6" name="theme-color">
 </head>
-<body>
+<body onload="init();">
 
 <!-- modified from https://stackoverflow.com/a/36291932 -->
 <div class="grid background">
@@ -72,7 +72,7 @@
             <div class="grid-row">
                 <div class="grid-item">
                     <h2>Unisex Bathroom search</h2>
-                    <img src="/projects/unisex-uga/demo.png">
+                    <img class="projectImg" src="/projects/unisex-uga/demo.png">
                 </div>
                 <div class="grid-item">
                     <ul>
@@ -84,7 +84,7 @@
             <div class="grid-row">
                 <div class="grid-item">
                     <h2>JavaFX Weather App</h2>  
-                    <img src="/projects/weatherApp/demo.png">
+                    <img class="projectImg" src="/projects/weatherApp/demo.png">
                 </div>
                 <div class="grid-item"> 
                     <ul>
@@ -97,7 +97,29 @@
     </div>
 </div>
 <br>
+<script>
+    function init() {
+        addEventListener("resize", (event) => {
+            checkOrientation();
+        });
+    }
 
+    function checkOrientation() {
+    // Check if the height is larger than the width for mobile idk i hate this
+    let projectImgs = document.getElementsByClassName("projectImg");
+    if (window.innerHeight <  window.innerWidth) {
+        for (let i = 0; i < projectImgs.length; i++) {
+            projectImgs[i].style = "border: 0.25em solid #230c33; border-radius: 1em; height: 20em; width: auto;";
+        }
+    } else {
+        for (let i = 0; i < projectImgs.length; i++) {
+            projectImgs[i].style = "border: 0.25em solid #230c33; border-radius: 1em; width: 20em; height: auto;";
+        }
+    }
+
+
+}
+</script>
 
 <br>
 <div class="background" style="background-color: #af6cd6a0;">

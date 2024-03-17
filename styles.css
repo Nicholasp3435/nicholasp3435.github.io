@@ -27,7 +27,11 @@ h1 {
     margin-bottom: 0.1em;
 }
 
-.projects img {
+.projects {
+    width: 100%;
+}
+
+.projectImg {
     border: 0.25em solid #230c33;
     border-radius: 1em;
     height: 20em;

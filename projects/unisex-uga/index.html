@@ -198,11 +198,19 @@
 
     function loadMap(num, floor) {
       let file = "data\\maps\\png\\" + num + "_" + floor + "_C.png";
+      
       mapImg.setAttribute("src", file);
       show = document.getElementsByClassName("showing");
       if (show.length > 0) {
         show[0].classList.toggle("showing");
       }
+
+      mapImg.onerror = function() {
+        // Image failed to load, set a different path or handle the error
+        console.error("Failed to load image: " + file);
+        // Set a default image path or handle the error in another way
+        mapImg.setAttribute("src", "imgs\\noMap.png");
+      };
     }
   
   </script>
