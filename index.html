@@ -69,24 +69,20 @@
     <div class="grid-row">
         <div class="grid-item background projects">
             <h1>Projects</h1>
-            <div class="grid-row">
+            <div class="grid-row project-item">
                 <div class="grid-item">
                     <h2>Unisex Bathroom search</h2>
                     <img class="projectImg" src="/projects/unisex-uga/demo.png">
-                    <ul class="closed">
-                        <li><a href="./projects/unisex-uga">Unisex Bathroom Search</a></li>
-                        <li>stuff here i guess</li>
-                    </ul>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item ">
                     <ul>
                         <li><a href="./projects/unisex-uga">Unisex Bathroom Search</a></li>
                         <li>stuff here i guess</li>
                     </ul>
                 </div>
             </div>
-            <div class="grid-row">
-                <div class="grid-item">
+            <div class="grid-row project-item">
+                <div class="grid-item ">
                     <h2>JavaFX Weather App</h2>  
                     <img class="projectImg" src="/projects/weatherApp/demo.png">
                 </div>
@@ -106,6 +102,7 @@
         addEventListener("resize", (event) => {
             checkOrientation();
         });
+        checkOrientation();
     }
 
     function checkOrientation() {
