@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wrapping Paper Calculator</title>
+<style>
+</style>
+</head>
+<body>
+    <form>
+        <label for="length">Length (L): </label>
+        <input type="number" id="x1" placeholder="Length" value="100"><br>
+        <label for="width">Width (W): </label>
+        <input type="number" id="x2" placeholder="Width" value="100"><br>
+        <label for="height">Height (H): </label>
+        <input type="number" id="y" placeholder="Height" value="100"><br>
+    </form>
+
+
+  <script>
+        var canvas = document.createElement('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        var ctx = canvas.getContext('2d');
+
+        var x1 = document.querySelector('#x1');
+        var x2 = document.querySelector('#x2');
+        var y = document.querySelector('#y');
+
+    function draw() {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+        if (Number(x1.value) >= Number(x2.value) && Number(x2.value) >= Number(y.value)) {
+            var paperx1 = Number(x1.value) + Number(y.value);
+            var paperx2 = 2*Number(x2.value) + 2*Number(y.value);
+            var boxx1 = Number(x1.value);
+            var boxx2 = Number(x2.value);
+        }
+
+        drawCenteredRect(paperx2, paperx1, "#b00b69");
+        drawCenteredRect(boxx2, boxx1, "#1d1cc9");
+        ctx.font = "30px serif";
+        ctx.textAlign = "center";
+        ctx.fillText(paperx2, window.innerWidth/2, window.innerHeight/2 - paperx1/2 - 20);
+        ctx.fillText(paperx1, window.innerWidth/2 - paperx2/2 - 50, window.innerHeight/2);  
+        
+
+
+        requestAnimationFrame(draw);
+    }
+    draw();
+
+    function drawCenteredRect(x, y, color) {
+        ctx.beginPath();
+        ctx.moveTo(window.innerWidth/2 - x/2, window.innerHeight/2 - y/2);
+        ctx.lineTo(window.innerWidth/2 - x/2, window.innerHeight/2 + y/2);
+        ctx.lineTo(window.innerWidth/2 + x/2, window.innerHeight/2 + y/2);
+        ctx.lineTo(window.innerWidth/2 + x/2, window.innerHeight/2 - y/2);
+        ctx.fillStyle = color;
+        ctx.strokeStyle = color;
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    }
+
+  </script>
+</body>
+</html>

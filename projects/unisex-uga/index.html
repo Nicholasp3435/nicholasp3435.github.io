@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/gif" href="/imgs/favicon.png">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta name="copyright" content="Nicholas Pautler">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://unisex.cat-boop.com">
+
+  <!-- Primary Meta Tags -->
+  <title>Unisex Bathroom Search</title>
+  <meta name="title" content="Unisex Bathroom Locations">
+  <meta name="description" content="A simple and searchable list of the unisex bathrooms at UGA">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://unisex.cat-boop.com">
+  <meta property="og:title" content="Unisex Bathroom Locations">
+  <meta property="og:description" content="A simple and searchable list of the unisex bathrooms at UGA">
+  <meta property="og:image" content="/imgs/og.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://unisex.cat-boop.com">
+  <meta property="twitter:title" content="Unisex Bathroom Locations">
+  <meta property="twitter:description" content="A simple and searchable list of the unisex bathrooms at UGA">
+  <meta property="twitter:image" content="/imgs/og.png">
+  <!-- Meta Tags Generated with https://metatags.io -->
+
+  <meta content="#af6cd6" name="theme-color">
+
+</head>
+<body onload="init()">
+  <button onclick="window.location.href = '../..';">Back to home</button>
+  <div class="grid background">
+    <div class="grid-row">
+      <div class="grid-item background">
+        <h1>Unisex Bathroom Search</h1>
+        <div style="margin: 1em;">
+          <label for="buildingInput">Enter Building Name:</label>
+          <input type="text" id="buildingInput">
+        </div>
+      </div>
+      <div class="grid-item background">
+        <h1>About</h1>
+        <p>As a non-binary UGA student it's helpful to have the Unisex bathrooms scattered throughout campus. However, it is difficult to pinpoint their exact locations without a map.
+           What I hope to achieve with this site is to have a map of where each unisex bathroom on campus. </p>
+        <p>Bathroom data is from <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf" target="”_blank”">UGA Architects</a>
+         and map data is from <a href="https://fmd.uga.edu/" target="”_blank”">UGA FMD</a></p>
+        <p>Not affiliated with UGA Architects or UGA FMD</p>
+        <p><strong>Questions/concerns: </strong><a href="mailto:nap44794@uga.edu?subject=Unisex Bathroom Search">Click to send to my UGA email</a></p>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-item background" id="roomsTable">
+        <h1>Rooms</h1>
+        <table>
+          <th style="width: 150px; text-align: left;">Building</th>
+          <th>Rooms</th>
+        </table>
+        <h2 class="closed" id="no-results">No results found</h2>
+        <table id="result"></table>
+      </div>
+      <div class="grid-item background">
+        <h1>Map</h1>
+        <p>Click on a room number to see a floor map of where it is</p>
+        <p>Click on the map to zoom in (opens a new tab)</p>
+        <div id="stickyMap">
+          <button onclick="toggleDarkMap()">Toggle dark maps</button>
+          <img id="map" onclick="window.open(this.src, '_blank');">
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="grid-row">
+      <div class="grid-item background">
+        <h1>Plans</h1>
+        <p><s>Eventually there'll be a campus map and a building map for each bathroom.
+          You'll click on the building number to see where on campus it is and the room number to see where in the building it is.
+          I have maps of all the floors as PDFs, I am just trying to work out the best way to show them.</s> oh wait it's there now</p>
+        <p>also sry mobile users for not optimizing it for you</p>
+        <p>edit after checking myself: holy hecc this sucks on mobile<br>Maybe turn the maps into drop downs? idk i'm lazy</p>
+      </div>
+    </div>
+    -->
+  </div>
+  <script src="./data/data.js"></script>
+  <script>
+
+    const input = document.querySelector("input");
+
+    const mapImg = document.getElementById("map");
+
+    function toggleDarkMap() {
+      mapImg.classList.toggle("dark");
+      if(mapImg.classList.contains("dark")) {
+        localStorage.mapMode = "dark";
+      } else {
+        localStorage.mapMode = "light";
+      }
+    }
+
+    input.addEventListener("input", (e) => {
+        search();
+    });
+
+    function init() {
+      search();
+      if (localStorage.mapMode == "dark") {
+        toggleDarkMap();
+      }
+    }
+
+    function search() {
+        let buildingInput = document.getElementById('buildingInput').value;
+
+        buildingInput = buildingInput.replaceAll(" ", "").toLowerCase();
+
+        searchedBuildings = []
+        data.forEach(building => {
+            if (building.name.toLowerCase().includes(buildingInput)) {
+                searchedBuildings.push(building);
+            }
+        });
+
+        // idk this makes it work and i'm too lazy to optimize :þ
+        // besides, look!  ↓↓  a heart :3
+        for (let i =-3; i <3; i++) {
+          //look!! ↑↑↑ kitty face =-3
+          makeTable(searchedBuildings);
+        }
+
+        if (searchedBuildings.length != 0) {
+          document.getElementById("no-results").classList.add("closed");
+        } else {
+          document.getElementById("no-results").classList.remove("closed");
+        }
+      }
+    
+    function makeTable(arr) {
+      let table = document.getElementById("result");
+        // adds to the table
+        arr.forEach(building => {
+          isInTable = false;
+          for (let row of table.rows) {
+            if (row.cells[0].textContent === building.name) {
+              isInTable = true;
+            }
+          }
+          if (!isInTable) {
+            let row = table.insertRow();
+            let row2;
+            let nameCell = row.insertCell(0);
+            let spacer = row.insertCell();
+            let newRowLimit = 5;
+            let floorCount = 0;
+            let newRowMade = false;
+
+            nameCell.innerHTML = building.name;
+            floors = Object.keys(building.rooms).map((key) => [key, building.rooms[key]]);
+            floors.forEach(floor => {
+              let newCell;
+              if (floorCount > newRowLimit) {
+                if (!newRowMade) {
+                  row2 = table.insertRow();
+                  nameCell = row2.insertCell();
+                  nameCell.innerHTML = building.name + " cont."
+                  spacer = row2.insertCell();
+                  newRowMade = true;
+                }
+                newCell = row2.insertCell();
+              } else {
+                newCell = row.insertCell();
+              }
+              newCell.innerHTML = floor.toString().split(/,(.*)/s)[1];
+              newCell.setAttribute("onClick", "loadMap(\"" + building.number + "\",\"" + floor.toString().split(/,(.*)/s)[0] + "\"); this.classList.toggle('showing');");
+              newCell.classList.add("roomData");
+              floorCount++;
+            });
+            
+          }
+        });
+
+        //removes from the table
+        for(let row of table.rows) {
+          isInJSON = false;
+          arr.forEach(building => {
+            if(row.cells[0].textContent === building.name || row.cells[0].textContent === building.name + " cont.") {
+              isInJSON = true;
+            }
+          });
+          if (!isInJSON) {
+            row.parentNode.removeChild(row);
+          }
+        }
+    }
+
+    function loadMap(num, floor) {
+      let file = "data\\maps\\png\\" + num + "_" + floor + "_C.png";
+      
+      mapImg.setAttribute("src", file);
+      show = document.getElementsByClassName("showing");
+      if (show.length > 0) {
+        show[0].classList.toggle("showing");
+      }
+
+      mapImg.onerror = function() {
+        // Image failed to load, set a different path or handle the error
+        console.error("Failed to load image: " + file);
+        // Set a default image path or handle the error in another way
+        mapImg.setAttribute("src", "imgs\\noMap.png");
+      };
+    }
+  
+  </script>
+</body>
+</html>
