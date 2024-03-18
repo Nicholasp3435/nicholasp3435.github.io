@@ -71,13 +71,18 @@
             <h1>Projects</h1>
             <div class="grid-row project-item">
                 <div class="grid-item">
-                    <h2>Unisex Bathroom search</h2>
+                    <h2>Unisex Restroom search</h2>
                     <img class="projectImg" src="/projects/unisex-uga/demo.png">
                 </div>
                 <div class="grid-item ">
                     <ul>
-                        <li><a href="./projects/unisex-uga">Unisex Bathroom Search</a></li>
-                        <li>stuff here i guess</li>
+                        <li>A searchable list of all the unisex restrooms on the UGA campus
+                            <ul style="padding-top: 0;"><li>List provided by UGA Architects</li></ul>
+                        </li>
+                        <li>Displays the location of the restrooms on a floor map
+                            <ul style="padding-top: 0;"><li>Maps provided by UGA FMD</li></ul>
+                        </li>
+                        <li>Link here: <a href="./projects/unisex-uga">Unisex Restroom Search</a></li>
                     </ul>
                 </div>
             </div>
@@ -108,7 +113,7 @@
     function checkOrientation() {
     // Check if the height is larger than the width for mobile idk i hate this
     let projectImgs = document.getElementsByClassName("projectImg");
-    if (window.innerHeight <  window.innerWidth) {
+    if (window.innerHeight * 4/3 <  window.innerWidth) {
         for (let i = 0; i < projectImgs.length; i++) {
             projectImgs[i].style = "border: 0.25em solid #230c33; border-radius: 1em; height: 20em; width: auto;";
         }
