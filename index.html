@@ -52,7 +52,6 @@
                 <li>JavaScript</li>
                 <li>HTML</li>
                 <li>CSS</li>
-                <li>Git</li>
             </ul>
         </div>
         <div class="grid-item background" style="flex:0.25">
@@ -62,6 +61,7 @@
                 <li>Windows/Unix CLI</li>
                 <li>Visual Studio Code</li>
                 <li>IntelliJ</li>
+                <li>Git</li>
                 <li>GitHub</li>
             </ul>
         </div>
@@ -75,20 +75,22 @@
                     <img class="projectImg" src="/projects/unisex-uga/demo.png">
                 </div>
                 <div class="grid-item ">
-                    <ul>
-                        <li>A searchable list of all the unisex restrooms on the UGA campus</li>
-                            <ul style="padding-top: 0;">
+                    <ul class="description">
+                        <li>A searchable list of all the unisex restrooms on the UGA campus
+                            <ul>
                                 <li>List provided by UGA Architects</li>
                                 <li>I took this 
                                     <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf">PDF</a>
                                     and made the table into a JSON with Microsoft Excel</li>
                             </ul>
-                        <li>Displays the location of the restrooms on a floor map</li>
-                            <ul style="padding-top: 0;">
+                        </li>
+                        <li>Displays the location of the restrooms on a floor map
+                            <ul>
                                 <li>Maps provided by UGA FMD</li>
                                 <li>I took all relevant maps from <a href="https://digitalplansroom.fmd.uga.edu/WebFileBrowser/WebFileBrowser.aspx">here</a>&#8203,
-                                 converted the PDFs into PNGs, and highlighted the unisex restrooms</li>
+                                    converted the PDFs into PNGs, and highlighted the unisex restrooms</li>
                             </ul>
+                        </li>
                         <li>I selfhosted on a spare PC with Ubuntu Server and Apache2, but now on a more permanent Github Pages repo</li>
                         <li>This project isn't only just useful for me; a few other transgendered indivduals reached out to thank me for this resource. I hope more continue to find this useful</li>
                         <li>Link here: <a href="./projects/unisex-uga">Unisex Restroom Search</a></li>
@@ -101,16 +103,27 @@
                     <img class="projectImg" src="/projects/weatherApp/demo.png">
                 </div>
                 <div class="grid-item"> 
-                    <ul>
+                    <ul class="description">
                         <li>My final project for my Software Development course</li>
-                        <li>Uses two seperate API calls:</li>
-                        <ul style="padding-top: 0;">
-                            <li>I use a geocoding API, <a href="https://www.geoapify.com/">Geoapify</a>, to turn an inputted location into geographical coordinates</li>
-                            <li>I then used the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a> to take those coordinates and get a daily forecast</li>
-                        </ul>
+                        <li>Uses two seperate API calls:
+                            <ul>
+                                <li>I use a geocoding API, <a href="https://www.geoapify.com/">Geoapify</a>, to turn an inputted location into geographical coordinates</li>
+                                <li>I then used the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a> to take those coordinates and get a daily forecast</li>
+                            </ul>
+                        </li>
                         <li>After getting the data, it uses JavaFX to display them in an intuitive GUI</li>
                         <li>It implements proper error handling to deal with user input error, such as if a city that doesn't exist in a selected state, and API error, such as if the API is down for maintenance</li>
                     </ul>
+                </div>
+            </div> 
+            <div class="grid-row project-item">
+                <div class="grid-item ">
+                    <h2>Bonsai Stack Tree</h2>  
+                    <img class="projectImg" src="/projects/stack-tree/demo.png">
+                </div>
+                <div class="grid-item"> 
+                    <ul class="description">
+                        <li>something something stack tree etc</li>
                 </div>
             </div> 
             

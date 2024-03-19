@@ -37,9 +37,18 @@ h1 {
     height: 20em;
 }
 
-.projects ul {
+.description {
     padding-top: 3em;
+    li {
+        padding-bottom: 1em;
+    }
+    ul {
+        li {
+            padding-bottom: 0em;
+        }
+    }
 }
+
 
 .grid {
     display: flex;
