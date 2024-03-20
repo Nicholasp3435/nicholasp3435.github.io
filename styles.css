@@ -2,6 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #230c33;
     background-image: url("imgs/back.png");
+    background-color: #230c33;
     background-attachment: fixed;
 }
 
