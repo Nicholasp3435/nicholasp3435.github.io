@@ -87,7 +87,7 @@
                     translated about the X, Y, and Z axis, gets perspective transformed, and then gets projected onto the XY plane to be rendered on the screen.
                 </p>
                 <p>That's it! Just transform all the vectors and display it by connecting them together! I made a GUI and then mouse controls to view the model. I also made the model load a z distance away
-                    so that it automatically loads with the full model in view. The user can rotate about the X and Y axis by dragging the primary mouse button and can translate about the XY plane by draggine the 
+                    so that it automatically loads with the full model in view. The user can rotate about the X and Y axis by dragging the primary mouse button and can translate about the XY plane by dragging the 
                     secondary mouse button. The user can also zoom in and out with the scroll wheel.
                 </p>
                 <h3>What I learned</h3>
@@ -127,11 +127,11 @@
                 <p>The Unisex Bathroom Search is a project that is very near and dear to me. As a non-binary UGA student it's helpful to have the unisex bathrooms scattered throughout campus. There 
                     is a <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf">public&nbsppdf</a> for all the unisex bathrooms on campus, however 
                     it isn't super navigatable, especially for actually finding the bathrooms in the buildings. For that, I had to cross-reference the 
-                    <a href="https://digitalplansroom.fmd.uga.edu/WebFileBrowser/WebFileBrowser.aspx">floor&nbspmaps</a> in an even more unnavigatable site.
+                    <a href="https://digitalplansroom.fmd.uga.edu/WebFileBrowser/WebFileBrowser.aspx">floor&nbspmaps</a> in an even more unnavigable site.
                 </p>
                 <p>By January 2024, I had enough and started writing a simple html site for the unisex bathrooms in the buildings for my classes. Then I had an idea; why not just do it for every building?
-                    I can make a searchable list for each building and highlight all the unisex bathooms in their respective maps. I used a software to turn the PDF maps into PNGs and highlighted each of the
-                    unisex bathrooms with a painting program. Each PNG was given a proper indexable filename. I then took the bathroom list PDF and imported the table into microsoft excel. With excel, I exported
+                    I can make a searchable list for each building and highlight all the unisex bathrooms in their respective maps. I used a software to turn the PDF maps into PNGs and highlighted each of the
+                    unisex bathrooms with a painting program. Each PNG was given a proper indexable filename. I then took the bathroom list PDF and imported the table into Microsoft Excel. With excel, I exported
                     the data as a CSV which was then converted (with the power of notepad++ and regular expressions) to a json.
                 </p>
                 <p>Writing the site was a bit of a chore, but I managed to get a searchable list that updates a table with the input box. Visual Studio Code simplifies things enough. I had a spare computer 
@@ -166,15 +166,15 @@
                 <p>This is my first 'big' java project; the final project in my Software Development (CSCI 1302) class. We were tasked to make a GUI application that uses 2 APIs that depend on each other.
                     By depend on each other, it means that the output of one API has to be used, in part, for the next API call. I decided to keep things simple enough and make a weather app. It starts out 
                     by making a call to the <a href="https://www.geoapify.com/geocoding-api/">Geoapify API</a> with the entered city and state to get the geographic coordinates. Then, it takes those coordinates
-                    and makes a call with the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service</a> (NWS) API who then returns a forecast for that location. The NWS conviently
+                    and makes a call with the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service</a> (NWS) API who then returns a forecast for that location. The NWS conveniently
                     provides with icons and a little textual description for each day/night for the forecast. The icons automatically get displayed and the user can click to get the details of the forecast.
                 </p>
                 <p>One thing to note about it is the error handling. Any user input error get's handled with a message box to tell the user what may have gone wrong. For example, if a user enters a city that doesn't 
-                    exist in the selected state, internally, it will throw a custom exception (LocationNotFoundException) but will be caught and handled with an approprite message box (with custom a icon!).
+                    exist in the selected state, internally, it will throw a custom exception (LocationNotFoundException) but will be caught and handled with an appropriate message box (with custom a icon!).
                 </p>
                 <p>Another thing to note is the use of generics. The way that we were to perform API calls is through google GSON which works by taking a URI and parses a JSON to put with an object of specified type.
-                    For my use case, I had a Geocode object to hold the geographic coordinates and I had a WeatherForcast object to hold the forecast. I only have one method for performing API calls. Everytime one needs 
-                    to be made, the method will take the string and a class type for the acompanying response. 
+                    For my use case, I had a Geocode object to hold the geographic coordinates and I had a WeatherForcast object to hold the forecast. I only have one method for performing API calls. Every time one needs 
+                    to be made, the method will take the string and a class type for the accompanying response. 
                 </p>
                 <p>One last thing to note is this was my first time I had used GitHub. We set up the ssh and connected it to GitHub using the command line. Unfortunately, the repository has to be private due to UGA policies.
                     Regardless, I have been using GitHub ever since.
