@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+	<title>About Nic</title>
+    <link rel="stylesheet" type="text/css" href="../../styles.css">
+
+    </head>
+    <body>        
+        <header>
+            <h1>OBJ Viewer Info</h1>
+            <nav>
+                <ul>
+                    <li><a href="../..">Home</a></li>
+                    <li><a href="#desmos">Desmos Era</a></li>
+                    <li><a href="#java">Java Era</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            
+            <section class="project">
+                <h2>OBJ Viewer App</h2>
+                <!-- for latex parsing-->
+                <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+                <ul class="projectLinks">
+                    <li><a href="projects/objViewer/objViewer.zip">Try it!</a></li>
+                    <li><a href="https://github.com/Nicholasp3435/OBJViewer">Source code</a></li>
+                </ul>
+                <figure class="projectImages">
+                    <a>
+
+                    </a>
+                </figure>
+                <p><em>still being developed</em></p>
+                <h3>About</h3>
+                <p>Lets get something out of the way first: OMG is linear algebra a powerful tool!</p>
+                <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned 
+                    about the 2D rotation matrix. 
+                </p>
+                <p>
+                    \begin{bmatrix}
+                    \cos\theta & \sin\theta \\
+                    \sin\theta & -\cos\theta
+                    \end{bmatrix}
+                </p>
+            </section>
+        </main>
+        <script>
+            function updateGradient() {
+                const aspectRatio = window.innerHeight / window.innerWidth;
+                document.body.style = 
+                `background-image: linear-gradient(
+                ${180 - Math.atan(aspectRatio) * (180 / Math.PI)}deg,
+                #33031e 0%,
+                #33031e 25%,
+                #280633,
+                #021033 75%,
+                #021033 100%);`;
+            }
+            window.addEventListener('resize', updateGradient);
+            updateGradient();
+        </script>
+    </body>
+</html>

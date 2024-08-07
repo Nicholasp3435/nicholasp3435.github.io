@@ -31,145 +31,195 @@
     <meta property="twitter:description" content="Hi! I am Nicholas, a Computer Science student at the University of Georgia.">
     <!-- <meta property="twitter:image" content="/imgs/infoOG.png"> -->
 
-    <!-- Meta Tags Generated with https://metatags.io -->
-    
+
     <meta content="#af6cd6" name="theme-color">
 </head>
-<body onload="init();">
 
-<!-- modified from https://stackoverflow.com/a/36291932 -->
-<div class="grid background">
-    <div class="grid-row">
-        <div class="grid-item background" id="aboutMe">
-            <h1>About Nicholas</h1>
+<body>
+    <header>
+        <h1>Nic Pautler</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
             <p>Hi! I am Nicholas, a Computer Science student at the University of Georgia.</p>
-            <p>I'm all about learning and growing in the tech world, and I'm super excited about what's next. Check out below to see some of my projects, and feel free to reach out if you want to chat or collaborate!</p>
-            <p><a href="/resume/" target="_blank">View Resume</a></p>
-            <p><strong>Pround member of the LGBT+ community</strong></p>
-            <p>Preferred pronouns: they/them</p>
-            <img src="imgs/icns/bisexual.svg" title="Bisexual flag" style="margin-left: 1em;">
-            <img src="imgs/icns/genderFluid.svg" title="Genderfluid flag">
-            <p></p>
-        </div>
-        <div class="grid-item background" style="flex:0.25">
-            <h1>Languages</h1>
-            <ul class="smallList">
-                <li>Java</li>
-                <li>Python</li>
-                <li>HTML</li>
-                <li>JavaScript</li>
-                <li>CSS</li>
-            </ul>
-        </div>
-        <div class="grid-item background" style="flex:0.33">
-            <h1>Software</h1>
-            <ul class="smallList">
-                <li>Excel / Word / PowerPoint</li>
-                <li>Windows / Unix CLI</li>
-                <li>Visual Studio Code</li>
-                <li>IntelliJ</li>
-                <li>Git / GitHub</li>
-            </ul>
-        </div>
-    </div>
-    <div class="grid-row">
-        <div class="grid-item background projects">
-            <h1>Projects</h1>
-            <div class="grid-row project-item">
-                <div class="grid-item">
-                    <h2>Unisex Restroom Search</h2>
-                    <img class="projectImg" src="/projects/unisex-uga/demo.png">
-                </div>
-                <div class="grid-item ">
-                    <ul class="description">
-                        <li>A searchable list of all the unisex restrooms on the UGA campus
-                            <ul>
-                                <li>List provided by UGA Architects</li>
-                                <li>I took this 
-                                    <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf">PDF</a>
-                                    and made the table into a JSON with Microsoft Excel</li>
-                            </ul>
-                        </li>
-                        <li>Displays the location of the restrooms on a floor map
-                            <ul>
-                                <li>Maps provided by UGA FMD</li>
-                                <li>I took all relevant maps from <a href="https://digitalplansroom.fmd.uga.edu/WebFileBrowser/WebFileBrowser.aspx">here</a>&#8203,
-                                    converted the PDFs into PNGs, and highlighted the unisex restrooms</li>
-                            </ul>
-                        </li>
-                        <li>I selfhosted on a spare PC with Ubuntu Server and Apache2, but now on a more permanent Github Pages repo</li>
-                        <li>This project isn't only just useful for me; a few other transgendered indivduals reached out to thank me for this resource. I hope more continue to find this useful</li>
-                        <li>Link here: <a href="./projects/unisex-uga">Unisex Restroom Search</a></li>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <section class="project">
+                <h2>OBJ Viewer App</h2>
+                <h3>June 2024</h3>
+                <ul class="projectLinks">
+                    <li><a href="projects/objViewer/objViewer.zip">Try it!</a></li>
+                    <li><a href="https://github.com/Nicholasp3435/OBJViewer">Source code</a></li>
+                    <li><a href="projects/objViewer">More info</a></li>
+                </ul>
+                <p><em>Java 21 or later required</em></p>
+                <figure class="projectImages">
+                    <a href="projects/objViewer/demo2.png">
+                        <img src="projects/objViewer/demo2.png">
+                    </a>
+                    <a href="projects/objViewer/demo.png">
+                        <img src="projects/objViewer/demo.png">
+                    </a>
+                </figure>
+                <h3>About</h3>
+                <p>Lets get something out of the way first: OMG is linear algebra a powerful tool!</p>
+                <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned 
+                    about the 2D rotation matrix. I went out of my way to learn the 3D rotation (and attempted to learn 4D rotation) matrices. A friend told me how these kind of transformations is how computers
+                    render 3D objects. I suddenly had inspiration to make a 3D object viewer.
+                </p>
+                <p>The .OBJ file type is very easy to parse, as it is just a list of the vertices and faces of the model. I made a OBJReader class to read and parse .OBJ files into Vertex and Face object arrays.
+                    I harnessed the power of <em>linear algebra</em> and mde some utility classes, Matrix and Vector, to perform transformations. That's right, I wanted to code all the math myself and not use a 
+                    premade library. I didn't learn all the math for nothing; besides, it helps me to know what's going on under the hood anyway.
+                </p>
+                <p>After making the utility classes, I made a loop to go through each face and transform the vectors ascociated with it and then draw the face. Each vector gets rotated about the X, Y, and Z axis; gets
+                    translated about the X, Y, and Z axis, gets perspective transformed, and then gets projected onto the XY plane to be rendered on the screen.
+                </p>
+                <p>That's it! Just transform all the vectors and display it by connecting them together! I made a GUI and then mouse controls to view the model. I also made the model load a z distance away
+                    so that it automatically loads with the full model in view. The user can rotate about the X and Y axis by dragging the primary mouse button and can translate about the XY plane by draggine the 
+                    secondary mouse button. The user can also zoom in and out with the scroll wheel.
+                </p>
+                <h3>What I learned</h3>
+                <ul>
+                    <li>I learned about 3D vector transformations by using</li>
+                    <ul>
+                        <li>Rotation matrices</li>
+                        <li>Translation matrices</li>
+                        <li>Perspective matrices</li>
                     </ul>
-                </div>
-            </div>
-            <div class="grid-row project-item">
-                <div class="grid-item ">
-                    <h2>JavaFX Weather App</h2>  
-                    <img class="projectImg" src="/projects/weatherApp/demo.png">
-                </div>
-                <div class="grid-item"> 
-                    <ul class="description">
-                        <li>My final project for my Software Development course</li>
-                        <li>Uses two seperate API calls:
-                            <ul>
-                                <li>I use a geocoding API, <a href="https://www.geoapify.com/">Geoapify</a>, to turn an inputted location into geographical coordinates</li>
-                                <li>I then used the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a> to take those coordinates and get a daily forecast</li>
-                            </ul>
-                        </li>
-                        <li>After getting the data, it uses JavaFX to display them in an intuitive GUI</li>
-                        <li>It implements proper error handling to deal with user input error, such as if a city that doesn't exist in a selected state, and API error, such as if the API is down for maintenance</li>
-                    </ul>
-                </div>
-            </div> 
-            <div class="grid-row project-item">
-                <div class="grid-item ">
-                    <h2>Bonsai Stack Tree</h2>  
-                    <img class="projectImg" src="/projects/stack-tree/demo.png">
-                </div>
-                <div class="grid-item"> 
-                    <ul class="description">
-                        <li>One of my projects in my Data Structures class involved converting a recursive tree into an iterative tree</li>
-                        <li>Instead of using the Java call stack, I used a provided custom stack to store Branch objects</li>
-                        <li>I used Java Swing to draw the branches as well as some added graphics</li>
-                        <li>A GUI allows the user to change the depth of iterations and the colors of flowers and leafs</li>
-                </div>
-            </div> 
-            
+                    <li>I also learned about the .OBJ file format</li>
+                    <li>I learned the basics of how computers render 3D models</li>
+                </ul>
+            </section>
+
+            <section class="project">
+                <h2>Unisex Restroom Search</h2>
+                <h3>January 2024</h3>
+                <ul class="projectLinks">
+                    <li><a href="projects/unisex-uga">Try it!!</a></li>
+                    <li><a href="https://github.com/Nicholasp3435/nicholasp3435.github.io/tree/main/projects/unisex-uga">Source code</a></li>
+                </ul>
+                <p>Testimonials</p>
+                <ul>
+                    <li>"<em>I’ll send this to some of my friends, they’ll love this</em>" ~ Leo M.</li>
+                    <li>"<em>I just wanted to say that your unisex UGA bathroom page is actually super helpful, as a trans person thank you so much :></em>" ~ Max S.</li>
+                </ul>
+                <figure class="projectImages">
+                    <a href="projects/unisex-uga/demo.png">
+                        <img src="projects/unisex-uga/demo.png">
+                    </a>
+                    <a href="projects/unisex-uga/demo2.png">
+                        <img src="projects/unisex-uga/demo2.png">
+                    </a>
+                </figure>
+                <h3>About</h3>
+                <p>The Unisex Bathroom Search is a project that is very near and dear to me. As a non-binary UGA student it's helpful to have the unisex bathrooms scattered throughout campus. There 
+                    is a <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf">public&nbsppdf</a> for all the unisex bathrooms on campus, however 
+                    it isn't super navigatable, especially for actually finding the bathrooms in the buildings. For that, I had to cross-reference the 
+                    <a href="https://digitalplansroom.fmd.uga.edu/WebFileBrowser/WebFileBrowser.aspx">floor&nbspmaps</a> in an even more unnavigatable site.
+                </p>
+                <p>By January 2024, I had enough and started writing a simple html site for the unisex bathrooms in the buildings for my classes. Then I had an idea; why not just do it for every building?
+                    I can make a searchable list for each building and highlight all the unisex bathooms in their respective maps. I used a software to turn the PDF maps into PNGs and highlighted each of the
+                    unisex bathrooms with a painting program. Each PNG was given a proper indexable filename. I then took the bathroom list PDF and imported the table into microsoft excel. With excel, I exported
+                    the data as a CSV which was then converted (with the power of notepad++ and regular expressions) to a json.
+                </p>
+                <p>Writing the site was a bit of a chore, but I managed to get a searchable list that updates a table with the input box. Visual Studio Code simplifies things enough. I had a spare computer 
+                    and set up Ubuntu Server on it so that I could host the site. I set up SSH on the computer and a github repository so that I can easily update the site if needed. I used CloudFlare to get 
+                    a domain name and an SSL so that I can easily access it when I'm away from home.
+                </p>
+                <p>This project was intended just for me, but I quickly realized that others can use it too! I cleaned up the html and the styles as recommended by friends. I then put it on GitHub Pages 
+                    so that it's much more stable in case of a power outage. This has reached beyond my inner friends and I am happy to say that this project has helped dozens of individuals.
+                </p>
+                <h3>What I learned</h3>
+                <ul>
+                    <li>I learned a lot about html/css/js</li>
+                    <li>I also learned about setting up a webserver (I still use it for a silly personal website!)</li>
+                    <li>One last thing I learned was a the basics of how TCP/IP and how DNS works</li>
+                </ul>
+            </section>
+
+            <section class="project">
+                <h2>Weather App</h2>
+                <h3>May 2023</h3>
+                <ul class="projectLinks">
+                    <li><a href="projects/weatherApp/Weather App.jar">Try it!!</a></li>
+                    <li>Source code unavailble due to UGA policy</li>
+                </ul>
+                <p><em>Java 21 or later required</em></p>
+                <figure class="projectImages">
+                    <a href="projects/weatherApp/demo.png">
+                        <img src="projects/weatherApp/demo.png">
+                    </a>
+                </figure>
+                <h3>About</h3>
+                <p>This is my first 'big' java project; the final project in my Software Development (CSCI 1302) class. We were tasked to make a GUI application that uses 2 APIs that depend on each other.
+                    By depend on each other, it means that the output of one API has to be used, in part, for the next API call. I decided to keep things simple enough and make a weather app. It starts out 
+                    by making a call to the <a href="https://www.geoapify.com/geocoding-api/">Geoapify API</a> with the entered city and state to get the geographic coordinates. Then, it takes those coordinates
+                    and makes a call with the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service</a> (NWS) API who then returns a forecast for that location. The NWS conviently
+                    provides with icons and a little textual description for each day/night for the forecast. The icons automatically get displayed and the user can click to get the details of the forecast.
+                </p>
+                <p>One thing to note about it is the error handling. Any user input error get's handled with a message box to tell the user what may have gone wrong. For example, if a user enters a city that doesn't 
+                    exist in the selected state, internally, it will throw a custom exception (LocationNotFoundException) but will be caught and handled with an approprite message box (with custom a icon!).
+                </p>
+                <p>Another thing to note is the use of generics. The way that we were to perform API calls is through google GSON which works by taking a URI and parses a JSON to put with an object of specified type.
+                    For my use case, I had a Geocode object to hold the geographic coordinates and I had a WeatherForcast object to hold the forecast. I only have one method for performing API calls. Everytime one needs 
+                    to be made, the method will take the string and a class type for the acompanying response. 
+                </p>
+                <p>One last thing to note is this was my first time I had used GitHub. We set up the ssh and connected it to GitHub using the command line. Unfortunately, the repository has to be private due to UGA policies.
+                    Regardless, I have been using GitHub ever since.
+                </p>
+                <h3>What I learned</h3>
+                <p><em>it's a lot</em></p>
+                <ul>
+                    <li>I learned about how to use JavaFX to make GUI applications</li>
+                    <li>I also learned about using API services to do things for me so I don't have to</li>
+                    <li>Another thing I learned was how to use maven to simplify the build process</li>
+                    <li>I learned about exception handling so apps don't crash when things go wrong</li>
+                    <li>Another thing I learned was inheritance and polymorphism</li>
+                    <li>One last thing I learned was git version control and GitHub</li>
+                </ul>
+            </section>
+
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out via email at <a href="mailto:nicholasp3435@gmail.com">nicholasp3435@gmail.com</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div id="copy">
+            <p><strong>© 2023-2024 Nicholas Pautler.</strong></p>
+            <p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="border-width:0; width: 132px;"></a></p>
         </div>
-    </div>
-</div>
-<br>
-<script>
-    function init() {
-        addEventListener("resize", (event) => {
-            checkOrientation();
-        });
-        checkOrientation();
-    }
+    </footer>
 
-    function checkOrientation() {
-    // Check if the height is larger than the width for mobile idk i hate this
-    let projectImgs = document.getElementsByClassName("projectImg");
-    if (window.innerHeight * 4/3 <  window.innerWidth) {
-        for (let i = 0; i < projectImgs.length; i++) {
-            projectImgs[i].style = "border: 0.25em solid #230c33; border-radius: 1em; height: 20em; width: auto;";
+    <script>
+        function updateGradient() {
+            const aspectRatio = window.innerHeight / window.innerWidth;
+            document.body.style = 
+            `background-image: linear-gradient(
+            ${180 - Math.atan(aspectRatio) * (180 / Math.PI)}deg,
+            #33031e 0%,
+            #33031e 25%,
+            #280633,
+            #021033 75%,
+            #021033 100%);`;
         }
-    } else {
-        for (let i = 0; i < projectImgs.length; i++) {
-            projectImgs[i].style = "border: 0.25em solid #230c33; border-radius: 1em; width: 100%; height: auto;";
-        }
-    }
-
-
-}
-</script>
-
-<br>
-<div class="background" style="background-color: #af6cd6a0;">
-    <h1>Other Info</h1>
-    <p><strong>© 2023-2024 Nicholas Pautler.</strong></p>
-    <p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="license"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="border-width:0; width: 132px;"></a></p>
-</div>
+        window.addEventListener('resize', updateGradient);
+        updateGradient();
+    </script>
 </body>
 </html>
