@@ -11,6 +11,21 @@ div.desmosRenderings {
     }
 }
 
+figure.projectImages {
+    max-width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 1rem;
+    img {
+        flex: 1;
+    }
+    video {
+        width:50%
+    }
+}
+
 div.codeBlock {
     max-width: fit-content;
     margin-left: auto;
@@ -20,6 +35,12 @@ div.codeBlock {
 pre {
     background-color: rgb(27, 23, 32);
     width: fit-content;
+    border: 1px solid #ccc;
+}
+
+p code {
+    background-color: rgb(27, 23, 32);
+    padding: 0.125rem;
     border: 1px solid #ccc;
 }
 
