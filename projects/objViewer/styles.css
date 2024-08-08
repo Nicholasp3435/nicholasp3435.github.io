@@ -26,16 +26,17 @@ figure.projectImages {
     }
 }
 
+
 div.codeBlock {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-}
-
-pre {
-    background-color: rgb(27, 23, 32);
-    width: fit-content;
+    overflow-x: scroll;
     border: 1px solid #ccc;
+    background-color: rgb(27, 23, 32);
+    pre {
+        width: fit-content;
+    }
 }
 
 p code {
@@ -53,15 +54,16 @@ input {
     position: relative
 }
 
-.smallPause {
+button.smallPause {
     position: absolute;
     bottom: 0.5rem;
     right: 0.5rem;
     z-index: 1;
 }
 
-.math {
+div.math {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
+    overflow-x: scroll;
 }
