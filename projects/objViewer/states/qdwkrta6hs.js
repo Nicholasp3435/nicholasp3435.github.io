@@ -3,10 +3,10 @@ let qdwkrta6hs = {
   "randomSeed": "3521bc641fa33ccd861227f42a278498",
   "graph": {
     "viewport": {
-      "xmin": -3.27376674762743,
-      "ymin": -3.027752411103835,
-      "xmax": 3.2680357599807164,
-      "ymax": 3.0553327891536393
+      "xmin": -3.25,
+      "ymin": -3.25,
+      "xmax": 3.25,
+      "ymax": 3.25
     },
     "showGrid": false,
     "showXAxis": false,
@@ -4691,7 +4691,7 @@ let qdwkrta6hs = {
           "hardMax": true,
           "animationPeriod": 5333.333333333333,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
@@ -4706,7 +4706,7 @@ let qdwkrta6hs = {
           "hardMax": true,
           "animationPeriod": 11428.57142857143,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
@@ -4721,7 +4721,7 @@ let qdwkrta6hs = {
           "hardMax": true,
           "animationPeriod": 8000,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }

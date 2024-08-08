@@ -4,10 +4,10 @@ let do3uir4gmi =
     "randomSeed": "8392598d27b99ba8701a624fe05bce3b",
     "graph": {
       "viewport": {
-        "xmin": -2.4479166666666607,
-        "ymin": -1.5104166666666767,
-        "xmax": 2.5520833333333393,
-        "ymax": 0.8020833333333233
+        "xmin": -2.4,
+        "ymin": -1.5,
+        "xmax": 2.4,
+        "ymax": 1
       },
       "showGrid": false,
       "showXAxis": false,
@@ -451,13 +451,13 @@ let do3uir4gmi =
           "type": "expression",
           "id": "78",
           "color": "#c74440",
-          "latex": "s=1.592",
+          "latex": "s=0",
           "slider": {
             "hardMin": true,
             "hardMax": true,
             "animationPeriod": 8000,
             "loopMode": "LOOP_FORWARD",
-            "isPlaying": true,
+            "isPlaying": false,
             "min": "0",
             "max": "\\tau"
           }

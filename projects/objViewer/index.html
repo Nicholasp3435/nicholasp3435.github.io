@@ -3,46 +3,10 @@
         <meta charset="utf-8">
 	    <title>About Nic</title>
         <link rel="stylesheet" type="text/css" href="../../styles.css">
-        <style>
-            div.desmosRenderings {
-                max-width: fit-content;
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-                display: flex;
-                gap: 1rem;
-                div {
-                    flex: 1;
-                }
-            }
-
-            div.codeBlock {
-                max-width: fit-content;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            pre {
-                background-color: rgb(27, 23, 32);
-                width: fit-content;
-                border: 1px solid #ccc;
-            }
-
-            div#pause {
-                padding: 2rem;
-                position: sticky;
-                top: 0;
-            }
-
-            .math {
-                max-width: fit-content;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-        </style>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        
     </head>
-    <body> 
+    <body onload="init()"> 
         <header>
             <h1>OBJ Viewer Info</h1>
             <nav>
@@ -54,17 +18,16 @@
             </nav>
         </header>
 
-        <main>
-            <div id="pause"><button onclick="pauseToggle()">Toggle Animations</button></div>
-            
+        <main>            
             <section class="project">
                 <h2>OBJ Viewer App</h2>
                 <!-- for latex parsing-->
                 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
                 <!-- for desmos -->
                 <script src="https://www.desmos.com/api/v1.9/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
                 <script>
-                    const defDesmosStates = {keypad: false, expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: true};
+                    const defDesmosStates = {keypad: false, expressions: false, settingsMenu: false, zoomButtons: false, lockViewport: true, };
                 </script>
 
                 <ul class="projectLinks">
@@ -74,34 +37,52 @@
                 <p><em>i think this is kinda like a blog post i guess</em></p>
                 <h3>About</h3>
                 <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned 
-                    about the 2D rotation matrix. 
+                    about the 2D rotation matrix:
                 </p>
                 <p>
                     <div class="math">
+                        \begin{alignedat}{1}
+                        R(\theta)=
                         \begin{bmatrix}
                         \cos\theta & \sin\theta \\
-                        \sin\theta & -\cos\theta
+                        -\sin\theta & \cos\theta
                         \end{bmatrix}
+                        \end{alignedat}
                     </div>
                 </p>
-                <p>A then wondered about how 3D rotation matrices would work. I looked it up and they were pretty much what I thought; just the 2D matrix with some padding to just rotate certian planes.</p>
+                <p>The way it works is pretty simple: just multiply the matrix by the vector you want to rotate. For example, to rotate \(\begin{bmatrix}1\\2\end{bmatrix}\) by <input type="number" step="0.01" id="radIn"> radians would be to:</p>
+
+                <div class="desmosRenderings">
+                    <div class="calcDisplay" id="calc0" style="width: 20rem; height: 28rem;">
+                        <script src="states/ba7poupvom.js"></script>
+                        <script>
+                            var calc0 = Desmos.GraphingCalculator(document.getElementById('calc0'),defDesmosStates);
+                            calc0.setState(ba7poupvom);
+                        </script>
+                    </div>
+                </div>
+                <p>A then wondered about how 3D rotation matrices would work. I looked it up and they were pretty much what I thought; just the 2D matrix with some padding to just rotate certian planes. The way to do it is exactly what 
+                     you'd do with 2D, but with one of these silly matrices:
+                </p>
                 <p>
                     <div class="math">
                         <!-- from wikipedia -->
                         \begin{alignedat}{1}R_{yz}(\theta )&={\begin{bmatrix}1&0&0\\0&\cos \theta &-\sin \theta \\[3pt]0&\sin \theta &\cos \theta \\[3pt]\end{bmatrix}}\\[6pt]R_{xz}(\theta )&={\begin{bmatrix}\cos \theta &0&\sin \theta \\[3pt]0&1&0\\[3pt]-\sin \theta &0&\cos \theta \\\end{bmatrix}}\\[6pt]R_{xy}(\theta )&={\begin{bmatrix}\cos \theta &-\sin \theta &0\\[3pt]\sin \theta &\cos \theta &0\\[3pt]0&0&1\\\end{bmatrix}}\end{alignedat}
                     </div>
                 </p>
-                <p>I also wondered about 4D rotations, but that got complicated and started losing my mind a little. I understand a little, but I still don't get it. Heh, typical 3D brain user amirite.</p>
+                <p>You'd multiply one of the 3D rotation matrices by a vector to rotate that vector. You can then multiply another matrix by the rotated vector to rotate it again in another direction. I also wondered about 4D rotations, but that got complicated and started losing my mind a little. I understand a little, but I still don't get it. Heh, typical 3D brain user amirite.</p>
                 <p>Anyway, I saw <a href="https://www.reddit.com/r/googlesheets/comments/1dskzrj/i_decided_to_make_a_simple_3d_renderer_in_google/">this</a> reddit post of someone who made a cube renderer using
-                    Google Sheets and saw that it wasn't <em>toooo</em> hard to do. After talking with a friend who is smarter than me in everything, she said that all it really takes to render 3D objects are vectors
+                    Google Sheets and saw that it wasn't <em>toooo</em> hard to do. After talking with a friend who knows a lot about this kinda thing, she said that all it really takes to render 3D objects are vectors
                     and matrix multiplication. I almost didn't believe it at the time since it all seemed too simple. I had to try it myself. So I started in desmos....
                 </p>
                 <h3 id="desmos">Desmos</h3>
+                <p><em>Each rendering in this section is live with desmos embedded!</em></p>
                 <p>I wanted to keep basic from the start, like reaaaly basic. I wanted to see if I can rotate a 2D square and project it onto a 1D line. I made 4 points for the corners, then I used a 
                     function to transform each vector with the 2D rotation matrix. Then I projected it onto a line. I used a polygon to draw the line since I can just put the transformed and projeced points into it.
                 </p>
                 <div class="desmosRenderings">
-                    <div id="calc1" style="width: 20rem; height: 20rem;">
+                    <div class="calcDisplay" id="calc1" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc1, [49], !getPlaying(calc1, 49));"><img src="pause.svg" height="15rem"></button>
                         <script src="states/do3uir4gmi.js"></script>
                         <script>
                             var elt1 = document.getElementById('calc1');
@@ -109,7 +90,8 @@
                             calc1.setState(do3uir4gmi);
                         </script>
                     </div>
-                    <div id="calc2" style="width: 20rem; height: 20rem;">
+                    <div class="calcDisplay" id="calc2" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc2, [49], !getPlaying(calc2, 49));"><img src="pause.svg" height="15rem"></button>
                         <script src="states/xww28vhz1l.js"></script>
                         <script>
                             var elt2 = document.getElementById('calc2');
@@ -124,7 +106,8 @@
                     each vector and transform it with each rotation matrix. I then drew a polygon connecting each of the 6 faces together with the transformed vectors.
                 </p>
                 <div class="desmosRenderings">
-                    <div id="calc3" style="width: 20rem; height: 20rem;">
+                    <div class="calcDisplay" id="calc3" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc3, [45, 46, 47], !getPlaying(calc3, 45));"><img src="pause.svg" height="15rem"></button>
                         <script src="states/gh2umgrkzo.js"></script>
                         <script>
                             var elt3 = document.getElementById('calc3');
@@ -140,7 +123,6 @@
                 that! Behold! cube.obj:</p>
                 <div class="codeBlock">
 <pre><code>
-
     g cube
 
     # These are the vertices of the cube in x y z
@@ -175,7 +157,8 @@
                     and drew each face as a traingle. everything else was pretty much the same as with the cube, it's just the vertices and faces are very easy to change.
                 </p>
                 <div class="desmosRenderings">
-                    <div id="calc4" style="width: 20rem; height: 20rem;">
+                    <div class="calcDisplay" id="calc4" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc4, [45, 46, 47], !getPlaying(calc4, 45));"><img src="pause.svg" height="15rem"></button>
                         <script src="states/gdfpc64opa.js"></script>
                         <script>
                             var elt4 = document.getElementById('calc4');
@@ -183,7 +166,8 @@
                             calc4.setState(gdfpc64opa);
                         </script>
                     </div>
-                    <div id="calc5" style="width: 20rem; height: 20rem;">
+                    <div class="calcDisplay" id="calc5" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc5, [54, 55, 56], !getPlaying(calc5, 54));"><img src="pause.svg" height="15rem"></button>
                         <script src="states/qdwkrta6hs.js"></script>
                         <script>
                             var elt5 = document.getElementById('calc5');
@@ -192,7 +176,108 @@
                         </script>
                     </div>
                 </div>
-                <p>I also may have started to go a little overboard with the .obj files and took some fun ones.</p>
+                <p>I also may have started to go a little overboard with the .obj files and took some fun ones. One thing that I wasn't super happy with was that all the renderings were orthographic. That made some of the renderings
+                    look a little bit off; far away things don't get smaller. I consulted with my friend who knows a lot about 3D models and she told me about the <em>perspective matrix</em>. There are a few different perspective 
+                    matrices, but I chose to use this one:
+                </p>
+                <div class="math">
+                    \begin{bmatrix}
+                    \frac{h}{w} \cdot \frac{1}{\tan(\theta/2)} & 0 & 0 & 0 \\
+                    0 & \frac{1}{\tan(\theta/2)} & 0 & 0 \\
+                    0 & 0 & \frac{\text{zFar}}{\text{zFar } - \text{ zNear}} & -\frac{\text{zFar } \cdot \text{ zNear}}{\text{zFar } - \text{ zNear}} \\
+                    0 & 0 & 1 & 0
+                    \end{bmatrix}
+                </div>
+                <p>The setup to use a perspective matrix is pretty much the same, but slightly different. This time, you'd need a 4th component. It might be easiest to show it like this:</p>
+                <div class="math">
+                    \begin{alignedat}{1}
+
+                    \begin{bmatrix}
+                    \frac{h}{w} \cdot \frac{1}{\tan(\theta/2)} & 0 & 0 & 0 \\
+                    0 & \frac{1}{\tan(\theta/2)} & 0 & 0 \\
+                    0 & 0 & \frac{\text{zFar}}{\text{zFar } - \text{ zNear}} & -\frac{\text{zFar } \cdot \text{ zNear}}{\text{zFar } - \text{ zNear}} \\
+                    0 & 0 & 1 & 0
+                    \end{bmatrix}
+
+                    \begin{bmatrix}
+                    x \\
+                    y \\
+                    z \\
+                    1 \\
+                    \end{bmatrix} = 
+
+                    \begin{bmatrix}
+                    x' \\
+                    y' \\
+                    z' \\
+                    z \\
+                    \end{bmatrix}
+
+                    \end{alignedat}
+                </div>
+                <p>However, there is one more step. The perspective matrix only gives a scale factor for each x, y, and z component. To do this, divide the each component by the 4th as follows:</p>
+                <div class="math">
+                    \begin{bmatrix}
+                    x / x' \\
+                    y / y' \\
+                    z / z' \\
+                    z \\
+                    \end{bmatrix}
+                </div>
+                <p>After you do this, feel free to just project the vector onto the 2D plane for displaying! Far away vectors now get scaled smaller! See how the cube on the right actually looks like a cube instead of some
+                    wierd looking rectangle? Crazy what a pinch of z can do!
+                </p>
+                <div class="desmosRenderings">
+                    <div class="calcDisplay" id="calc6" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc6, [84], !getPlaying(calc6, 84));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/nae10zgqsj.js"></script>
+                        <script>
+                            var elt6 = document.getElementById('calc6');
+                            var calc6 = Desmos.GraphingCalculator(elt6,defDesmosStates);
+                            calc6.setState(nae10zgqsj);
+                        </script>
+                    </div>
+                    <div class="calcDisplay" id="calc7" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc7, [84], !getPlaying(calc7, 84));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/Opigax7je4.js"></script>
+                        <script>
+                            var elt7 = document.getElementById('calc7');
+                            var calc7 = Desmos.GraphingCalculator(elt7,defDesmosStates);
+                            calc7.setState(Opigax7je4);
+                        </script>
+                    </div>
+                </div>
+                <p>I wasn't done yet though...I wanted to be able to translate. Translations are luckily pretty simple.</p>
+                <div class="math">
+                    \begin{alignedat}{1}
+
+                    T(x, y, z)=
+
+                    \begin{bmatrix}
+                    1 & 0 & 0 & x \\
+                    0 & 1 & 0 & y \\
+                    0 & 0 & 1 & z \\
+                    0 & 0 & 0 & 1 \\
+                    \end{bmatrix}
+
+
+                    \end{alignedat}
+                </div>
+                <p>This one requires no fancy division or anything; as you would with a rotation matrix. In fact, you need the translation matrix if you don't want to be inside the model! It also allows you to see the models from
+                    different angles without rotating:
+                </p>
+                <div class="desmosRenderings">
+                    <div class="calcDisplay" id="calc8" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc8, [86,87], !getPlaying(calc8, 86));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/xvuxg7neyn.js"></script>
+                        <script>
+                            var elt8 = document.getElementById('calc8');
+                            var calc8 = Desmos.GraphingCalculator(elt8,defDesmosStates);
+                            calc8.setState(xvuxg7neyn);
+                        </script>
+                    </div>
+                </div>
+
             </section>
         </main>
         <script>
@@ -218,6 +303,10 @@
                 toggle(calc3, [45, 46, 47], pause);
                 toggle(calc4, [45, 46, 47], pause);
                 toggle(calc5, [54, 55, 56], pause);
+                toggle(calc6, [84], pause);
+                toggle(calc7, [84], pause);
+                toggle(calc7, [84], pause);
+                toggle(calc8, [86,87], pause);
                 pause = !pause;
             }
 
@@ -227,11 +316,29 @@
                 });
             }
 
-            var pause = false;
+            function getPlaying(calc, n) {
+                return calc.getExpressions()[n].playing;
+            }
+
+            function init() {
+            }
+
+            const radIn = document.querySelector("input");
+
+            var pause = true;
 
 
             window.addEventListener('resize', updateGradient);
             updateGradient();
+
+
+            radIn.addEventListener("input", (e) => {
+                var radInput = document.getElementById("radIn");
+                var n = radInput.value;
+                if (!isNaN(Number.parseFloat(n))) {
+                    calc0.setExpression({id: calc0.getExpressions()[93].id, latex:`t_{7}=${n}`});
+                }
+            });
         </script>
     </body>
 </html>

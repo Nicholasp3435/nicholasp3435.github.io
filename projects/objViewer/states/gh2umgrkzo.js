@@ -4,10 +4,10 @@ let gh2umgrkzo=
   "randomSeed": "3521bc641fa33ccd861227f42a278498",
   "graph": {
     "viewport": {
-      "xmin": -2.1208754215981105,
-      "ymin": -2.1164257049234356,
-      "xmax": 2.193326393142844,
-      "ymax": 1.895260245493615
+      "xmin": -2.1,
+      "ymin": -2.1,
+      "xmax": 2.1,
+      "ymax": 2.1
     },
     "showGrid": false,
     "showXAxis": false,
@@ -441,13 +441,13 @@ let gh2umgrkzo=
         "type": "expression",
         "id": "131",
         "color": "#2d70b3",
-        "latex": "\\theta_{x}=1.04",
+        "latex": "\\theta_{x}=0.28",
         "slider": {
           "hardMin": true,
           "hardMax": true,
           "animationPeriod": 5333.333333333333,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
@@ -456,13 +456,13 @@ let gh2umgrkzo=
         "type": "expression",
         "id": "174",
         "color": "#2d70b3",
-        "latex": "\\theta_{y}=0.017",
+        "latex": "\\theta_{y}=6",
         "slider": {
           "hardMin": true,
           "hardMax": true,
           "animationPeriod": 8000,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
@@ -471,13 +471,13 @@ let gh2umgrkzo=
         "type": "expression",
         "id": "173",
         "color": "#2d70b3",
-        "latex": "\\theta_{z}=3.929",
+        "latex": "\\theta_{z}=0",
         "slider": {
           "hardMin": true,
           "hardMax": true,
           "animationPeriod": 11428.57142857143,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }

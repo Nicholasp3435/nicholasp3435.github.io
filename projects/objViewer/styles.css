@@ -1,0 +1,46 @@
+
+div.desmosRenderings {
+    max-width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 1rem;
+    div {
+        flex: 1;
+    }
+}
+
+div.codeBlock {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+pre {
+    background-color: rgb(27, 23, 32);
+    width: fit-content;
+    border: 1px solid #ccc;
+}
+
+input {
+    height: 1.25rem;
+    width: 4rem;
+}
+
+.calcDisplay {
+    position: relative
+}
+
+.smallPause {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+}
+
+.math {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

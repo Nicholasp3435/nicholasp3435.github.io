@@ -3,10 +3,10 @@ let gdfpc64opa = {
   "randomSeed": "3521bc641fa33ccd861227f42a278498",
   "graph": {
     "viewport": {
-      "xmin": -1.1941552144570546,
-      "ymin": -1.109638896862461,
-      "xmax": 1.1587859620135332,
-      "ymax": 1.0783118446982005
+      "xmin": -1.1,
+      "ymin": -1.1,
+      "xmax": 1.1,
+      "ymax": 1.1
     },
     "showGrid": false,
     "showXAxis": false,
@@ -646,13 +646,13 @@ let gdfpc64opa = {
         "type": "expression",
         "id": "131",
         "color": "#2d70b3",
-        "latex": "\\theta_{x}=0.97",
+        "latex": "\\theta_{x}=.55",
         "slider": {
           "hardMin": true,
           "hardMax": true,
           "animationPeriod": 8000,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
@@ -661,13 +661,13 @@ let gdfpc64opa = {
         "type": "expression",
         "id": "174",
         "color": "#2d70b3",
-        "latex": "\\theta_{y}=5.443",
+        "latex": "\\theta_{y}=0",
         "slider": {
           "hardMin": true,
           "hardMax": true,
           "animationPeriod": 8000,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
@@ -676,13 +676,13 @@ let gdfpc64opa = {
         "type": "expression",
         "id": "173",
         "color": "#2d70b3",
-        "latex": "\\theta_{z}=4.178",
+        "latex": "\\theta_{z}=0",
         "slider": {
           "hardMin": true,
           "hardMax": true,
           "animationPeriod": 20000,
           "loopMode": "LOOP_FORWARD",
-          "isPlaying": true,
+          "isPlaying": false,
           "min": "0",
           "max": "\\tau"
         }
