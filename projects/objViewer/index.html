@@ -177,18 +177,9 @@
                     </div>
                 </div>
                 <p>I also may have started to go a little overboard with the .obj files and took some fun ones. One thing that I wasn't super happy with was that all the renderings were orthographic. That made some of the renderings
-                    look a little bit off; far away things don't get smaller. I consulted with my friend who knows a lot about 3D models and she told me about the <em>perspective matrix</em>. There are a few different perspective 
-                    matrices, but I chose to use this one:
+                    look a little bit off; far away things don't get smaller. I consulted with my friend who knows a lot about 3D models and she told me about the <em>perspective matrix</em>. The setup to use a perspective matrix 
+                    is similar, but slightly different. This time, you'd need a 4th component. There are a few different perspective matrices, but I chose to use this one:
                 </p>
-                <div class="math">
-                    \begin{bmatrix}
-                    \frac{h}{w} \cdot \frac{1}{\tan(\theta/2)} & 0 & 0 & 0 \\
-                    0 & \frac{1}{\tan(\theta/2)} & 0 & 0 \\
-                    0 & 0 & \frac{\text{zFar}}{\text{zFar } - \text{ zNear}} & -\frac{\text{zFar } \cdot \text{ zNear}}{\text{zFar } - \text{ zNear}} \\
-                    0 & 0 & 1 & 0
-                    \end{bmatrix}
-                </div>
-                <p>The setup to use a perspective matrix is pretty much the same, but slightly different. This time, you'd need a 4th component. It might be easiest to show it like this:</p>
                 <div class="math">
                     \begin{alignedat}{1}
 
@@ -215,7 +206,10 @@
 
                     \end{alignedat}
                 </div>
-                <p>However, there is one more step. The perspective matrix only gives a scale factor for each x, y, and z component. To do this, divide the each component by the 4th as follows:</p>
+                <p>In short, \(h\) and \(w\) are the height and width of the display and \(\theta\) is the FOV and determines how zoomed in you are. Don't worry about zNear and zFar if you don't know what they are; i'm not worrying 
+                    about them in my graphs.
+                </p>
+                <p>There is one more step that ust be done before rendering. The perspective matrix only gives a scale factor for each x, y, and z component. To do this, divide the each component by the 4th as follows:</p>
                 <div class="math">
                     \begin{bmatrix}
                     x / x' \\
@@ -263,8 +257,8 @@
 
                     \end{alignedat}
                 </div>
-                <p>This one requires no fancy division or anything; as you would with a rotation matrix. In fact, you need the translation matrix if you don't want to be inside the model! It also allows you to see the models from
-                    different angles without rotating:
+                <p>This one requires no fancy division or anything; you'd use it just as you would with a rotation matrix. In fact, you need the translation matrix if you don't want to be
+                    inside the model! It also allows you to see the models from different angles without rotating:
                 </p>
                 <div class="desmosRenderings">
                     <div class="calcDisplay" id="calc8" style="width: 20rem; height: 20rem;">
@@ -277,7 +271,67 @@
                         </script>
                     </div>
                 </div>
+                <p>Keep in mind that order of operations matters; first rotate, then translate. That ensures that the model rotates about the obj's origin. If you translate first, then it will rotate about the graph's 
+                    orgin. The rendering on the left is rotate first then translate and the right is translate translate first then rotate:
+                </p>
+                <div class="desmosRenderings">
+                    <div class="calcDisplay" id="calc9" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc9, [65], !getPlaying(calc9, 65));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/a2vjyqdjr0.js"></script>
+                        <script>
+                            var elt9 = document.getElementById('calc9');
+                            var calc9 = Desmos.GraphingCalculator(elt9,defDesmosStates);
+                            calc9.setState(a2vjyqdjr0);
+                        </script>
+                    </div>
+                    <div class="calcDisplay" id="calc10" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc10, [64], !getPlaying(calc10, 64));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/icqpeaioxg.js"></script>
+                        <script>
+                            var elt10 = document.getElementById('calc10');
+                            var calc10 = Desmos.GraphingCalculator(elt10,defDesmosStates);
+                            calc10.setState(icqpeaioxg);
+                        </script>
+                    </div>
+                </div>
 
+                <p>Almost done with this silly desmos portion; I wanted a way to rotate about a pivot. By default, the models rotate about obj's origin. There's no reason for the model to be centered on the
+                    origin. I need to calculate the origin myself. Some ways to calculate the center of a 3D object is to:
+                </p>
+                    <ol>
+                        <li>Just average all the vertices and call it a day</li>
+                        <li>Make use of my Calculus III class and . . . circular integrals and . . . stokes theorem and . . . and um yeah just do #1</li>
+                    </ol>
+                <p>Yeah I averaged all the vertices, yeah it's not really the center of the model, but you know what I have to say? So what‽ This is a <em>linear algebra</em> project, not a <em>calculus</em> one.</p>
+                <p>Rotating about the average center isn't so hard. I can actually translate the obj's origin to the graph's origin so that when it rotates, it will rotate about the graph's origin, then I can translate
+                    back to where ever it was. Notice that the obj's origin is between the pokémon's feet. The right is translating it to the graph's origin, rotating, then translating it back.
+                </p>
+                <div class="desmosRenderings">
+                    <div class="calcDisplay" id="calc11" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc11, [67], !getPlaying(calc11, 67));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/lnd8qset34.js"></script>
+                        <script>
+                            var elt11 = document.getElementById('calc11');
+                            var calc11 = Desmos.GraphingCalculator(elt11,defDesmosStates);
+                            calc11.setState(lnd8qset34);
+                        </script>
+                    </div>
+                    <div class="calcDisplay" id="calc12" style="width: 20rem; height: 20rem;">
+                        <button class="smallPause" onclick="toggle(calc12, [67], !getPlaying(calc12, 67));"><img src="pause.svg" height="15rem"></button>
+                        <script src="states/lvahzmazcz.js"></script>
+                        <script>
+                            var elt12 = document.getElementById('calc12');
+                            var calc12 = Desmos.GraphingCalculator(elt12,defDesmosStates);
+                            calc12.setState(lvahzmazcz);
+                        </script>
+                    </div>
+                </div>
+                <p>Ok, that's as good as I feel I'm getting done with desmos. It takes a bit to "convert" each obj file to get to desmos. Copying and pasting larger files get cumbersome since not all the vertices and faces
+                    are right by each other. There's other information for colors, textures, and the normals for the faces. Desmos is also starting to get slow for larger models as well.
+                </p>
+                <p>In the end, I had some silly Desmos graphs</p>
+                <p><em>desmos released 3d graphing; this was all for naught</em></p>
+                <h3 id="java">Java</h3>
             </section>
         </main>
         <script>
@@ -285,7 +339,7 @@
                 const aspectRatio = window.innerHeight / window.innerWidth;
                 document.body.style = 
                 `background-image: linear-gradient(
-                ${180 - Math.atan(aspectRatio) * (180 / Math.PI)}deg,
+                in Oklab ${Math.PI - Math.atan(aspectRatio)},
                 #33031e 0%,
                 #33031e 25%,
                 #280633,
@@ -295,19 +349,6 @@
 
             function openInNewTab(url) {
                 window.open(url, '_blank', 'noopener', 'noreferrer');
-            }
-
-            function pauseToggle() {
-                toggle(calc1, [49], pause);
-                toggle(calc2, [49], pause);
-                toggle(calc3, [45, 46, 47], pause);
-                toggle(calc4, [45, 46, 47], pause);
-                toggle(calc5, [54, 55, 56], pause);
-                toggle(calc6, [84], pause);
-                toggle(calc7, [84], pause);
-                toggle(calc7, [84], pause);
-                toggle(calc8, [86,87], pause);
-                pause = !pause;
             }
 
             function toggle(calc, n, bool) {
