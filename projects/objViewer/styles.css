@@ -31,7 +31,7 @@ div.codeBlock {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: scroll;
+    overflow-x: auto;
     border: 1px solid #ccc;
     background-color: rgb(27, 23, 32);
     pre {
@@ -65,5 +65,6 @@ div.math {
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: scroll;
+    overflow-x: auto;
+    overflow-y: clip;
 }
