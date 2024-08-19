@@ -32,21 +32,32 @@ nav ul {
 nav ul li {
     display: inline;
     margin: 0 1rem;
+    :hover {
+        background-color: rgb(75, 0, 75);
+    }
 }
 
 nav ul li a {
     color: whitesmoke;
     text-decoration: none;
     font-weight: bold;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
 }
 
-section#projects {
-    width: 70%;
+section {
+    padding: 12px 32px;
+    background-color: rgba(0, 0, 0, 0.8);
+    a {
+        color:#c71fff;
+    }
+    a:hover {
+        color:hsl(285, 100%, 23%);
+    }
 }
 
 section.project {
-    padding: 12px 32px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(32, 0, 32, 0.50);
 }
 
 ul.projectLinks {
@@ -59,9 +70,7 @@ ul.projectLinks {
     }
 }
 
-a {
-    color:#c71fff;
-}
+
 
 
 figure.projectImages {
