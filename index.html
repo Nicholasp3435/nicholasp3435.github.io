@@ -219,15 +219,7 @@
 
     <script>
         function updateGradient() {
-            const aspectRatio = window.innerHeight / window.innerWidth;
-            document.body.style = 
-            `background-image: linear-gradient(
-            ${180 - Math.atan(aspectRatio) * (180 / Math.PI)}deg,
-            #33031e 0%,
-            #33031e 25%,
-            #280633,
-            #021033 75%,
-            #021033 100%);`;
+            document.body.style.backgroundImage =  "linear-gradient(in Oklab calc(pi * 1rad - atan(" + window.innerHeight + "/" + window.innerWidth + ")), #33031e 0%, #33031e 25%, #280633, #021033 75%, #021033 100%)";
         }
         window.addEventListener('resize', updateGradient);
         updateGradient();
