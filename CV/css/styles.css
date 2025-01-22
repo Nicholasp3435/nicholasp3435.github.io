@@ -1,0 +1,243 @@
+:root {
+    --crt-hue: 300deg;
+    --crt-scanline: 0.25em;
+    --crt-color: hsl(var(--crt-hue), 69%, 63%);
+    --dotted-border: dotted hsl(var(--crt-hue), 100%, 90%) var(--crt-scanline);
+    --transition-time: 0.25s;
+    --light-scanline: #0000;
+    --dark-scanline: #0003;
+}
+
+
+:root::before {
+    /* https://aleclownes.com/2017/02/01/crt-display.html */
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 500em;
+    background-color: #000;
+    background-image: linear-gradient(var(--light-scanline) 50%, var(--dark-scanline) 50%);
+    animation: turn-on 2s ease 0s 1 forwards;
+    background-size: 100% var(--crt-scanline), var(--crt-scanline) 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes turn-on {
+    from { background-color: #000;}
+    to {background-color: #0000;}
+}
+
+
+/* Nav and Footer */
+
+body {
+    --gradient-top: calc(var(--crt-hue) + 26deg);
+    --gradient-mid: calc(var(--crt-hue) - 15deg);
+    --gradient-bot: calc(var(--crt-hue) - 77deg);
+    
+    background-image: linear-gradient(in oklab calc(pi * 1rad - atan(9/16)), 
+        hsl(var(--gradient-top), 89%, 11%) 0%,
+        hsl(var(--gradient-top), 89%, 11%) 25%,
+        hsl(var(--gradient-mid), 79%, 11%),
+        hsl(var(--gradient-bot), 92%, 10%) 75%, 
+        hsl(var(--gradient-bot), 92%, 10%) 100%);
+    
+
+    background-size: cover;
+    margin: 0;
+    background-color: #000;
+    color: var(--crt-color);
+    font-size: 18px;
+    text-shadow: var(--crt-color) 0 0 1em;
+
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+nav {
+    padding: 0.25em;
+    background: linear-gradient(to bottom, var(--crt-color) 80%, #0000 100%);
+    color: #fff;
+    text-shadow: #fff 0 0 1em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer {
+    padding: 1em;
+    background: linear-gradient(to top, var(--crt-color) 80%, #0000 100%);
+    color: #fff;
+    text-shadow: #fff 0 0 1em;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Splash page */
+
+h1 {
+    font-family: "Tourney", serif;
+    font-style: normal;
+    font-weight: bolder;
+    display: inline-block;
+    margin: 0;
+    margin-top: 0.2em;
+    margin-right: 0.5em;
+    font-size: 3em;
+}
+
+section.splash {
+    margin: 1em;    
+    padding: 1em;
+    border: var(--dotted-border);
+    box-shadow: var(--crt-color) 0 0 1em;
+    background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
+    border-radius: 2em;
+    
+}
+
+section.splash img {
+    filter: sepia(0.5) hue-rotate(var(--crt-hue)) saturate(3) brightness(1.2) drop-shadow(0 0 1rem);
+    border-radius: 25%;
+    border: solid var(--crt-color) 2px;
+    height: 11em;
+    float: left;
+    margin-right: 1em;
+}
+
+section.splash img.flag {
+    filter: drop-shadow(0 0 1rem) saturate(1.5);
+    border-radius: 0;
+    border: unset;
+    height: 2.5em;
+    float: none;
+    position: relative;
+}
+
+p#address {
+    text-decoration: double underline;
+}
+
+p#tagline {
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+/* Sections, etc. */
+
+h1, h2, h3, h4 {
+  font-family: "Tourney", serif;
+}
+
+hr {
+    border: 0px;
+    border-bottom: dotted var(--crt-color) var(--crt-scanline);
+}
+
+h2 {
+    font-style: normal;
+    color: var(--crt-color);
+    font-size: 2em;
+    text-decoration: double underline;
+}
+
+section#education h3 {
+    margin: 0;
+    font-size: 1.33em;
+}
+
+section#education h4 {
+    text-decoration: dotted underline;
+}
+
+section#education div.school {
+    display: grid;
+    margin-left: 1.5em;
+    margin-left: 1.5em;
+    grid-template-columns: 1fr 1fr;
+}
+
+section#education div.school div.school-right {
+    text-align: right;
+}
+
+section#education p {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+}
+
+a {
+    color: hsl(var(--crt-hue), 100%, 90%);
+    text-decoration: none;
+    transition: var(--transition-time);
+}
+
+a:hover {
+    color: hsl(var(--crt-hue), 100%, 100%);
+    text-shadow: hsl(var(--crt-hue), 69%, 80%) 0 0 2em;
+}
+
+ul {
+    list-style-type: "> ";
+}
+
+section {
+    padding: 1em;
+}
+
+section.content {
+    background: linear-gradient(to left, #0000, #f0f2, #0000);
+}
+
+/* Project Cards */
+
+div.three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 1em;
+    justify-content: center;
+}
+
+div.card {
+    position: relative;
+    top: 0;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 1em;
+    border: var(--dotted-border);
+    border-radius: 1em;
+    box-shadow: var(--crt-color) 0 0 1em;
+    background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
+    transition: var(--transition-time);
+}
+
+div.card:hover {
+    box-shadow: var(--crt-color) 0 0 2.5em;
+    top: -1em;
+}
+
+div.card h3 {
+    transition: var(--transition-time);
+}
+
+div.card:hover h3 {
+    color: hsl(var(--crt-hue), 95%, 70%);
+}
+
+div.card img {
+    width: 100%;
+    height: auto;
+    filter: unset;
+}
+
+div.card img.model {
+    filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
+    width: 45%;
+    height: auto;
+}
