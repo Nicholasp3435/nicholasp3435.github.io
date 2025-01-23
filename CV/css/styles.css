@@ -152,10 +152,23 @@ section#education h3 {
     font-size: 1.33em;
 }
 
-section#education h4 {
+section#education h4{
     text-decoration: dotted underline;
 }
 
+section#education div.school {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+section#education div.school p {
+    grid-column: 2;
+}
+
+section#education div.school h5 {
+    grid-row: 2;
+}
 
 a {
     color: hsl(var(--crt-hue), 100%, 90%);
@@ -179,6 +192,19 @@ section {
 section.content {
     background: linear-gradient(to left, #0000, #f0f2, #0000);
 }
+
+dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+dt {
+    padding-bottom: 1em;
+    padding-left: 1em;
+}
+
+
 
 /* Project Cards */
 
