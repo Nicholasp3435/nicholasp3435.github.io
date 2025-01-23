@@ -156,21 +156,6 @@ section#education h4 {
     text-decoration: dotted underline;
 }
 
-section#education div.school {
-    display: grid;
-    margin-left: 1.5em;
-    margin-left: 1.5em;
-    grid-template-columns: 1fr 1fr;
-}
-
-section#education div.school div.school-right {
-    text-align: right;
-}
-
-section#education p {
-    margin-left: 1.5em;
-    margin-right: 1.5em;
-}
 
 a {
     color: hsl(var(--crt-hue), 100%, 90%);
@@ -199,10 +184,16 @@ section.content {
 
 div.three-col {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding-bottom: 1em;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 2em;
 }
+
+
+@media only screen and (max-width: 800px) {
+    div.three-col {
+        overflow-x: scroll;
+    }
+  }
 
 div.card {
     position: relative;
