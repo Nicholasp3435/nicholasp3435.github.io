@@ -157,17 +157,25 @@ section#education h4{
 }
 
 section#education div.school {
+    margin-bottom: 1em;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(3, 1fr);
 }
 
+section#education div.school * {
+    padding: 0.5em;
+    margin: 0;
+}
+
 section#education div.school p {
     grid-column: 2;
+    text-align: right;
 }
 
 section#education div.school h5 {
     grid-row: 2;
+    font-style: italic;
 }
 
 a {
