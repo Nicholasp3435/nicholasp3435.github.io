@@ -1,7 +1,7 @@
 :root {
     --crt-hue: 300deg;
     --crt-scanline: 0.25em;
-    --crt-color: hsl(var(--crt-hue), 69%, 63%);
+    --crt-color: hsl(var(--crt-hue), 69%, 65%);
     --dotted-border: dotted hsl(var(--crt-hue), 100%, 90%) var(--crt-scanline);
     --transition-time: 0.25s;
     --light-scanline: #0000;
@@ -10,7 +10,7 @@
 
 
 :root::before {
-    /* https://aleclownes.com/2017/02/01/crt-display.html */
+    /* crt scanline css from https://aleclownes.com/2017/02/01/crt-display.html */
     content: " ";
     display: block;
     position: fixed;
@@ -36,6 +36,10 @@
 /* Nav and Footer */
 
 body {
+
+    /* Remove default page margins for the entire body element. */
+    margin: 0;
+
     --gradient-top: calc(var(--crt-hue) + 26deg);
     --gradient-mid: calc(var(--crt-hue) - 15deg);
     --gradient-bot: calc(var(--crt-hue) - 77deg);
@@ -49,31 +53,43 @@ body {
     
 
     background-size: cover;
-    margin: 0;
     background-color: #000;
     color: var(--crt-color);
     font-size: 18px;
-    text-shadow: var(--crt-color) 0 0 1em;
+    text-shadow: 0 0 1em;
 
     font-family: "Audiowide", serif;
     font-weight: 400;
     font-style: normal;
+    box-shadow: inset hsl(var(--crt-hue), 69%, 30%) 0 0 5em 1em;
 }
 
 nav {
+    /* style nav to differentiate it from the rest of the page (at least 2
+     * properties ie. background-color …) 
+     */
     padding: 0.25em;
     background: linear-gradient(to bottom, var(--crt-color) 80%, #0000 100%);
     color: #fff;
-    text-shadow: #fff 0 0 1em;
+    text-shadow: 0 0 1em;
+
+    /* make nav a flex parent and use a flex property to separate your name on 
+     * the left and the contact link on the right  
+     */
     display: flex;
     justify-content: space-evenly;
 }
 
 footer {
+    /* style footer to differentiate it from the rest of the page (at least 2
+     * properties) 
+     */
     padding: 1em;
     background: linear-gradient(to top, var(--crt-color) 80%, #0000 100%);
     color: #fff;
-    text-shadow: #fff 0 0 1em;
+    text-shadow: 0 0 1em;
+
+    /* make footer a flex parent and justify the children center */
     display: flex;
     justify-content: center;
 }
@@ -81,31 +97,42 @@ footer {
 
 /* Splash page */
 
+section.splash {
+    /* style this top section of the page to make a 'splash' first impression */
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: var(--dotted-border);
+    box-shadow: 0 0 1em;
+    background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
+    border-radius: 2em;
+    width: 85%;
+    color: hsl(var(--crt-hue), 80%, 70%);
+}
+
 h1 {
-    font-family: "Tourney", serif;
+    /* change the default style (font, font-size, color….) using a Google font
+     * and a color number 
+     */
+    font-family: "Tourney", serif; /* google font */
     font-style: normal;
     font-weight: bolder;
     display: inline-block;
+    color: hsl(var(--crt-hue), 100%, 80%); /* color number */
+
     margin: 0;
     margin-top: 0.2em;
     margin-right: 0.5em;
     font-size: 3em;
 }
 
-section.splash {
-    margin: 1em;    
-    padding: 1em;
-    border: var(--dotted-border);
-    box-shadow: var(--crt-color) 0 0 1em;
-    background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
-    border-radius: 2em;
-    
-}
-
 section.splash img {
-    filter: sepia(0.5) hue-rotate(var(--crt-hue)) saturate(3) brightness(1.2) drop-shadow(0 0 1rem);
+    /* Style the border and/or border-radius property of the headshot image */
     border-radius: 25%;
     border: solid var(--crt-color) 2px;
+
+    filter: sepia(0.5) hue-rotate(var(--crt-hue)) saturate(3) brightness(1.2) drop-shadow(0 0 1rem);
     height: 11em;
     float: left;
     margin-right: 1em;
@@ -120,10 +147,12 @@ section.splash img.flag {
     position: relative;
 }
 
+/* Change the style of this paragraph */
 p#address {
     text-decoration: double underline;
 }
 
+/* Change the style of this paragraph */
 p#tagline {
     font-style: italic;
     margin-bottom: 0;
@@ -131,40 +160,51 @@ p#tagline {
 
 /* Sections, etc. */
 
-h1, h2, h3, h4 {
-  font-family: "Tourney", serif;
-}
-
 hr {
+    /* Style >=2 border properties of the horizontal rules  */
     border: 0px;
     border-bottom: dotted var(--crt-color) var(--crt-scanline);
 }
 
 h2 {
+    /* Style the h2 headings of these sections using a Google font and a color 
+     * number
+     */
+    font-family: "Tourney", serif; /* google font */
     font-style: normal;
-    color: var(--crt-color);
-    font-size: 2em;
-    text-decoration: double underline;
+    color: hsl(var(--crt-hue), 100%, 80%); /* color number */
+    font-size: 2em; /* Set font size of >= 2 fonts */
+    text-decoration:  double underline 1.5px;
 }
 
+h3 {
+    font-family: "Tourney", serif;
+    text-decoration: double underline 1px;
+}
+
+h4 {
+
+  font-family: "Tourney", serif;
+}
+
+/* style the education paragraph as you prefer (you may add additional tags 
+ * and/or classes )
+ */
 section#education h3 {
     margin: 0;
-    font-size: 1.33em;
-}
-
-section#education h4{
-    text-decoration: dotted underline;
+    font-size: 1.33em; /* Set font size of >= 2 fonts */
 }
 
 section#education div.school {
     margin-bottom: 1em;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, 1fr);
 }
 
 section#education div.school * {
-    padding: 0.5em;
+    padding: 0;
+    padding-top: 0.25em;
     margin: 0;
 }
 
@@ -178,30 +218,14 @@ section#education div.school h5 {
     font-style: italic;
 }
 
-a {
-    color: hsl(var(--crt-hue), 100%, 90%);
-    text-decoration: none;
-    transition: var(--transition-time);
-}
-
-a:hover {
-    color: hsl(var(--crt-hue), 100%, 100%);
-    text-shadow: hsl(var(--crt-hue), 69%, 80%) 0 0 2em;
-}
-
 ul {
+    /* Change the default style of the unordered lists of these sections  */
     list-style-type: "> ";
-}
-
-section {
-    padding: 1em;
-}
-
-section.content {
-    background: linear-gradient(to left, #0000, #f0f2, #0000);
+    padding: 0;
 }
 
 dl {
+    /* Style the description lists of these sections to use grid layout */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -209,41 +233,79 @@ dl {
 
 dt {
     padding-bottom: 1em;
-    padding-left: 1em;
+}
+
+dd {
+    text-align: right;
+}
+
+a {
+    /* Set the color for the anchor text of links */
+    color: hsl(var(--crt-hue), 100%, 90%);
+    text-decoration: none; /* Remove the underline for the anchor text of links */
+    transition: var(--transition-time);
+}
+
+a:hover {
+    /* Style the hover state of links to be somehow different in this  state. */
+    color: hsl(var(--crt-hue), 100%, 100%);
+    text-shadow: 0 0 2em;
 }
 
 
+section {
+    padding: 1em;
+    margin: auto;
+    width: 85%;
+}
+
+div.content {
+    padding-left: 1em;
+}
 
 /* Project Cards */
 
 div.three-col {
+    /* style class three-col with display grid that creates a 3 column layout 
+     * for its three child 'cards'.  ie. make the 3 card divs a 3 column layout
+     * with some space between each child 
+     */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding-bottom: 2em;
+    grid-template-columns: repeat(3, 1fr); /* a 3 column layout */
+    column-gap: 1.5em; /* some space between each child */
+    padding-bottom: 2em; 
 }
 
+div.card img {
+    /* style images within the card to position and appear appropriately within 
+     * the card 
+     */
+    width: 100%;
+    height: auto;
+}
 
-@media only screen and (max-width: 800px) {
-    div.three-col {
-        overflow-x: scroll;
-    }
-  }
+div.card img.model {
+    filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
+    width: 45%;
+    height: auto;
+}
 
 div.card {
+    /* Style a card layout to create a ‘card style’ - visually separated 
+     * (shadow, outline, background color, …)  
+     */
     position: relative;
     top: 0;
-    margin-left: 1em;
-    margin-right: 1em;
     padding: 1em;
     border: var(--dotted-border);
     border-radius: 1em;
-    box-shadow: var(--crt-color) 0 0 1em;
+    box-shadow: 0 0 1em;
     background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
     transition: var(--transition-time);
 }
 
 div.card:hover {
-    box-shadow: var(--crt-color) 0 0 2.5em;
+    box-shadow: 0 0 2.5em;
     top: -1em;
 }
 
@@ -255,14 +317,37 @@ div.card:hover h3 {
     color: hsl(var(--crt-hue), 95%, 70%);
 }
 
-div.card img {
-    width: 100%;
-    height: auto;
-    filter: unset;
+@media only screen and (max-width: 800px) {
+    div.three-col {
+        overflow-x: scroll;
+    }
+    section {
+        padding: 1em;
+        margin: unset;
+        width: unset;
+    }
+    div.content {
+        padding-left: 0.5em;
+    }
 }
 
-div.card img.model {
-    filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
-    width: 45%;
-    height: auto;
+/******************* Contact *******************/
+
+section#contact-header {
+    text-align: center;
+}
+
+form.one-col {
+    /* style class one-col that creates a 1 column container for the info, form
+     * and submit button 
+     */
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin: auto;
+}
+
+input, textarea, button {
+    /* style the input elements (input, textarea…) appropriately */
+    font-family:inherit;
 }
