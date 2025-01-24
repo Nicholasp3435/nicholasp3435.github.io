@@ -104,7 +104,7 @@ section.splash {
     margin-bottom: 1em;
     padding: 1em;
     border: var(--dotted-border);
-    box-shadow: 0 0 1em;
+    box-shadow: 0 0 1em, inset 0 0 1em;
     background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
     border-radius: 2em;
     width: 85%;
@@ -164,6 +164,7 @@ hr {
     /* Style >=2 border properties of the horizontal rules  */
     border: 0px;
     border-bottom: dotted var(--crt-color) var(--crt-scanline);
+    box-shadow: var(--crt-color) 0 0 1em;
 }
 
 h2 {
@@ -259,8 +260,6 @@ section {
     width: 85%;
 }
 
-
-
 div.content {
     padding-left: 1em;
 }
@@ -273,53 +272,36 @@ div.three-col {
      * with some space between each child 
      */
     display: grid;
-    grid-template-columns: repeat(9, 30em); /* a 3 column layout */
+    grid-template-columns: repeat(9, 30em); /* a 3 column layout before animation */
     column-gap: 1.5em; /* some space between each child */
-    padding-bottom: 2em; 
-
+    padding-bottom: 2em;
     position: relative;
-    /* transform: translateX(-157.5em); */
-
-    animation: slide 45s linear infinite;
 }
 
-div.three-col:hover {
+div.three-col:hover > div.card {
     animation-play-state: paused;
 }
 
-div.three-col::before {
-    box-shadow: var(--crt-color) 0 0 2em ;
+div.three-col::before, div.three-col::after {
+    content: " ";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 1em;
+    z-index: 1;
 }
+
+div.three-col:before {
+    box-shadow:  0 0 2em;
+    left: -2em;
+  }
+  div.three-col:after {
+    box-shadow:  0 0 2em;
+    right: -2em;
+  }
 
 section#projects {
     overflow-x: hidden;
-}
-
-div.card img {
-    /* style images within the card to position and appear appropriately within 
-     * the card 
-     */
-    width: 80%;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-
-    display: block;
-}
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-157.5em); }
-}
-
-div.card img.model {
-    filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
-
-    display: inline;
-}
-
-div.card img.half {
-    width: 45%;
 }
 
 div.card {
@@ -331,17 +313,54 @@ div.card {
     padding: 1em;
     border: var(--dotted-border);
     border-radius: 1em;
-    box-shadow: 0 0 1em;
+    box-shadow: 0 0 1em, inset 0 0 1em;
     background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
     transition: var(--transition-time);
+
+    /* transform: translateX(-157.5em); */
+    animation: slide 45s linear infinite;
 }
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-157.5em); }
+}
+
+div.card img {
+    /* style images within the card to position and appear appropriately within 
+     * the card 
+     */
+    width: 85%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+
+div.card img.model {
+    filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
+
+    display: inline;
+}
+
+div.card img.half {
+    width: 45%;
+}
+
+
 
 div.card ul {
     padding-left: 1em;
 }
 
+div.card li:not(:last-child) {
+    padding-bottom: 1em;
+}
+
 div.card:hover {
-    box-shadow: 0 0 2.5em;
+    box-shadow: 0 0 2.5em, inset 0 0 2.5em;;
     top: -1em;
 }
 
