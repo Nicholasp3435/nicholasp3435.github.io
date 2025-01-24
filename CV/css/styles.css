@@ -275,30 +275,36 @@ div.three-col {
     grid-template-columns: repeat(9, 30em); /* a 3 column layout before animation */
     column-gap: 1.5em; /* some space between each child */
     padding-bottom: 2em;
-    position: relative;
+
+    /* transform: translateX(-157.5em); */
+    animation: slide 45s linear infinite;
 }
 
-div.three-col:hover > div.card {
+div.three-col:hover {
     animation-play-state: paused;
 }
 
-div.three-col::before, div.three-col::after {
+div.sliding-container::before, div.sliding-container::after {
     content: " ";
-    height: 100%;
+    height: 95%;
     position: absolute;
     top: 0;
     width: 1em;
     z-index: 1;
 }
 
-div.three-col:before {
-    box-shadow:  0 0 2em;
+div.sliding-container:before {
+    box-shadow: 0 0 2em 1em;
     left: -2em;
-  }
-  div.three-col:after {
-    box-shadow:  0 0 2em;
+}
+div.sliding-container:after {
+    box-shadow: 0 0 2em 1em;
     right: -2em;
-  }
+}
+
+div.sliding-container {
+    position: relative;
+}
 
 section#projects {
     overflow-x: hidden;
@@ -317,9 +323,8 @@ div.card {
     background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
     transition: var(--transition-time);
 
-    /* transform: translateX(-157.5em); */
-    animation: slide 45s linear infinite;
 }
+
 
 @keyframes slide {
     from { transform: translateX(0); }
@@ -374,15 +379,18 @@ div.card:hover h3 {
 
 @media only screen and (max-width: 800px) {
     div.three-col {
-        animation: unset;
         grid-template-columns: 1fr;
         row-gap: 1em;
+        animation: unset;
     }
     div.card:nth-last-child(-n + 4) {
         display: none;
     }
     div.card:hover {
         top: 0;
+    }
+    div.sliding-container::before, div.sliding-container::after {
+        box-shadow: none;
     }
     section {
         padding: 1em;
