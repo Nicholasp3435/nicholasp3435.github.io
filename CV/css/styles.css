@@ -259,6 +259,8 @@ section {
     width: 85%;
 }
 
+
+
 div.content {
     padding-left: 1em;
 }
@@ -271,9 +273,22 @@ div.three-col {
      * with some space between each child 
      */
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* a 3 column layout */
+    grid-template-columns: repeat(8, 30em); /* a 3 column layout */
     column-gap: 1.5em; /* some space between each child */
     padding-bottom: 2em; 
+
+    position: relative;
+    /* transform: translateX(-126.3em); */
+
+    animation: slide 30s linear infinite;
+}
+
+div.three-col:hover {
+    animation-play-state: paused;
+}
+
+section#projects {
+    overflow-x: hidden;
 }
 
 div.card img {
@@ -284,8 +299,16 @@ div.card img {
     height: auto;
 }
 
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-126.2em); }
+  }
+
 div.card img.model {
     filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
+}
+
+div.card img.half {
     width: 45%;
     height: auto;
 }
@@ -319,7 +342,15 @@ div.card:hover h3 {
 
 @media only screen and (max-width: 800px) {
     div.three-col {
-        overflow-x: scroll;
+        animation: unset;
+        grid-template-columns: 1fr;
+        row-gap: 1em;
+    }
+    div.card:nth-last-child(-n + 4) {
+        display: none;
+    }
+    div.card:hover {
+        top: 0;
     }
     section {
         padding: 1em;
