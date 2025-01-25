@@ -272,12 +272,17 @@ div.three-col {
      * with some space between each child 
      */
     display: grid;
-    grid-template-columns: repeat(9, 30em); /* a 3 column layout before animation */
+    grid-template-columns: repeat(10, 30em); /* a 3 column layout before animation */
     column-gap: 1.5em; /* some space between each child */
     padding-bottom: 2em;
 
-    /* transform: translateX(-157.5em); */
+    /* transform: translateX(-189em); */
     animation: slide 45s linear infinite;
+}
+
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-189em); }
 }
 
 div.three-col:hover {
@@ -325,12 +330,6 @@ div.card {
 
 }
 
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-157.5em); }
-}
-
 div.card img {
     /* style images within the card to position and appear appropriately within 
      * the card 
@@ -354,10 +353,13 @@ div.card img.half {
     width: 45%;
 }
 
-
-
 div.card ul {
     padding-left: 1em;
+}
+
+div.card iframe {
+    width: 100%;
+    height: 25em;
 }
 
 div.card li:not(:last-child) {
