@@ -253,11 +253,19 @@ a:hover {
     text-shadow: 0 0 2em;
 }
 
-
 section {
     padding: 1em;
     margin: auto;
     width: 85%;
+    transition: var(--transition-time);
+}
+
+section:hover {
+    box-shadow: 0 0 .5em, inset 0 0 .5em;
+}
+
+section#projects:hover {
+    box-shadow: unset;
 }
 
 div.content {
