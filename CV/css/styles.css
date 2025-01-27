@@ -272,7 +272,10 @@ div.three-col {
      * with some space between each child 
      */
     display: grid;
-    grid-template-columns: repeat(10, 30em); /* a 3 column layout before animation */
+    /* permission to add more than 3 projects
+     * https://piazza.com/class/m5h8dphqc8t6pv/post/37
+     */
+    grid-template-columns: repeat(10, 30em); 
     column-gap: 1.5em; /* some space between each child */
     padding-bottom: 2em;
 
@@ -340,8 +343,6 @@ div.card img {
     margin-right: auto;
     display: block;
 }
-
-
 
 div.card img.model {
     filter: hue-rotate(var(--crt-hue)) saturate(1.5) brightness(1.4) drop-shadow(0 0 1rem);
@@ -416,13 +417,14 @@ form.one-col {
      */
     display: grid;
     grid-template-columns: 1fr;
-    width: 70%;
+    width: 50%;
     margin: auto;
 }
 
 input, textarea, button {
     /* style the input elements (input, textarea…) appropriately */
     font-family:inherit;
+    margin: 1em;
 }
 
 #contact body, #thanks body {
@@ -443,4 +445,13 @@ input, textarea, button {
     margin-top: 0;
     display: block;
     text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    #contact footer {
+        position: unset;
+    }
+    form.one-col {
+        width: 100%;
+    }
 }
