@@ -5,7 +5,23 @@
     --dotted-border: dotted hsl(var(--crt-hue), 100%, 90%) var(--crt-scanline);
     --transition-time: 0.25s;
     --light-scanline: #0000;
-    --dark-scanline: #0003;
+    --dark-scanline: #0002;
+    /* animation: gay 5s ease infinite; */
+}
+
+@keyframes gay {
+    0% { --crt-hue: 0deg}
+    10% {--crt-hue: .1turn}
+    20% {--crt-hue: .2turn}
+    30% {--crt-hue: .3turn}
+    40% {--crt-hue: .4turn}
+    50% {--crt-hue: .5turn}
+    60% {--crt-hue: .6turn}
+    70% {--crt-hue: .7turn}
+    80% {--crt-hue: .8turn}
+    90% {--crt-hue: .9turn}
+    100% {--crt-hue: 1turn}
+    
 }
 
 
