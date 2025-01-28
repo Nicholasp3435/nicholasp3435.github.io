@@ -38,7 +38,6 @@
     bottom: 0;
     right: 0;
     height: 500em;
-    background-color: #000;
     background-image: linear-gradient(var(--light-scanline) 50%, var(--dark-scanline) 50%);
     animation: turn-on 2s ease 0s 1 forwards;
     background-size: 100% var(--crt-scanline), var(--crt-scanline) 100%;
@@ -72,7 +71,7 @@ body {
     
 
     background-size: cover;
-    background-color: #000;
+    background-color: var(--crt-color);
     color: var(--crt-color);
     font-size: 18px;
     text-shadow: 0 0 1em;
