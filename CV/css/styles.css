@@ -1,11 +1,14 @@
 :root {
     --crt-hue: 300deg;
     --crt-scanline: 0.25em;
+    --border-thickness: 0.25em;
     --crt-color: hsl(var(--crt-hue), 69%, 65%);
-    --dotted-border: dotted hsl(var(--crt-hue), 100%, 90%) var(--crt-scanline);
+    --dotted-border: dotted hsl(var(--crt-hue), 100%, 90%) var(--border-thickness);
     --transition-time: 0.25s;
     --light-scanline: #0000;
     --dark-scanline: #0002;
+
+    transition: var(--transition-time);
     /* animation: gay 5s ease infinite; */
 }
 
@@ -179,7 +182,7 @@ p#tagline {
 hr {
     /* Style >=2 border properties of the horizontal rules  */
     border: 0px;
-    border-bottom: dotted var(--crt-color) var(--crt-scanline);
+    border-bottom: dotted var(--crt-color) var(--border-thickness);
     box-shadow: var(--crt-color) 0 0 1em;
 }
 
