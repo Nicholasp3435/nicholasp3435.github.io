@@ -80,6 +80,9 @@ body {
     font-weight: 400;
     font-style: normal;
     box-shadow: inset hsl(var(--crt-hue), 69%, 30%) 0 0 5em 1em;
+
+
+    cursor: url("/CV/images/cursors/bdNormal.cur"), default;
 }
 
 nav {
@@ -267,6 +270,8 @@ a {
     color: hsl(var(--crt-hue), 100%, 90%);
     text-decoration: none; /* Remove the underline for the anchor text of links */
     transition: var(--transition-time);
+
+    cursor: url("/CV/images/cursors/bdPaw.cur"), pointer;
 }
 
 a:hover {
