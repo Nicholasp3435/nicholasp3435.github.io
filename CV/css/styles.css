@@ -129,6 +129,10 @@ section.splash {
     color: hsl(var(--crt-hue), 80%, 70%);
 }
 
+section.splash:hover {
+    box-shadow: 0 0 2em, inset 0 0 2em;
+}
+
 h1 {
     /* change the default style (font, font-size, color….) using a Google font
      * and a color number 
@@ -437,6 +441,10 @@ section#contact-header {
     text-align: center;
 }
 
+section#contact-header:hover {
+    box-shadow: unset;
+}
+
 form.one-col {
     /* style class one-col that creates a 1 column container for the info, form
      * and submit button 
@@ -451,6 +459,18 @@ input, textarea, button {
     /* style the input elements (input, textarea…) appropriately */
     font-family:inherit;
     margin: 1em;
+    transition: var(--transition-time);
+    background-color: hsl(var(--crt-hue), 100%, 80%);
+    box-shadow: 0 0 1em var(--crt-color);
+    border-color: var(--crt-color);
+}
+
+button {
+    border-radius: 0.5em;
+}
+
+button:hover {
+    background-color: hsl(var(--crt-hue), 60%, 60%);
 }
 
 #contact body, #thanks body {
@@ -471,6 +491,10 @@ input, textarea, button {
     margin-top: 0;
     display: block;
     text-align: center;
+}
+
+section#contact-header  h1 {
+    margin-right: 0;
 }
 
 @media only screen and (max-width: 800px) {
