@@ -134,6 +134,7 @@ section.splash {
 
 section.splash:hover {
     box-shadow: 0 0 2em, inset 0 0 2em;
+    background-color: hsla(var(--crt-hue), 69%, 63%, 25%);
 }
 
 h1 {
@@ -290,10 +291,12 @@ section {
 
 section:hover {
     box-shadow: 0 0 .5em, inset 0 0 .5em;
+    background-color: hsla(var(--crt-hue), 69%, 65%, 15%);
 }
 
 section#projects:hover {
     box-shadow: unset;
+    background-color: unset;
 }
 
 div.content {
@@ -464,11 +467,13 @@ form.one-col {
 input, textarea, button {
     /* style the input elements (input, textarea…) appropriately */
     font-family:inherit;
+    font-size: 1em;
     margin: 1em;
     transition: var(--transition-time);
     background-color: hsl(var(--crt-hue), 100%, 80%);
     box-shadow: 0 0 1em var(--crt-color);
     border-color: var(--crt-color);
+    padding: 0.5em;
 }
 
 button {
@@ -476,6 +481,10 @@ button {
 }
 
 button:hover {
+    background-color: hsl(var(--crt-hue), 60%, 60%);
+}
+
+input:focus, textarea:focus {
     background-color: hsl(var(--crt-hue), 60%, 60%);
 }
 
