@@ -452,6 +452,7 @@ section#contact-header {
 
 section#contact-header:hover {
     box-shadow: unset;
+    background-color: unset;
 }
 
 form.one-col {
