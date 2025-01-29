@@ -273,6 +273,7 @@ a:hover {
     /* Style the hover state of links to be somehow different in this  state. */
     color: hsl(var(--crt-hue), 100%, 100%);
     text-shadow: 0 0 2em;
+    text-decoration: underline;
 }
 
 section {
@@ -302,7 +303,7 @@ div.three-col {
      * with some space between each child 
      */
     display: grid;
-    /* permission to add more than 3 projects
+    /* I had permission to add more than 3 projects
      * https://piazza.com/class/m5h8dphqc8t6pv/post/37
      */
     grid-template-columns: repeat(10, 30em); 
