@@ -19,7 +19,27 @@
     font-style: normal;
 }
 
+:root::before {
+    /* crt scanline css from https://aleclownes.com/2017/02/01/crt-display.html */
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 500em;
+    background-image: linear-gradient(var(--light-scanline) 50%, var(--dark-scanline) 50%);
+    animation: turn-on 2s ease 0s 1 forwards;
+    background-size: 100% var(--crt-scanline), var(--crt-scanline) 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
 :root {
+    --crt-scanline: 0.25rem;
+    --light-scanline: #0000;
+    --dark-scanline: #0003;
 }
 
 body {
@@ -33,6 +53,7 @@ body {
         lab(40% 31.52 -63.66 / 0.33) 100%);
     background-attachment: fixed;
     color: #eee;
+    text-shadow: 0 0 0;
     font-family: 'BIOS', sans-serif;
     padding: 1rem;
 }
