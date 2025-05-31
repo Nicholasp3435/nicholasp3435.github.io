@@ -3,12 +3,179 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Nic's Projects</title>
-    <link rel="stylesheet" type="text/css" href="../styles.css">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/default-styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Nicholas Pautler Projects</title>
 </head>
 
 <body>
-    <button onclick="window.location.href = '..';">Back to Home</button>
-</body>
+    <header>
+        <div class="typewriter">
+            <h1 class="ansi">Nicholas Pautler</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/resume/">Resume</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <h2>Projects</h2>
+        <p>
+            Projects etc etc this paragraph is not done yet.
+        </p>
+        <small>* = personal project</small>
+        <section id="projects">
+            <div class="card">
+                <h3>Bird Feeder Live Stream *</h3>
+                <small>April &ndash; May 2025</small>
+                <div class="project-images">
+                    <img 
+                        src="imgs/feeder/pi.jpg" 
+                        alt="Raspberry Pi in a plastic box with wires going in and out."
+                    >
+                    <img 
+                        src="imgs/feeder/cam.jpg" 
+                        alt="Webcam pointed at a bird feeder."
+                    >
+                    <video controls>
+                        <source src="imgs/feeder/dowo.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <h4>About</h4>
+                <p>
+                    One of my favorite things in the world is birds! I was inspired by products like 
+                    Bird Buddy, which is a camera-equipped bird feeder, but I wanted a version that 
+                    could be live-streamed so <em>anyone</em> could watch my feeder &mdash; something 
+                    Bird Buddy doesn't support.
+                </p>
+                <p>
+                    I already had a home server, so I decided to stream a webcam feed using a Raspberry 
+                    Pi 4 with Wi-Fi. This allowed the webcam to be portable and not rely on long cables.
+                    I housed both the Pi and webcam in separate weatherproof boxes so the camera could
+                    reach tighter spaces where the Pi wouldn't fit.
+                </p>
+                <p>
+                    After some trial and error, I got FFmpeg running on the Pi to stream video to the 
+                    server. The server hosts the stream using HLS segments and also runs motion 
+                    detection to identify bird activity.
+                </p>
+
+                <h4>What I Learned</h4>
+                <ul>
+                    <li>
+                        A good video stream balances bitrate and resolution.
+                        <ul>
+                            <li>
+                                Think of a large canvas drawn quickly in pen &mdash; big doesn't always 
+                                mean better!
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        FFmpeg is a very useful tool for anything video related; it can even offload to 
+                        GPU for higher performance.
+                    </li>
+                    <li>
+                        HLS is a low-latency, memory-efficient way to serve video.
+                    </li>
+                    <li>
+                        Brown Thrashers are very messy eaters!
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Where UGA</h3>
+                <small>April 2025</small>
+                <div class="project-images">
+                    <img src="imgs/whereUGA/home.jpg" alt="Bird feeder live stream thumbnail">
+                    <img src="imgs/whereUGA/espresso.jpg" alt="Bird feeder live stream thumbnail">
+                </div>
+
+                <h4>About</h4>
+                <p>
+                    Where UGA is the result of a team project for a Web Programming course. We were 
+                    given a prompt to create a React web application that serves to help UGA. A 
+                    friend and I assembled a team with two others to create an app to search and 
+                    upload on campus amenities such as bathrooms or vending machines. 
+                </p>
+                <p>
+                    As part of our Web Programming course, we used React with Next.js. We started 
+                    with Figma mockups of the app. We designed a home page, two views of the map 
+                    page (one for each logged in and logged out users), a registration page, and 
+                    a login page. 
+                </p>
+                <p>
+                    We then split up, each doing separate tasks for the app. Some of us made React 
+                    components for each of the pages and others managed a MongoDB database for 
+                    storing user accounts and user submitted amenities. 
+                </p>
+                <p>
+                    In the end, we presented our app to the class with a little sketch! I was
+                    running late to class, but I needed my morning iced coffee! If only somebody
+                    knew where the nearest vending machine with coffee was! We then proceeded to
+                    show the features of logged out and logged in users of the app. We got
+                    1<sup>st</sup> in the class vote for best presentation! Probably because of my
+                    iced coffee.
+                </p>
+
+                <h4>What I Learned</h4>
+                <ul>
+                    <li>
+                        React with Next.js is quite versatile, being able to do many things that 
+                        would be more difficult to do with standard HTML.
+                    </li>
+                    <li>
+                        Figma is an excellent tool for design planning &mdash; stopping to plan out
+                        designs saved us a lot of time in the long run.
+                    </li>
+                    <li>
+                        MongoDB cloud is very helpful with dealing with multiple users; a central
+                        database is much easier to work with than local ones.
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Apoli Systems</h3>
+                <small>February &ndash; April 2025</small>
+            </div>
+            <div class="card">
+                <h3>Image Steganography</h3>
+                <small>September 2024</small>
+            </div>
+            <div class="card">
+                <h3>3D Printed Camera *</h3>
+                <small>September &ndash; December 2024</small>
+            </div>
+            <div class="card">
+                <h3>3D Model Viewer *</h3>
+                <small>July &ndash; August 2024</small>
+            </div>
+            <div class="card">
+                <h3>UGA Unisex Bathroom Search *</h3>
+                <small>January &ndash; February 2024</small>
+            </div>
+            <div class="card">
+                <h3>Weather App</h3>
+                <small>April &ndash; June 2023</small>
+            </div>
+            <div class="card">
+                <h3>Eagle Scout Project</h3>
+                <small>February &ndash; May 2021</small>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Nicholas Pautler.</p>
+    </footer>
+
+</body>
 </html>

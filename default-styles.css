@@ -37,9 +37,10 @@
 }
 
 :root {
-    --crt-scanline: 0.25rem;
+    /* --crt-scanline: 0.25rem; */
     --light-scanline: #0000;
     --dark-scanline: #0003;
+    --hover-transition: 0.25s;
 }
 
 body {
@@ -88,6 +89,15 @@ main {
     line-height: 1.5;
 }
 
+a {
+    transition: color var(--hover-transition);
+    color: #e0e;
+}
+
+a:hover {
+    color: #e8e;
+}
+
 
 .ascii, .ansi {
     font-size: 6rem;
@@ -108,6 +118,13 @@ main {
         font-size: 3rem;
         font-weight: 100;
         line-height: 3rem;
+    }
+    body {
+        padding: 0.125rem;
+    }
+    header, main, footer {
+        margin: 0.5rem;
+        background-color: #1018;
     }
 }
 
