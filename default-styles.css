@@ -98,6 +98,17 @@ a:hover {
     color: #e8e;
 }
 
+a.current {
+    color: #fff;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+li {
+    margin-bottom: 1rem;
+}
 
 .ascii, .ansi {
     font-size: 6rem;

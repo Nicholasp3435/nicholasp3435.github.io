@@ -15,18 +15,31 @@
     flex-wrap: wrap;
 }
 
-.project-images > img, .project-images > video {
-    height: 20rem;
-    margin: 0.5%;
+.project-images figure {
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    height: min-content;
+
+    margin: 0.5rem;
     outline: 0.33rem outset #aaa;
 }
 
-
-.card > p {
-    margin-left: 1rem;
+.project-images img, .project-images video {
+    height: 18rem;
 }
 
+.project-images figcaption { 
+    font-size: smaller;
+    padding: 0.25rem;
+    border-top: 0.33rem outset #aaa;
+    background-color: #0008;
+    height: 100%;
+}
 
+.card > p {
+    margin-left: 1rem;    
+}
 
 @media only screen and (max-width: 600px) {
     .card {
