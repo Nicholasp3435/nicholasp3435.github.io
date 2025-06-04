@@ -1,0 +1,62 @@
+form {
+    margin: 0 1rem;
+    width: 50%;
+}
+
+form > .form-row {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    flex-grow: 1;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin: 0 1rem;
+    color: inherit;
+    font: inherit;
+    background-color: #e0e8;
+    border: 0.167rem outset #fff;
+    width: 10rem;
+    transition: background-color var(--hover-transition);
+}
+
+button:hover {
+    background-color: #e0ea;
+}
+
+button:active {
+    border: 0.167rem inset #fff;
+    text-shadow: .125rem .125rem #fff;
+    color: #0000;
+}
+
+input, textarea {
+    font: inherit;
+    border-radius: 0;
+    padding: 0.5rem;
+}
+
+textarea {
+    resize: none;
+}
+
+@media only screen and (max-width: 750px) {
+    form {
+        width: auto;
+    }
+    form > .form-row {
+        flex-direction: column;
+    }
+    label {
+        margin: 1rem;
+    }
+    button {
+        width: auto;
+    }
+}
