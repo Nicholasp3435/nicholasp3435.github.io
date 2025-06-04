@@ -45,13 +45,23 @@
 
 body {
     background-color: #101;
+    /* fallback for non lab */
+    background-image: linear-gradient(
+        to right bottom,
+        #d053 0%,
+        #d053 20%,
+        #d4a3,
+        #67f3 80%,
+        #67f3 100%
+    );
     background-image: linear-gradient(
         135deg in Oklab,
-        lab(40% 73.82 0.32 / 0.33) 0%,
-        lab(40% 73.82 0.32 / 0.33) 20%,
-        lab(40% 31.81 -34.38 / 0.33),
-        lab(40% 31.52 -63.66 / 0.33) 80%,
-        lab(40% 31.52 -63.66 / 0.33) 100%);
+        lab(50% 73.82 0.32 / 0.33) 0%,
+        lab(50% 73.82 0.32 / 0.33) 20%,
+        lab(50% 31.81 -34.38 / 0.33),
+        lab(50% 31.52 -63.66 / 0.33) 80%,
+        lab(50% 31.52 -63.66 / 0.33) 100%
+    );
     background-attachment: fixed;
     color: #eee;
     text-shadow: 0 0 0;
