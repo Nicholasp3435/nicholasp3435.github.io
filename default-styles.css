@@ -134,6 +134,10 @@ li {
     font-family: 'ANSI';
 }
 
+.hidden {
+    display: none !important;
+}
+
 @media only screen and (max-width: 600px) {
     .ascii, .ansi {
         font-size: 3rem;

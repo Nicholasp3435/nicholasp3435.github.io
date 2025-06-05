@@ -4,9 +4,10 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-.card > h3, .card > h4 {
+.card h3, .card h4 {
     margin-bottom: 0;
 }
 
@@ -41,6 +42,60 @@
     margin-left: 1rem;    
 }
 
+ul.tags {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    padding: 0;
+}
+
+ul.tags li {
+    display: inline;
+    border: solid white 1px;
+    border-radius: 1rem;
+    padding: 0.33rem;
+}
+
+ul.tags li::before {
+    content: "•";
+}
+
+form {
+    display: flex;
+}
+
+form > label {
+    margin: 0 1rem;
+}
+
+.details {
+    margin-top: 1rem;
+    max-height: fit-content; /* just bigger than the details */
+}
+
+.details.closed {
+    display: none;
+}
+
+.details.closing {
+    animation: open 0.25s linear reverse;
+    overflow: hidden;
+}
+
+.details.opening {
+    animation: open 0.25s linear;
+    overflow: hidden;
+}
+
+@keyframes open {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 125vh; 
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .card {
         margin: 0.5rem;
@@ -48,9 +103,19 @@
     .project-images {
         flex-direction: column;
     }
-    .project-images > img, .project-images > video {
-        width: 80%;
+    .project-images figure {
+        width: 100%;
+    }
+    .project-images img, .project-images video {
         height: unset;
         margin: 0.5%;
+    }
+    ul.tags {
+        position: unset;
+        display: flex;
+        flex-direction: column;
+    }
+    form {
+        flex-direction: column;
     }
 }

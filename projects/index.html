@@ -8,9 +8,12 @@
 
     <link rel="stylesheet" type="text/css" href="/default-styles.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <noscript>
+        <link rel="stylesheet" type="text/css" href="/noscript.css">
+    </noscript>
 
     <script defer src="/default-script.js"></script>
-    <!-- <script defer src="script.js"></script> -->
+    <script defer src="script.js"></script>
     
 </head>
 
@@ -31,308 +34,457 @@
 
     <main>
         <h2>Projects</h2>
-        <p>
-            Projects etc etc this paragraph is not done yet.
-        </p>
-        <small>* = personal project</small>
-        <section id="projects">
-            <div class="card">
-                <h3>Bird Feeder Live Stream *</h3>
-                <small>April &ndash; May 2025</small>
-                <div class="project-images">
-                    <figure>
-                        <img src="imgs/feeder/pi.jpg" loading="eager">
-                        <figcaption>
-                            Raspberry Pi in an ABS box. Electrical power goes into a power supply
-                            and a USB cable goes to the webcam.
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="imgs/feeder/cam.jpg" loading="eager">
-                        <figcaption>
-                            The webcam in a separate ABS box pointing at a bird feeder.
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <video controls preload="none" poster="imgs/feeder/dowo-poster.jpg">
-                            <source src="imgs/feeder/dowo.mp4" type="video/mp4">
-                            <a href="imgs/feeder/dowo.mp4">download video</a>
-                        </video>
-                        <figcaption>
-                            A Downy Woodpecker munching on the feeder as viewed from the webcam.
-                        </figcaption>
-                    </figure>
+        <p class="yes-script">Click on a heading to open that project</p>
+        <details class="yes-script"> 
+            <summary>Filter by tags</summary>
+            
+            <form>
+                <label>
+                    <input type="checkbox" value="personal">
+                    Personal
+                </label>
+                <label>
+                    <input type="checkbox" value="physical">
+                    Physical
+                </label>
+                <label>
+                    <input type="checkbox" value="software">
+                    Software
+                </label>
+                <label>
+                    <input type="checkbox" value="coursework">
+                    Coursework
+                </label>
+                <label>
+                    <input type="checkbox" value="other work">
+                    Other Work
+                </label>
+                <label>
+                    <input type="checkbox" value="web dev">
+                    Web Dev
+                </label>
+                <label>
+                    <input type="checkbox" value="lang:c">
+                    C
+                </label>
+                <label>
+                    <input type="checkbox" value="java">
+                    Java
+                </label>
+                <label>
+                    <input type="checkbox" value="team">
+                    Team
+                </label>
+                <label>
+                    <input type="checkbox" value="solo">
+                    Solo
+                </label>
+
+            </form>
+
+        </details>
+
+        <div id="projects">
+            <section class="card" data-tags="personal, physical, software">
+                <div class="heading">
+                    <h3>Bird Feeder Live Stream *</h3>
+                    <small>April &ndash; May 2025</small>
+                    <ul class="tags">
+                        <li>Personal</li>
+                        <li>Physical</li>
+                        <li>Software</li>
+                        <li>Solo</li>
+                    </ul>
                 </div>
+                <div class="details">
+                    <div class="project-images">
+                        <figure>
+                            <img src="imgs/feeder/pi.jpg" loading="eager">
+                            <figcaption>
+                                Raspberry Pi in an ABS box. Electrical power goes into a power supply
+                                and a USB cable goes to the webcam.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="imgs/feeder/cam.jpg" loading="eager">
+                            <figcaption>
+                                The webcam in a separate ABS box pointing at a bird feeder.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <video controls preload="none" poster="imgs/feeder/dowo-poster.jpg">
+                                <source src="imgs/feeder/dowo.mp4" type="video/mp4">
+                                <a href="imgs/feeder/dowo.mp4">download video</a>
+                            </video>
+                            <figcaption>
+                                A Downy Woodpecker munching on the feeder as viewed from the webcam.
+                            </figcaption>
+                        </figure>
+                    </div>
 
-                <h4>About</h4>
-                <p>
-                    One of my favorite things in the world is birds! I was inspired by products like
-                    Bird Buddy, which is a camera-equipped bird feeder, but I wanted a version that 
-                    could be live-streamed so <em>anyone</em> could watch my feeder &mdash;
-                    something Bird Buddy doesn't support.
-                </p>
-                <p>
-                    I already had a home server, so I decided to stream a webcam feed using a
-                    Raspberry Pi with Wi-Fi. This allowed the webcam to be portable and not rely 
-                    on long cables. I housed both the Pi and webcam in separate weatherproof boxes 
-                    so the camera could reach tighter spaces where the Pi wouldn't fit.
-                </p>
-                <p>
-                    This was my first time using any Raspberry Pi, but it was just like any other
-                    computer. I put Ubuntu Server on the Pi and I can easily SSH into it as needed.
-                </p>
-                <p>
-                    However, this is where tragedy struck! I originally got a Pi 3B+, thinking that
-                    the CPU and RAM were good enough for steaming. Upon testing, the Pi can't handle
-                    even 480p without the USB bus not being able to support the current for the 
-                    webcam; USB 2.0 on the Pi 3B+ is not enough for a stable video.
-                </p>
-                <p>
-                    I tried lots of software solutions like trying to limit the amount of background
-                    processes on the Pi so the power could be available for USB. After a little 
-                    research on forum threads, I found the problem is hardware; the Pi 3B+ just has
-                    an inherit USB instability. 
-                </p>
-                <p>
-                    Thank goodness I kept the receipt because I exchanged the Pi 3B+ for a Pi 4. 
-                    After nervously watching the video stream, it seemed stable enough to call it 
-                    stable at 720p! It <em>can</em> do 1080p, but then the bitrate and quality
-                    really drops.
-                </p>
-                <p>
-                    After some trial and error, I got FFmpeg running on the Pi to stream video to 
-                    the server. The server hosts the stream using HLS segments as well as stored 24 
-                    hours of archived video. At night, the server can run a motion detection 
-                    algorithm to detect bird activity and store bird visitors in a permanent 
-                    archive.
-                </p>
+                    <h4>About</h4>
+                    <p>
+                        One of my favorite things in the world is birds! I was inspired by products like
+                        Bird Buddy, which is a camera-equipped bird feeder, but I wanted a version that 
+                        could be live-streamed so <em>anyone</em> could watch my feeder &mdash;
+                        something Bird Buddy doesn't support.
+                    </p>
+                    <p>
+                        I already had a home server, so I decided to stream a webcam feed using a
+                        Raspberry Pi with Wi-Fi. This allowed the webcam to be portable and not rely 
+                        on long cables. I housed both the Pi and webcam in separate weatherproof boxes 
+                        so the camera could reach tighter spaces where the Pi wouldn't fit.
+                    </p>
+                    <p>
+                        This was my first time using any Raspberry Pi, but it was just like any other
+                        computer. I put Ubuntu Server on the Pi and I can easily SSH into it as needed.
+                    </p>
+                    <p>
+                        However, this is where tragedy struck! I originally got a Pi 3B+, thinking that
+                        the CPU and RAM were good enough for steaming. Upon testing, the Pi can't handle
+                        even 480p without the USB bus not being able to support the current for the 
+                        webcam; USB 2.0 on the Pi 3B+ is not enough for a stable video.
+                    </p>
+                    <p>
+                        I tried lots of software solutions like trying to limit the amount of background
+                        processes on the Pi so the power could be available for USB. After a little 
+                        research on forum threads, I found the problem is hardware; the Pi 3B+ just has
+                        an inherit USB instability. 
+                    </p>
+                    <p>
+                        Thank goodness I kept the receipt because I exchanged the Pi 3B+ for a Pi 4. 
+                        After nervously watching the video stream, it seemed stable enough to call it 
+                        stable at 720p! It <em>can</em> do 1080p, but then the bitrate and quality
+                        really drops.
+                    </p>
+                    <p>
+                        After some trial and error, I got FFmpeg running on the Pi to stream video to 
+                        the server. The server hosts the stream using HLS segments as well as stored 24 
+                        hours of archived video. At night, the server can run a motion detection 
+                        algorithm to detect bird activity and store bird visitors in a permanent 
+                        archive.
+                    </p>
 
-                <h4>What I Learned</h4>
-                <ul>
-                    <li>
-                        A good video stream balances bitrate and resolution.
-                        <ul>
-                            <li>
-                                Think of a large canvas drawn quickly in pen &mdash; big doesn't 
-                                always mean better!
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        FFmpeg is a very useful tool for anything video related; it can even offload 
-                        to GPU for higher performance.
-                    </li>
-                    <li>
-                        HLS is a low-latency, memory-efficient way to serve video.
-                    </li>
-                    <li>
-                        Working with hardware is much more different than software. There is much
-                        more to consider than just slapping a Pi in a box and calling it a day. 
-                    </li>
-                </ul>
-            </div>
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>
+                            A good video stream balances bitrate and resolution.
+                            <ul>
+                                <li>
+                                    Think of a large canvas drawn quickly in pen &mdash; big doesn't 
+                                    always mean better!
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            FFmpeg is a very useful tool for anything video related; it can even offload 
+                            to GPU for higher performance.
+                        </li>
+                        <li>
+                            HLS is a low-latency, memory-efficient way to serve video.
+                        </li>
+                        <li>
+                            Working with hardware is much more different than software. There is much
+                            more to consider than just slapping a Pi in a box and calling it a day. 
+                        </li>
+                    </ul>
 
-            <div class="card">
-                <h3>Where UGA</h3>
-                <small>April 2025</small>
-                <div class="project-images">
-                    <figure>
-                        <img src="imgs/whereUGA/home.jpg" loading="lazy">
-                        <figcaption>
-                            The home page of Where UGA. It has the purpose and instructions about 
-                            the app.
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="imgs/whereUGA/espresso.jpg" loading="lazy">
-                        <figcaption>
-                            The map page showing several pins from other users. 
-                        </figcaption>
-                    </figure>
                 </div>
+            </section>
 
-                <h4>About</h4>
-                <p>
-                    Where UGA is the result of a team project for a Web Programming course. We were 
-                    given a prompt to create a React web application that serves to help UGA. A 
-                    friend and I assembled a team with two others to create an app to search and 
-                    upload on campus amenities such as bathrooms or vending machines. 
-                </p>
-                <p>
-                    As part of our Web Programming course, we used React with Next.js. We started 
-                    with Figma mockups of the app. We designed a home page, two views of the map 
-                    page (one for each logged in and logged out users), a registration page, and 
-                    a login page. 
-                </p>
-                <p>
-                    We then split up, each doing separate tasks for the app. Some of us made React 
-                    components for each of the pages and others managed a MongoDB database for 
-                    storing user accounts and user submitted amenities. 
-                </p>
-                <p>
-                    The result of our hard work is an app where users can view pins of on campus 
-                    amenities provided by registered users. Any user can provide an email address
-                    and password to create their own custom pins! The data is hashed and stored
-                    using a MongoDB Cloud server.
-                </p>
-                <p>
-                    In the end, we presented our app to the class with a little sketch! I was
-                    running late to class, but I needed my morning iced coffee! If only somebody
-                    knew where the nearest vending machine with coffee was! We then proceeded to
-                    show the features of logged out and logged in users of the app. We got
-                    1<sup>st</sup> in the class vote for best presentation! Probably because of my
-                    iced coffee.
-                </p>
-
-                <h4>What I Learned</h4>
-                <ul>
-                    <li>
-                        React with Next.js is quite versatile, being able to do many things that 
-                        would be more difficult to do with standard HTML.
-                    </li>
-                    <li>
-                        Figma is an excellent tool for design planning &mdash; stopping to plan out
-                        designs saved us a lot of time in the long run.
-                    </li>
-                    <li>
-                        MongoDB Cloud is very helpful with dealing with multiple users; a central
-                        database is much easier to work with than local ones.
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Apoli Systems</h3>
-                <small>February &ndash; April 2025</small>
-                <div class="project-images">
-                    <figure>
-                        <img src="imgs/apoli/home.jpg" loading="lazy">
-                        <figcaption>
-                            Apoli Systems home page. It displays movies as cards. Clicking a card 
-                            reveals a trailer and showing times.
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="imgs/apoli/select-seats.jpg" loading="lazy">
-                        <figcaption>
-                            Seat selection screen. There are seats unavailable due to other users
-                            booking them.
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="imgs/apoli/admin.jpg" loading="lazy">
-                        <figcaption>
-                            The Admin Panel allows system admins to manage movies, promotions, and
-                            users.
-                        </figcaption>
-                    </figure>
+            <section class="card" data-tags="coursework, software, web dev, team">
+                <div class="heading">
+                    <h3>Where UGA</h3>
+                    <small>April 2025</small>
+                    <ul class="tags">
+                        <li>Coursework</li>
+                        <li>Software</li>
+                        <li>Web Dev</li>
+                        <li>Team</li>
+                    </ul>
                 </div>
+                <div class="details">
+                    <div class="project-images">
+                        <figure>
+                            <img src="imgs/whereUGA/home.jpg" loading="lazy">
+                            <figcaption>
+                                The home page of Where UGA. It has the purpose and instructions about 
+                                the app.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="imgs/whereUGA/espresso.jpg" loading="lazy">
+                            <figcaption>
+                                The map page showing several pins from other users. 
+                            </figcaption>
+                        </figure>
+                    </div>
 
-                <h4>About</h4>
-                <p>
-                    Apoli Systems is the term project for my Software Engineering course. This 
-                    project is of me and four others with the task to create a cinema e-booking
-                    system. We were to create both a user and admin frontend, a backend, and a 
-                    database. 
-                </p>
-                <p>
-                    I was the frontend team lead where we started with a mix of paper and Figma
-                    prototyping. I wasn't too familiar with Figma at the time, so I stuck with 
-                    paper for a little bit before another team member showed me how to use it.
-                </p>
-                <p>
-                    This was also before any of the team knew React, so the entire site is plain old
-                    HTML, JS, and CSS. The backend used Node.js and the database is a locally hosted
-                    MongoDB database.
-                </p>
-                <p>
-                    During the development of the project, we learned lots about Software
-                    Engineering. Things like UML diagrams, SOLID principles, different architectural
-                    designs, and working as a team were all taught alongside development. I do wish
-                    we were taught some things <em>before</em> major code development, but now I 
-                    know for the future!
-                </p>
-                <p>
-                    The result of the term project is an cinema e-booking system aimed for two sets 
-                    of users: users who want to buy movie tickets, and admins managing the movies.
-                    Those who want to watch movies can view available films and select a showtime
-                    before selecting seats. Users must be logged in to purchase tickets, so if one
-                    isn't, the system will redirect to the login page where they can login/register.
-                    On registration, the system will hash and store credentials in a MongoDB 
-                    database. After the user is logged in, they are able to purchase tickets. On
-                    purchasing tickets, the system will store the selected seats in the database as
-                    well.
-                </p>
-                <p>
-                    Any admins who logs in will automatically be redirected to the admin panel, 
-                    where they can manage the current movies, current promotions, and current users.
-                    An admin is able to create, update, and delete movies and showtimes. They are 
-                    also able to create, update, and delete promotions for movies. An admin is able
-                    to send a promotional emails to all users. Finally, an admin is able to promote
-                    a general user to an admin. Everything is stored in a MongoDB database.
-                </p>
+                    <h4>About</h4>
+                    <p>
+                        Where UGA is the result of a team project for a Web Programming course. We were 
+                        given a prompt to create a React web application that serves to help UGA. A 
+                        friend and I assembled a team with two others to create an app to search and 
+                        upload on campus amenities such as bathrooms or vending machines. 
+                    </p>
+                    <p>
+                        As part of our Web Programming course, we used React with Next.js. We started 
+                        with Figma mockups of the app. We designed a home page, two views of the map 
+                        page (one for each logged in and logged out users), a registration page, and 
+                        a login page. 
+                    </p>
+                    <p>
+                        We then split up, each doing separate tasks for the app. Some of us made React 
+                        components for each of the pages and others managed a MongoDB database for 
+                        storing user accounts and user submitted amenities. 
+                    </p>
+                    <p>
+                        The result of our hard work is an app where users can view pins of on campus 
+                        amenities provided by registered users. Any user can provide an email address
+                        and password to create their own custom pins! The data is hashed and stored
+                        using a MongoDB Cloud server.
+                    </p>
+                    <p>
+                        In the end, we presented our app to the class with a little sketch! I was
+                        running late to class, but I needed my morning iced coffee! If only somebody
+                        knew where the nearest vending machine with coffee was! We then proceeded to
+                        show the features of logged out and logged in users of the app. We got
+                        1<sup>st</sup> in the class vote for best presentation! Probably because of my
+                        iced coffee.
+                    </p>
 
-                <h4>What I Learned</h4>
-                <ul>
-                    <li>
-                        Working as a team is very efficient, so long as everyone does their part and
-                        communicates any issues. We struggled a little bit in the beginning with 
-                        communication, but we all got in the swing of things quickly.
-                    </li>
-                    <li>
-                        I also took on a role of a version controller; I managed the GitHub 
-                        repository. This was the first time I had managed a repo for more than just
-                        myself. I found it to be very useful having many different branches for each 
-                        task. 
-                    </li>
-                    <li>
-                        As the frontend team lead, I had to coordinate with the backend team to make
-                        sure that what we are doing in the front is simple to connect in the back. I
-                        also had to manage frontend related timelines and tasks.
-                    </li>
-                    <li>
-                        Although slightly indirectly, I learned some of Node.js and MongoDB from the
-                        backend team.
-                    </li>
-                    <li>
-                        When done right, sometimes all you need is pure HTML, JS, and CSS!
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>Image Steganography</h3>
-                <small>September 2024</small>
-                <div class="project-images">
-                    <figure>
-                        <img src="imgs/steganography/rbwo.png" loading="lazy">
-                        <figcaption>
-                            Two images of a Red-bellied Woodpecker side by side. The left one is the 
-                            original and the right one has an encoded message.
-                        </figcaption>
-                    </figure>
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>
+                            React with Next.js is quite versatile, being able to do many things that 
+                            would be more difficult to do with standard HTML.
+                        </li>
+                        <li>
+                            Figma is an excellent tool for design planning &mdash; stopping to plan out
+                            designs saved us a lot of time in the long run.
+                        </li>
+                        <li>
+                            MongoDB Cloud is very helpful with dealing with multiple users; a central
+                            database is much easier to work with than local ones.
+                        </li>
+                    </ul>
+
                 </div>
-            </div>
-            <div class="card">
-                <h3>3D Printed Camera *</h3>
-                <small>September &ndash; December 2024</small>
-            </div>
-            <div class="card">
-                <h3>3D Model Viewer *</h3>
-                <small>July &ndash; August 2024</small>
-            </div>
-            <div class="card">
-                <h3>UGA Unisex Bathroom Search *</h3>
-                <small>January &ndash; February 2024</small>
-            </div>
-            <div class="card">
-                <h3>Weather App</h3>
-                <small>April &ndash; June 2023</small>
-            </div>
-            <div class="card">
-                <h3>Eagle Scout Project</h3>
-                <small>February &ndash; May 2021</small>
-            </div>
-        </section>
+            </section>
 
+            <section class="card" data-tags="coursework, software, web dev, team">
+                <div class="heading">
+                    <h3>Apoli Systems</h3>
+                    <small>February &ndash; April 2025</small>
+                    <ul class="tags">
+                        <li>Coursework</li>
+                        <li>Software</li>
+                        <li>Web Dev</li>
+                        <li>Team</li>
+                    </ul>
+                </div>
+                <div class="details">
+                    <div class="project-images" >
+                        <figure>
+                            <img src="imgs/apoli/home.jpg" loading="lazy">
+                            <figcaption>
+                                Apoli Systems home page. It displays movies as cards. Clicking a card 
+                                reveals a trailer and showing times.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="imgs/apoli/select-seats.jpg" loading="lazy">
+                            <figcaption>
+                                Seat selection screen. There are seats unavailable due to other users
+                                booking them.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="imgs/apoli/admin.jpg" loading="lazy">
+                            <figcaption>
+                                The Admin Panel allows system admins to manage movies, promotions, and
+                                users.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <h4>About</h4>
+                    <p>
+                        Apoli Systems is the term project for my Software Engineering course. This 
+                        project is of me and four others with the task to create a cinema e-booking
+                        system. We were to create both a user and admin frontend, a backend, and a 
+                        database. 
+                    </p>
+                    <p>
+                        I was the frontend team lead where we started with a mix of paper and Figma
+                        prototyping. I wasn't too familiar with Figma at the time, so I stuck with 
+                        paper for a little bit before another team member showed me how to use it.
+                    </p>
+                    <p>
+                        This was also before any of the team knew React, so the entire site is plain old
+                        HTML, JS, and CSS. The backend used Node.js and the database is a locally hosted
+                        MongoDB database.
+                    </p>
+                    <p>
+                        During the development of the project, we learned lots about Software
+                        Engineering. Things like UML diagrams, SOLID principles, different architectural
+                        designs, and working as a team were all taught alongside development. I do wish
+                        we were taught some things <em>before</em> major code development, but now I 
+                        know for the future!
+                    </p>
+                    <p>
+                        The result of the term project is an cinema e-booking system aimed for two sets 
+                        of users: users who want to buy movie tickets, and admins managing the movies.
+                        Those who want to watch movies can view available films and select a showtime
+                        before selecting seats. Users must be logged in to purchase tickets, so if one
+                        isn't, the system will redirect to the login page where they can login/register.
+                        On registration, the system will hash and store credentials in a MongoDB 
+                        database. After the user is logged in, they are able to purchase tickets. On
+                        purchasing tickets, the system will store the selected seats in the database as
+                        well.
+                    </p>
+                    <p>
+                        Any admins who logs in will automatically be redirected to the admin panel, 
+                        where they can manage the current movies, current promotions, and current users.
+                        An admin is able to create, update, and delete movies and showtimes. They are 
+                        also able to create, update, and delete promotions for movies. An admin is able
+                        to send a promotional emails to all users. Finally, an admin is able to promote
+                        a general user to an admin. Everything is stored in a MongoDB database.
+                    </p>
+
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>
+                            Working as a team is very efficient, so long as everyone does their part and
+                            communicates any issues. We struggled a little bit in the beginning with 
+                            communication, but we all got in the swing of things quickly.
+                        </li>
+                        <li>
+                            I also took on a role of a version controller; I managed the GitHub 
+                            repository. This was the first time I had managed a repo for more than just
+                            myself. I found it to be very useful having many different branches for each 
+                            task. 
+                        </li>
+                        <li>
+                            As the frontend team lead, I had to coordinate with the backend team to make
+                            sure that what we are doing in the front is simple to connect in the back. I
+                            also had to manage frontend related timelines and tasks.
+                        </li>
+                        <li>
+                            Although slightly indirectly, I learned some of Node.js and MongoDB from the
+                            backend team.
+                        </li>
+                        <li>
+                            When done right, sometimes all you need is pure HTML, JS, and CSS!
+                        </li>
+                    </ul>
+
+                </div>
+            </section>
+
+            <section class="card" data-tags="other work, software, lang:c, solo">
+                <div class="heading"> 
+                    <h3>Image Steganography</h3>
+                    <small>September 2024</small>
+                    <ul class="tags">
+                        <li>Other Work</li>
+                        <li>Software</li>
+                        <li>C</li>
+                        <li>Solo</li>
+                    </ul>
+                </div>
+                <div class="details">
+                    <div class="project-images">
+                        <figure>
+                            <img src="imgs/steganography/rbwo.png" loading="lazy">
+                            <figcaption>
+                                Two images of a Red-bellied Woodpecker side by side. The left one is the 
+                                original and the right one has an encoded message.
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card" data-tags="personal, physical, solo">
+                <div class="heading">
+                    <h3>3D Printed Camera *</h3>
+                    <small>September &ndash; December 2024</small>
+                    <ul class="tags">
+                        <li>Personal</li>
+                        <li>Physical</li>
+                        <li>Solo</li>
+                    </ul>
+                </div>
+                <div class="details">
+
+                </div>
+            </section>
+
+            <section class="card" data-tags="personal, software, java, solo">
+                <div class="heading">
+                    <h3>3D Model Viewer *</h3>
+                    <small>July &ndash; August 2024</small>
+                    <ul class="tags">
+                        <li>Personal</li>
+                        <li>Software</li>
+                        <li>Java</li>
+                        <li>Solo</li>
+                    </ul>
+                </div>
+                <div class="details">
+
+                </div>
+            </section>
+
+            <section class="card" data-tags="personal, software, web dev, solo">
+                <div class="heading">
+                    <h3>UGA Unisex Bathroom Search *</h3>
+                    <small>January &ndash; February 2024</small>
+                    <ul class="tags">
+                        <li>Personal</li>
+                        <li>Software</li>
+                        <li>Web Dev</li>
+                        <li>Solo</li>
+                    </ul>
+                </div>
+                <div class="details">
+
+                </div>
+            </section>
+
+            <section class="card" data-tags="coursework, java, software, solo">
+                <div class="heading">
+                    <h3>Weather App</h3>
+                    <small>April &ndash; June 2023</small> 
+                    <ul class="tags">
+                        <li>Coursework</li>
+                        <li>Software</li>
+                        <li>Java</li>
+                        <li>Solo</li>
+                    </ul>
+                </div>
+                <div class="details">
+
+                </div>
+            </section>
+
+            <section class="card" data-tags="other work, physical, team">
+                <div class="heading">
+                    <h3>Eagle Scout Project</h3>
+                    <small>February &ndash; May 2021</small>
+                    <ul class="tags">
+                        <li>Other Work</li>
+                        <li>Physical</li>
+                        <li>Team</li>
+                    </ul>
+                </div>
+                <div class="details">
+
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <footer>
