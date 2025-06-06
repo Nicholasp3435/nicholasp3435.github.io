@@ -398,11 +398,96 @@
                         <figure>
                             <img src="imgs/steganography/rbwo.png" loading="lazy">
                             <figcaption>
-                                Two images of a Red-bellied Woodpecker side by side. The left one is the 
-                                original and the right one has an encoded message.
+                                Two images of a Red-bellied Woodpecker side by side. The left one is
+                                the original and the right one has an encoded message.
+                            </figcaption>
+                        </figure>
+                        
+                        <figure>
+                            <img src="imgs/steganography/rbwo-close.png" loading="lazy">
+                            <figcaption>
+                                Very close up, the pixels are subtly different between the two 
+                                images.
                             </figcaption>
                         </figure>
                     </div>
+
+                    <h4>About</h4>
+                    <p>
+                        As part of a take-home interview project for the University of Georgia's
+                        Small Satellite Research Lab, I was tasked with hiding a text message inside
+                        a PNG image without visibly altering it. The task was split into making two
+                        programs: an encoder and decoder. The biggest requirement was that the 
+                        message must be encoded in such a way so that the decoder can detect errors,
+                        bonus points if the decoder can correct errors.
+                    </p>
+                    <p>
+                        I first did some research about hiding text inside of images. During the
+                        research, I found this general process is called steganography. I then read
+                        the wikipedia article of common
+                        <a href="https://en.wikipedia.org/wiki/List_of_steganography_techniques" target="_blank" rel="noopener noreferrer">
+                        steganography techniques</a>; I found least 
+                        significant bit (LSB) encoding to be a pretty simple. LSB encoding is 
+                        using the LSB to hide data. As a decimal example, to hide the number 89 in 
+                        the number 614058, use the number 6140<u>89</u>. Since it is changing the
+                        LSB, the overall number doesn't change too much. 
+                    </p>
+                    <p>
+                        Then, I had to deal with how to encode error detection with optional 
+                        correction. Thankfully, I was ahead of the game and already know a simple
+                        solution: Hamming Codes! Before this project, I watched Grant Sanderson's 
+                        (3Blue1Brown)
+                        <a href="https://youtu.be/X8jsijhllIA" target="_blank" rel="noopener noreferrer">
+                        video about Hamming Codes</a>. In it, Sanderson explained Hamming Codes with 
+                        Hamming(15,&nbsp;11) codes. I wanted to use something similar, but I didn't 
+                        want to use 15 bits since that would cause a lot more image distortion. I
+                        also wanted to be able to store 8 bits (1 character) and total length to be 
+                        divisible by 4 so that it can evenly be split in four channels for each 
+                        pixel. A way to use 4 bits for parity would be super useful. I had a feeling
+                        it is very similar to how Sanderson explained with Hamming(15,&nbsp;11) 
+                        codes. A small bit of research for Hamming(12,&nbsp;8) codes provided a 
+                        useful
+                        <a href="https://courses.cs.vt.edu/cs2506/Fall2013/Notes/L21.ErrorCodes.pdf" target="_blank" rel="noopener noreferrer">
+                        result</a> which showed, yes, it is very similar.
+                    </p>
+                    <p>
+                        I finally had to decide how to manipulate image data pixel by pixel. I 
+                        researched and found two common PNG libraries: libpng and stb. I chose 
+                        <a href="https://github.com/nothings/stb" target="_blank" rel="noopener noreferrer">
+                        stb</a> because, frankly, it looked a lot more simple to setup and use 
+                        compared to libpng.
+                    </p>
+                    <p>
+                        Now that I knew what to do, I just had to do it! The encoding program will 
+                        read an input message file and an input PNG file. It will then apply 
+                        Hamming(12,&nbsp;8) codes to each character in the message. Finally, it will
+                        write each character into each pixel of the image file and save it as a new
+                        image.
+                    </p>
+                    <p>
+                        The decoding program is similar, just reversed. It reads an input encoded 
+                        PNG file. Then, it will extract the character from each pixel, applying any
+                        error corrections if needed. Finally, it writes the message to a new file.
+                    </p>
+
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>
+                            This was my first C project, so I learned a lot about how C differs from
+                            Java.
+                        </li>
+                        <li>
+                            There are lot more error detection and correction algorithms than 
+                            Hamming Codes, but they are more complicated.
+                        </li>
+                        <li>
+                            Steganography is a still a thing in common practice and can hide a lot 
+                            more than just text data in images.
+                        </li>
+                        <li>
+                            Doing manual memory management in C isn't as scary as it sounds!
+                        </li>
+                    </ul>
                 </div>
             </section>
 
