@@ -18,16 +18,16 @@ label {
 
 button {
     margin: 0 1rem;
-    color: inherit;
+    color: #fff;
     font: inherit;
-    background-color: #e0e8;
+    background-color: rgb(var(--anchor-color), 0, var(--anchor-color));
     border: 0.167rem outset #fff;
     width: 10rem;
     transition: background-color var(--hover-transition);
 }
 
 button:hover {
-    background-color: #e0ea;
+    background-color: rgb(var(--anchor-hover), 0, var(--anchor-hover));
 }
 
 button:active {

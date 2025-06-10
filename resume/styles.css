@@ -5,6 +5,7 @@ section {
 
 section h3 {
     border-bottom: 0.125rem #fff solid;
+    border-color: inherit;
 }
 
 section h4 {
@@ -15,6 +16,9 @@ section h4 {
     display: flex;
 }
 
+.school > :first-child {
+    flex: 3;
+}
 
 .school > :last-child {
     text-align: right;

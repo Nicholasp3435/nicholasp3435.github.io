@@ -19,32 +19,57 @@
     font-style: normal;
 }
 
-:root::before {
-    /* crt scanline css from https://aleclownes.com/2017/02/01/crt-display.html */
-    content: " ";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 500em;
-    background-image: linear-gradient(var(--light-scanline) 50%, var(--dark-scanline) 50%);
-    animation: turn-on 2s ease 0s 1 forwards;
-    background-size: 100% var(--crt-scanline), var(--crt-scanline) 100%;
-    pointer-events: none;
-    z-index: 2;
+@font-face {
+    font-family: 'Bariol';
+    src: url('/resources/fonts/bariol_regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bariol';
+    src: url('/resources/fonts/bariol_bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bariol';
+    src: url('/resources/fonts/bariol_regular_italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Tourney';
+    src: url('/resources/fonts/Tourney-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tourney';
+    src: url('/resources/fonts/Tourney-Italic-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Audiowide';
+    src: url('/resources/fonts/Audiowide-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 :root {
-    /* --crt-scanline: 0.25rem; */
-    --light-scanline: #0000;
-    --dark-scanline: #0003;
-    --hover-transition: 0.25s;
+    --hover-transition: 0.125s;
+    --background: 16;
+    --background-alpha: 100%;
+    --anchor-color: 240;
+    --anchor-hover: 144;
 }
 
 body {
-    background-color: #101;
+    background-color: rgba(var(--background), 0, var(--background), var(--background-alpha));
     /* fallback for non lab */
     background-image: linear-gradient(
         to right bottom,
@@ -75,13 +100,14 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    border-bottom: 0.5rem double #fff;
+    border-bottom: 0.5rem double;
+    border-color: inherit;
 }
 
 header, main, footer {
     padding: 1rem;
     margin: 1rem;
-    background-color: #1018;
+    background-color: rgba(var(--background), 0, var(--background), calc(var(--background-alpha) / 2));
 }
 
 header {
@@ -102,11 +128,11 @@ main {
 
 a {
     transition: color var(--hover-transition);
-    color: #e0e;
+    color: rgb(var(--anchor-color), 0, var(--anchor-color));
 }
 
 a:hover {
-    color: #e8e;
+    color: rgb(var(--anchor-hover), 0, var(--anchor-hover));
 }
 
 a.current {
@@ -150,19 +176,42 @@ li {
     }
     header, main, footer {
         margin: 0.5rem;
-        background-color: #1018;
     }
 }
 
 @media (prefers-color-scheme: light) {
+    :root {
+        --background-alpha: 12.5%;
+        --anchor-color: 96;
+        --anchor-hover: 64;
+    }
     body {
-        background-color: #fff;
+        background-color: #1012;
+        color: #000;
+    }
+    a.current {
+        color: #000;
     }
 }
 
 @media print {
+    header, footer {
+        display: none;
+    }
+    main {
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+    }
     body {
         background-color: #fff;
         background-image: none;
+        padding: 0;
+        font-size: 12px;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: normal;
+    }
+    h1, h2, h3, h4, h5 {
+        margin: 0;
     }
 }

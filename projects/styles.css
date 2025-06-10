@@ -1,5 +1,10 @@
 .card {
-    background-color: #5058;
+    background-color: rgba(
+        calc(2*var(--background)),
+        0,
+        calc(2*var(--background)),
+        calc(var(--background-alpha))
+    );
     margin: 1rem;
     padding: 1rem;
     display: flex;
@@ -34,7 +39,6 @@
     font-size: smaller;
     padding: 0.25rem;
     border-top: 0.33rem outset #aaa;
-    background-color: #0008;
     height: 100%;
 }
 
