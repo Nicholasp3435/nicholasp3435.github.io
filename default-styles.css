@@ -75,6 +75,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
+    border-bottom: 0.5rem double #fff;
 }
 
 header, main, footer {

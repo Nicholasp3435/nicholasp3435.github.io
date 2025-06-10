@@ -1,0 +1,42 @@
+section {
+    padding: 1rem;
+    padding-top: 0;
+}
+
+section h3 {
+    border-bottom: 0.125rem #fff solid;
+}
+
+section h4 {
+    margin-bottom: 0;
+}
+
+.school {
+    display: flex;
+}
+
+
+.school > :last-child {
+    text-align: right;
+    flex: 1;
+}
+
+#coursework ul {
+    padding: 0;
+}
+
+ul.comma-list  li {
+    display: inline;
+}
+
+ul.comma-list li::after {
+    content: ",";
+}
+
+ul.comma-list :last-child::after {
+    content: none;
+}
+
+dd {
+    padding-bottom: 1rem;
+}
