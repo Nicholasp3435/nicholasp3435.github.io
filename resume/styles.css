@@ -1,10 +1,10 @@
 section {
-    padding: 1rem;
+    padding: 0 1rem;
     padding-top: 0;
 }
 
 section h3 {
-    border-bottom: 0.125rem #fff solid;
+    border-bottom: 0.125rem solid;
     border-color: inherit;
 }
 
@@ -43,4 +43,14 @@ ul.comma-list :last-child::after {
 
 dd {
     padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    section {
+        padding: 0;
+        margin: 0;
+    }
+    .school {
+        flex-direction: column;
+    }
 }
