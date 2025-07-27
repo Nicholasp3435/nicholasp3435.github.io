@@ -3,10 +3,10 @@ console.log('Loaded', document.currentScript.src);
 const form = document.querySelector("form");
 const projects = document.querySelectorAll("#projects .card");
 
-projects.forEach(project => {
-    project.querySelector('.details').classList.add('closed');
-    project.querySelector('.heading').setAttribute('tabindex', 0);
-});
+// projects.forEach(project => {
+//     project.querySelector('.details').classList.add('closed');
+//     project.querySelector('.heading').setAttribute('tabindex', 0);
+// });
 
 if (form) {
     form.addEventListener('change', (event) => {

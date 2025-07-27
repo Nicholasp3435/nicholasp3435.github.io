@@ -87,7 +87,7 @@
         <div id="projects">
             <section class="card" data-tags="personal, physical, software">
                 <div class="heading">
-                    <h3>Bird Feeder Live Stream *</h3>
+                    <h3>Bird Feeder Live Stream</h3>
                     <small>April &ndash; May 2025</small>
                     <ul class="tags">
                         <li>Personal</li>
@@ -124,16 +124,17 @@
 
                     <h4>About</h4>
                     <p>
-                        One of my favorite things in the world is birds! I was inspired by products like
-                        Bird Buddy, which is a camera-equipped bird feeder, but I wanted a version that 
-                        could be live-streamed so <em>anyone</em> could watch my feeder &mdash;
-                        something Bird Buddy doesn't support.
+                        One of my favorite things in the world is birds! I was inspired by products
+                        like Bird Buddy, a bird feeder with a built-in camera, to make my own such product!
+                        The main reason is that I wanted to be able to live-stream my bird feeder so 
+                        that <em>anyone</em> can watch; something Bird Buddy doesn't support.
                     </p>
                     <p>
-                        I already had a home server, so I decided to stream a webcam feed using a
-                        Raspberry Pi with Wi-Fi. This allowed the webcam to be portable and not rely 
-                        on long cables. I housed both the Pi and webcam in separate weatherproof boxes 
-                        so the camera could reach tighter spaces where the Pi wouldn't fit.
+                        I already have a permanent home server, so I decided I could use a Raspberry
+                        Pi to connect to the server to host a webcam. Wi-Fi allows the webcam and Pi
+                        to be portable and not rely on long cables. I housed both the Pi and webcam
+                        in separate weatherproof boxes so the webcam can reach tighter spots that the
+                        Pi wouldn't fit.
                     </p>
                     <p>
                         This was my first time using any Raspberry Pi, but it was just like any other
@@ -142,8 +143,8 @@
                     <p>
                         However, this is where tragedy struck! I originally got a Pi 3B+, thinking that
                         the CPU and RAM were good enough for steaming. Upon testing, the Pi can't handle
-                        even 480p without the USB bus not being able to support the current for the 
-                        webcam; USB 2.0 on the Pi 3B+ is not enough for a stable video.
+                        even 480p without the USB bus not being able to support the current needed by
+                        the webcam; USB 2.0 on the Pi 3B+ is not enough for a stable video.
                     </p>
                     <p>
                         I tried lots of software solutions like trying to limit the amount of background
@@ -152,14 +153,15 @@
                         an inherit USB instability. 
                     </p>
                     <p>
-                        Thank goodness I kept the receipt because I exchanged the Pi 3B+ for a Pi 4. 
+                        Thank goodness I kept the receipt because I exchanged the Pi 3B+ for a Pi 4B. 
                         After nervously watching the video stream, it seemed stable enough to call it 
-                        stable at 720p! It <em>can</em> do 1080p, but then the bitrate and quality
-                        really drops.
+                        stable at 720p! It <em>can</em> do 1080p, but then the bitrate and quality really
+                        drops so i just found out about this word and i'm not planning on using it anytime
+                        soon.
                     </p>
                     <p>
                         After some trial and error, I got FFmpeg running on the Pi to stream video to 
-                        the server. The server hosts the stream using HLS segments as well as stored 24 
+                        the server. The server hosts the stream using HLS segments as well as stores 24 
                         hours of archived video. At night, the server can run a motion detection 
                         algorithm to detect bird activity and store bird visitors in a permanent 
                         archive.
@@ -181,7 +183,7 @@
                             to GPU for higher performance.
                         </li>
                         <li>
-                            HLS is a low-latency, memory-efficient way to serve video.
+                            HLS is a low-latency and memory-efficient way to serve live videos.
                         </li>
                         <li>
                             Working with hardware is much more different than software. There is much
@@ -310,8 +312,8 @@
 
                     <h4>About</h4>
                     <p>
-                        Apoli Systems is the term project for my Software Engineering course. This 
-                        project is of me and four others with the task to create a cinema e-booking
+                        Apoli Systems is the term project for my Software Engineering course. This project
+                        is of me and four others with the task to create a cinema e-booking
                         system. We were to create both a user and admin frontend, a backend, and a 
                         database. 
                     </p>
@@ -493,7 +495,7 @@
 
             <section class="card" data-tags="personal, physical, solo">
                 <div class="heading">
-                    <h3>3D Printed Camera *</h3>
+                    <h3>3D Printed Camera</h3>
                     <small>September &ndash; December 2024</small>
                     <ul class="tags">
                         <li>Personal</li>
@@ -502,13 +504,89 @@
                     </ul>
                 </div>
                 <div class="details">
+                    <div class="project-images">
+                        <figure>
+                            <img alt="" src="imgs/cam/model.jpg" loading="lazy">
+                            <figcaption>
+                                The assembled 3D model of the camera rendered in Fusion 360 along with
+                                a cross-section view to show the inside.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img alt="" src="imgs/cam/internal.jpg" loading="lazy">
+                            <figcaption>
+                                An internal view of the camera by taking one of the side panes out. 
+                                The lens projects an image of a house on the back of the camera.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img alt="" src="imgs/cam/home.jpg" loading="lazy">
+                            <figcaption>
+                                A photograph taken by the camera. It is a digitized greyscale positive.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <h4>About</h4>
+                    <p>
+                        Not all my projects are about computers; I have other interests! I really enjoy
+                        analogue photography, so I tried my hand at making my own film camera! I was
+                        inspired by Brian Haidet's (AlphaPhoenix) <a href="https://youtu.be/ewQQX3fxQKk" target="_blank" rel="noopener noreferrer">
+                        video on cyanotypes</a> to try to make my own!
+                    </p>
+                    <p>
+                        Since I own a 3D printer and have experience in Fusion 360, I figured it wouldn't
+                        be too hard to model and print a camera from scratch. The "film" could be made
+                        from cyanotype chemicals and printmaking paper from craft stores. The only part
+                        I didn't make was the glass lenses that I had bought on ebay.
+                    </p>
+                    <p>
+                        Before committing to a 3D model, I first prototyped with a shoebox! Believe 
+                        it or not, that shoebox was able to take photographs by just taping a lens to 
+                        the front of it and having a cyanotype on the back! Ultimately, prototyping
+                        allowed me to do quick and rough testing to get a general idea of how a fully
+                        printed camera could be like.
+                    </p>
+                    <p>
+                        After reviewing some simple optics formulas and considering some of my experience
+                        from actual photography, I modeled a camera that could be printed and be put
+                        together. The lens allows for focusing a working distance from 1.5 meters to
+                        infinity.
+                    </p>
+                    <p>
+                        After all is said and done, I can capture photographs using the camera! Cyanotypes
+                        are only sensitive to UVA light, so photos can only be taken with sunlight or
+                        with artificial blacklights.
+                    </p>
+                    <p>
+                        The biggest drawback to cyanotypes is that the effective ISO is super low, and
+                        even with a 4 inch aperture, it still takes an exposure time on the order of 
+                        a few hours to get a decent image.
+                    </p>
+
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>
+                            There is value in spending a little time for prototyping. I had a completely
+                            different idea of how I wanted to design the camera before testing with a 
+                            shoebox. Needless to say, if a shoebox can take pictures, I didn't need to 
+                            complicate the camera model.
+                        </li>
+                        <li>
+                            Allowing a design to have flexibilty is better than having fixed components.
+                            This applies to lots of things in the world from programming to 3D modelling. 
+                        </li>
+                        <li>
+                            Cameras are not the hard part, photography is.
+                        </li>
+                    </ul>
 
                 </div>
             </section>
 
             <section class="card" data-tags="personal, software, java, solo">
                 <div class="heading">
-                    <h3>3D Model Viewer *</h3>
+                    <h3>3D Model Viewer</h3>
                     <small>July &ndash; August 2024</small>
                     <ul class="tags">
                         <li>Personal</li>
@@ -524,7 +602,7 @@
 
             <section class="card" data-tags="personal, software, web dev, solo">
                 <div class="heading">
-                    <h3>UGA Unisex Bathroom Search *</h3>
+                    <h3>UGA Unisex Bathroom Search</h3>
                     <small>January &ndash; February 2024</small>
                     <ul class="tags">
                         <li>Personal</li>
