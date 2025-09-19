@@ -3,10 +3,10 @@ console.log('Loaded', document.currentScript.src);
 const form = document.querySelector("form");
 const projects = document.querySelectorAll("#projects .card");
 
-// projects.forEach(project => {
-//     project.querySelector('.details').classList.add('closed');
-//     project.querySelector('.heading').setAttribute('tabindex', 0);
-// });
+projects.forEach(project => {
+    project.querySelector('.details').classList.add('closed');
+    project.querySelector('.heading').setAttribute('tabindex', 0);
+});
 
 if (form) {
     form.addEventListener('change', (event) => {
@@ -20,7 +20,7 @@ if (form) {
         }).filter(input => !!input);
 
         projects.forEach(project => {
-            if (!checkSub(project.dataset.tags.split(', '), selected)) {
+            if (!checkSubset(project.dataset.tags.split(', '), selected)) {
                 project.classList.add('hidden');
             } else {
                 project.classList.remove('hidden');
@@ -69,6 +69,8 @@ function toggle_card(card) {
 }
 
 
-function checkSub(a, sub) {
-    return a.join(',').includes(sub.join(','));
+function checkSubset(parentArray, subsetArray) {
+    return subsetArray.every((el) => {
+        return parentArray.includes(el)
+    })
 }
