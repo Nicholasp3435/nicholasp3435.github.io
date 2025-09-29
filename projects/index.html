@@ -608,7 +608,79 @@
                     </ul>
                 </div>
                 <div class="details">
+                    <div class="project-images">
+                        <figure>
+                            <img alt="" src="imgs/3dRender/demo.jpg" loading="lazy">
+                            <figcaption>
+                                The assembled 3D model of the camera rendered in Fusion 360 along with
+                                a cross-section view to show the inside.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img alt="" src="imgs/3dRender/demo2.jpg" loading="lazy">
+                            <figcaption>
+                                An internal view of the camera by taking one of the side panes out. 
+                                The lens projects an image of a house on the back of the camera.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <video controls preload="none" poster="imgs/3dRender/demo-poster.png">
+                                <source src="imgs/3dRender/demoVid.mp4" type="video/mp4">
+                                <a href="imgs/3dRender/demoVid.mp4">download video</a>
+                            </video>
+                            <figcaption>
+                                A Downy Woodpecker munching on the feeder as viewed from the webcam.
+                            </figcaption>
+                        </figure>
+                    </div>
 
+                    <p>
+                        Let's get something out of the way first: Linear algebra is a very powerful tool!
+                    </p>
+                    <p>
+                        I started making this after my linear algebra class. We learned a lot about vectors
+                        and transformations. One thing that stuck to me were rotation transformations, 
+                        though we only learned about the 2D rotation matrix. I went out of my way to learn
+                        the 3D rotation (and attempted to learn 4D rotation) matrices. A friend told me how
+                        these kind of transformations is how computers render 3D objects. I suddenly had
+                        inspiration to make a 3D object viewer. 
+                    </p>
+                    <p>
+                        The .OBJ file type is very easy to parse, as it is just a list of the vertices and
+                        faces of the model. I made a OBJReader class to read and parse .OBJ files into Vertex
+                        and Face object arrays. I harnessed the power of linear algebra and made some utility
+                        classes, Matrix and Vector, to perform transformations. That's right, I wanted to
+                        code all the math myself and not use a premade library. I didn't learn all the math
+                        for nothing; besides, it helps me to know what's going on under the hood anyway. 
+                    </p>
+                    <p>
+                        After making the utility classes, I made a loop to go through each face and transform
+                        the vectors associated with it and then draw the face. Each vector gets rotated
+                        about the X, Y, and Z axis; gets translated about the X, Y, and Z axis, gets perspective
+                        transformed, and then gets projected onto the XY plane to be rendered on the screen. 
+                    </p>
+                    <p>
+                        That's it! Just transform all the vectors and display it by connecting them together!
+                        I made a GUI and then mouse controls to view the model. I also made the model load
+                        a z distance away so that it automatically loads with the full model in view. The user
+                        can rotate about the X and Y axis by dragging the primary mouse button and can translate
+                        about the XY plane by dragging the secondary mouse button. The user can also zoom
+                        in and out with the scroll wheel. 
+                    </p>
+
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>
+                            3D vector transformations are defined by
+                            <ul>
+                                <li>Rotation matrices</li>
+                                <li>Translation matrices</li>
+                                <li>Perspective matrices</li>
+                            </ul>
+                        </li>
+                        <li>The .OBJ file format is really straight forward.</li>
+                        <li>3D rendering really isn't that complicated to understand!</li>
+                    </ul>
                 </div>
             </section>
 
