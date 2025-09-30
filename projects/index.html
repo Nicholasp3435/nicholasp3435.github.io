@@ -632,6 +632,7 @@
                         </figure>
                     </div>
 
+                    <h4>About</h4>
                     <p>
                         Let's get something out of the way first: Linear algebra is a very powerful tool!
                     </p>
@@ -696,7 +697,76 @@
                     </ul>
                 </div>
                 <div class="details">
+                    <div class="project-images">
+                        <figure>
+                            <img alt="" src="imgs/unisex/boyd.jpg" loading="lazy">
+                            <figcaption>
+                                The main view of the site. The search is for "Boyd"
+                                and the map displays a map with two unisex bathrooms
+                                highlighted.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img alt="" src="imgs/unisex/miller.jpg" loading="lazy">
+                            <figcaption>
+                                The same view of the site, but with the search for 
+                                "Miller".
+                            </figcaption>
+                        </figure>
+                    </div>
 
+                    <h4>About</h4>
+                    <p>
+                        The Unisex Bathroom Search is a project that is very near and
+                        dear to me. As a non-binary UGA student it's helpful to have
+                        the unisex bathrooms scattered throughout campus. There is a
+                        public pdf for all the unisex bathrooms on campus, however it
+                        isn't super navigable, especially for actually finding the
+                        bathrooms in the buildings. For that, I had to cross-reference
+                        the floor maps in an even more unnavigable site. 
+                    </p>
+                    <p>
+                        By January 2024, I had enough and started writing a simple html
+                        site for the unisex bathrooms in the buildings for my classes.
+                        Then I had an idea; why not just do it for every building? I
+                        can make a searchable list for each building and highlight all
+                        the unisex bathrooms in their respective maps. I used a software
+                        to turn the PDF maps into PNGs and highlighted each of the unisex
+                        bathrooms with a painting program. Each PNG was given a proper
+                        indexable filename. I then took the bathroom list PDF and imported 
+                        the table into Microsoft Excel. With Excel, I exported the data
+                        as a CSV which was then converted (with the power of notepad++
+                        and regular expressions) to a json. 
+                    </p>
+                    <p>
+                        Writing the site was a bit of a chore, but I managed to get
+                        a searchable list that updates a table with the input box.
+                        Visual Studio Code simplifies things enough. I had a spare
+                        computer and set up Ubuntu Server on it so that I could host
+                        the site. I set up SSH on the computer and a GitHub repository
+                        so that I can easily update the site if needed. I used CloudFlare
+                        to get a domain name and an SSL so that I can easily access
+                        it when I'm away from home. 
+                    </p>
+                    <p>
+                        This project was intended just for me, but I quickly realized
+                        that others can use it too! I cleaned up the html and the styles
+                        as recommended by friends. I then put it on GitHub Pages so that
+                        it's much more stable in case of a power outage. This has reached
+                        beyond my inner friends and I am happy to say that this project
+                        has helped many individuals. 
+                    </p>
+                    <ul>
+                        <li><i>"I'll send this to some of my friends, they'll love this"</i> ~ Leo M.</li>
+                        <li><i>"I just wanted to say that your unisex UGA bathroom page is actually super helpful, as a trans person thank you so much :></i>" ~ Max S.</li>
+                    </ul>
+
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>This was my first time doing web development. HTML, CSS, and JS were fun to learn!</li>
+                        <li>Using Ubuntu Server as a host is pretty straightforward to set up</li>
+                        <li>I finally learned about basic IP and DNS when setting up the server</li>
+                    </ul>
                 </div>
             </section>
 
