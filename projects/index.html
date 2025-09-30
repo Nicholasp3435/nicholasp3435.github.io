@@ -764,8 +764,8 @@
                     <h4>What I Learned</h4>
                     <ul>
                         <li>This was my first time doing web development. HTML, CSS, and JS were fun to learn!</li>
-                        <li>Using Ubuntu Server as a host is pretty straightforward to set up</li>
-                        <li>I finally learned about basic IP and DNS when setting up the server</li>
+                        <li>Using Ubuntu Server as a host is pretty straightforward to set up.</li>
+                        <li>I finally learned about basic IP and DNS when setting up the server.</li>
                     </ul>
                 </div>
             </section>
@@ -783,7 +783,81 @@
                         <li>Solo</li>
                     </ul>
                 </div>
-                <div class="details">
+                <div class="details">                    
+                    <div class="project-images">
+                        <figure>
+                            <img alt="" src="imgs/weather/image.png" loading="lazy">
+                            <figcaption>
+                                The main view of the app. The location is set to
+                                Athens, Georgia. The weather for the next three days
+                                are shown with icons.
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <video controls preload="none" poster="imgs/weather/weatherDemoPoster.png">
+                                <source src="imgs/weather/weatherDemo.mp4" type="video/mp4">
+                                <a href="imgs/weather/weatherDemo.mp4">download video</a>
+                            </video>
+                            <figcaption>
+                                A demo of the weather app responding to user inputs.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <h4>About</h4>
+                    <p>
+                        This is my first 'big' java project; the final project in
+                        my Software Development (CSCI 1302) class. We were tasked
+                        to make a GUI application that uses 2 APIs that depend
+                        on each other. By depend on each other, it means that the
+                        output of one API has to be used, in part, for the next
+                        API call. I decided to keep things simple enough and make
+                        a weather app. It starts out by making a call to the Geoapify
+                        API with the entered city and state to get the geographic
+                        coordinates. Then, it takes those coordinates and makes a
+                        call with the National Weather Service (NWS) API who then
+                        returns a forecast for that location. The NWS conveniently
+                        provides with icons and a little textual description for
+                        each day/night for the forecast. The icons automatically
+                        get displayed and the user can click to get the details
+                        of the forecast. 
+                    </p>
+                    <p>
+                        One thing to note about it is the error handling. Any user
+                        input error get's handled with a message box to tell the
+                        user what may have gone wrong. For example, if a user enters
+                        a city that doesn't exist in the selected state, internally,
+                        it will throw a custom exception (LocationNotFoundException)
+                        but will be caught and handled with an appropriate message
+                        box (with custom a icon!). 
+                    </p>
+                    <p>
+                        Another thing to note is the use of generics. The way that
+                        we were to perform API calls is through google GSON which
+                        works by taking a URI and parses a JSON to put with an object
+                        of specified type. For my use case, I had a Geocode object
+                        to hold the geographic coordinates and I had a WeatherForcast
+                        object to hold the forecast. I only have one method for
+                        performing API calls. Every time one needs to be made,
+                        the method will take the string and a class type for the
+                        accompanying response. 
+                    </p>
+                    <p>
+                        One last thing to note is this was my first time I had
+                        used GitHub. We set up the ssh and connected it to GitHub
+                        using the command line. Unfortunately, the repository has
+                        to be private due to UGA policies. Regardless, I have been
+                        using GitHub ever since.
+                    </p>
+                    
+                    <h4>What I Learned</h4>
+                    <ul>
+                        <li>I learned about JavaFX to make GUI applications in Java.</li>
+                        <li>There's a lot of API services and I should take advantage of them to do things for me so I don't have to.</li>
+                        <li>Wxception handling is very important so apps don't crash when things go wrong.</li>
+                        <li>Java has inheritance and polymorphism; they make a lot less redundant code.</li>
+                        <li>Version control is very important for development.</li>
+                    </ul>
 
                 </div>
             </section>
