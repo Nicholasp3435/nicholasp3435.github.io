@@ -44,24 +44,24 @@ document.querySelectorAll('.card').forEach(card => {
     
 });
 
-function toggle_card(card) {
-
-    
+function toggle_card(card) 
+{
     const details = card.querySelector('.details');
 
-    if (details.classList.contains('opening') || details.classList.contains('closing')) {
+    if (details.classList.contains('opening') || details.classList.contains('closing'))
         return;
-    }
-
-    if (details.classList.contains('closed')) {
+    
+    if (details.classList.contains('closed')) 
+    {
         details.classList.remove('closed');
         details.classList.add('opening');
-        setTimeout(() => {
-            details.classList.remove("opening");
-        }, 250);
-    } else {
+        setTimeout(() =>  { details.classList.remove("opening") }, 250);
+    } 
+    else 
+    {
         details.classList.add('closing');
-        setTimeout(() => {
+        setTimeout(() => 
+        {
             details.classList.remove("closing");
             details.classList.add('closed');
         }, 250);
@@ -69,8 +69,7 @@ function toggle_card(card) {
 }
 
 
-function checkSubset(parentArray, subsetArray) {
-    return subsetArray.every((el) => {
-        return parentArray.includes(el)
-    })
+function checkSubset(parentArray, subsetArray) 
+{
+    return subsetArray.every((el) => { return parentArray.includes(el) });
 }
