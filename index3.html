@@ -7,12 +7,12 @@
 
     <meta name="copyright" content="Nicholas Pautler">
     <meta name="robots" content="index, follow">
-    
+
     <link rel="canonical" href="https://nicp.dev">
 
     <!-- Primary Meta Tags -->
     <title>About Nic</title>
-    
+
     <meta name="title" content="About Nic">
     <meta name="description" content="Hi! I am Nicholas, a Computer Science student at the University of Georgia.">
 
@@ -51,9 +51,9 @@
     <main>
         <section id="about">
             <h2>About Me</h2>
-            <p>Hi, I'm a Computer Science major with a Mathematics minor, and I’m passionate about blending creativity with technical expertise. As a proud member of the LGBT+ community, 
+            <p>Hi, I'm a Computer Science major with a Mathematics minor, and I’m passionate about blending creativity with technical expertise. As a proud member of the LGBT+ community,
                 I bring a unique perspective to my work. I'm proficient in Java and currently expanding my skills by learning C. I thrive in a Linux environment, which I use daily for personal
-                use, development, and server management. I maintain a personal Ubuntu server for a self-hosted website and I also use GitHub Pages to host this one! My goal is to continue growing 
+                use, development, and server management. I maintain a personal Ubuntu server for a self-hosted website and I also use GitHub Pages to host this one! My goal is to continue growing
                 as a developer while contributing to meaningful projects that make a difference.
             </p>
             <img src="imgs/icns/bisexual.svg" title="Bisexual flag" height="35rem">
@@ -85,19 +85,19 @@
                 </figure>
                 <h3>About</h3>
                 <p>Lets get something out of the way first: OMG is linear algebra a powerful tool!</p>
-                <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned 
+                <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned
                     about the 2D rotation matrix. I went out of my way to learn the 3D rotation (and attempted to learn 4D rotation) matrices. A friend told me how these kind of transformations is how computers
                     render 3D objects. I suddenly had inspiration to make a 3D object viewer.
                 </p>
                 <p>The .OBJ file type is very easy to parse, as it is just a list of the vertices and faces of the model. I made a OBJReader class to read and parse .OBJ files into Vertex and Face object arrays.
-                    I harnessed the power of <em>linear algebra</em> and mde some utility classes, Matrix and Vector, to perform transformations. That's right, I wanted to code all the math myself and not use a 
+                    I harnessed the power of <em>linear algebra</em> and mde some utility classes, Matrix and Vector, to perform transformations. That's right, I wanted to code all the math myself and not use a
                     premade library. I didn't learn all the math for nothing; besides, it helps me to know what's going on under the hood anyway.
                 </p>
                 <p>After making the utility classes, I made a loop to go through each face and transform the vectors ascociated with it and then draw the face. Each vector gets rotated about the X, Y, and Z axis; gets
                     translated about the X, Y, and Z axis, gets perspective transformed, and then gets projected onto the XY plane to be rendered on the screen.
                 </p>
                 <p>That's it! Just transform all the vectors and display it by connecting them together! I made a GUI and then mouse controls to view the model. I also made the model load a z distance away
-                    so that it automatically loads with the full model in view. The user can rotate about the X and Y axis by dragging the primary mouse button and can translate about the XY plane by dragging the 
+                    so that it automatically loads with the full model in view. The user can rotate about the X and Y axis by dragging the primary mouse button and can translate about the XY plane by dragging the
                     secondary mouse button. The user can also zoom in and out with the scroll wheel.
                 </p>
                 <h3>What I learned</h3>
@@ -134,9 +134,9 @@
                     </a>
                 </figure>
                 <h3>About</h3>
-                <p>The Unisex Bathroom Search is a project that is very near and dear to me. As a non-binary UGA student it's helpful to have the unisex bathrooms scattered throughout campus. There 
-                    is a <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf">public&nbsppdf</a> for all the unisex bathrooms on campus, however 
-                    it isn't super navigatable, especially for actually finding the bathrooms in the buildings. For that, I had to cross-reference the 
+                <p>The Unisex Bathroom Search is a project that is very near and dear to me. As a non-binary UGA student it's helpful to have the unisex bathrooms scattered throughout campus. There
+                    is a <a href="https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf">public&nbsppdf</a> for all the unisex bathrooms on campus, however
+                    it isn't super navigatable, especially for actually finding the bathrooms in the buildings. For that, I had to cross-reference the
                     <a href="https://digitalplansroom.fmd.uga.edu/WebFileBrowser/WebFileBrowser.aspx">floor&nbspmaps</a> in an even more unnavigable site.
                 </p>
                 <p>By January 2024, I had enough and started writing a simple html site for the unisex bathrooms in the buildings for my classes. Then I had an idea; why not just do it for every building?
@@ -144,11 +144,11 @@
                     unisex bathrooms with a painting program. Each PNG was given a proper indexable filename. I then took the bathroom list PDF and imported the table into Microsoft Excel. With excel, I exported
                     the data as a CSV which was then converted (with the power of notepad++ and regular expressions) to a json.
                 </p>
-                <p>Writing the site was a bit of a chore, but I managed to get a searchable list that updates a table with the input box. Visual Studio Code simplifies things enough. I had a spare computer 
-                    and set up Ubuntu Server on it so that I could host the site. I set up SSH on the computer and a github repository so that I can easily update the site if needed. I used CloudFlare to get 
+                <p>Writing the site was a bit of a chore, but I managed to get a searchable list that updates a table with the input box. Visual Studio Code simplifies things enough. I had a spare computer
+                    and set up Ubuntu Server on it so that I could host the site. I set up SSH on the computer and a github repository so that I can easily update the site if needed. I used CloudFlare to get
                     a domain name and an SSL so that I can easily access it when I'm away from home.
                 </p>
-                <p>This project was intended just for me, but I quickly realized that others can use it too! I cleaned up the html and the styles as recommended by friends. I then put it on GitHub Pages 
+                <p>This project was intended just for me, but I quickly realized that others can use it too! I cleaned up the html and the styles as recommended by friends. I then put it on GitHub Pages
                     so that it's much more stable in case of a power outage. This has reached beyond my inner friends and I am happy to say that this project has helped dozens of individuals.
                 </p>
                 <h3>What I learned</h3>
@@ -174,17 +174,17 @@
                 </figure>
                 <h3>About</h3>
                 <p>This is my first 'big' java project; the final project in my Software Development (CSCI 1302) class. We were tasked to make a GUI application that uses 2 APIs that depend on each other.
-                    By depend on each other, it means that the output of one API has to be used, in part, for the next API call. I decided to keep things simple enough and make a weather app. It starts out 
+                    By depend on each other, it means that the output of one API has to be used, in part, for the next API call. I decided to keep things simple enough and make a weather app. It starts out
                     by making a call to the <a href="https://www.geoapify.com/geocoding-api/">Geoapify API</a> with the entered city and state to get the geographic coordinates. Then, it takes those coordinates
                     and makes a call with the <a href="https://www.weather.gov/documentation/services-web-api">National Weather Service</a> (NWS) API who then returns a forecast for that location. The NWS conveniently
                     provides with icons and a little textual description for each day/night for the forecast. The icons automatically get displayed and the user can click to get the details of the forecast.
                 </p>
-                <p>One thing to note about it is the error handling. Any user input error get's handled with a message box to tell the user what may have gone wrong. For example, if a user enters a city that doesn't 
+                <p>One thing to note about it is the error handling. Any user input error get's handled with a message box to tell the user what may have gone wrong. For example, if a user enters a city that doesn't
                     exist in the selected state, internally, it will throw a custom exception (LocationNotFoundException) but will be caught and handled with an appropriate message box (with custom a icon!).
                 </p>
                 <p>Another thing to note is the use of generics. The way that we were to perform API calls is through google GSON which works by taking a URI and parses a JSON to put with an object of specified type.
-                    For my use case, I had a Geocode object to hold the geographic coordinates and I had a WeatherForcast object to hold the forecast. I only have one method for performing API calls. Every time one needs 
-                    to be made, the method will take the string and a class type for the accompanying response. 
+                    For my use case, I had a Geocode object to hold the geographic coordinates and I had a WeatherForcast object to hold the forecast. I only have one method for performing API calls. Every time one needs
+                    to be made, the method will take the string and a class type for the accompanying response.
                 </p>
                 <p>One last thing to note is this was my first time I had used GitHub. We set up the ssh and connected it to GitHub using the command line. Unfortunately, the repository has to be private due to UGA policies.
                     Regardless, I have been using GitHub ever since.

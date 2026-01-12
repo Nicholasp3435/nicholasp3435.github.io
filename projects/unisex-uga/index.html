@@ -137,7 +137,7 @@
           document.getElementById("no-results").classList.remove("closed");
         }
       }
-    
+
     function makeTable(arr) {
       let table = document.getElementById("result");
         // adds to the table
@@ -178,7 +178,7 @@
               newCell.classList.add("roomData");
               floorCount++;
             });
-            
+
           }
         });
 
@@ -198,7 +198,7 @@
 
     function loadMap(num, floor) {
       let file = "data\\maps\\png\\" + num + "_" + floor + "_C.png";
-      
+
       mapImg.setAttribute("src", file);
       show = document.getElementsByClassName("showing");
       if (show.length > 0) {
@@ -212,7 +212,7 @@
         mapImg.setAttribute("src", "imgs\\noMap.png");
       };
     }
-  
+
   </script>
 </body>
 </html>

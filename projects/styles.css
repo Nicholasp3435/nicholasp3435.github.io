@@ -32,11 +32,11 @@
 }
 
 /* .card:has(.details.closed) .heading:hover {
-    box-shadow: 0 0 1rem #fff; 
+    box-shadow: 0 0 1rem #fff;
 }
 
 .card:not(:has(.details.closed)):hover {
-    box-shadow: 0 0 1rem #fff; 
+    box-shadow: 0 0 1rem #fff;
 } */
 
 .card .details {
@@ -81,7 +81,7 @@
     height: 18rem;
 }
 
-.project-images figcaption { 
+.project-images figcaption {
     font-size: smaller;
     padding: 0.25rem;
     border-top: 0.33rem solid #aaa;
@@ -89,7 +89,7 @@
 }
 
 .card > p {
-    margin-left: 1rem;    
+    margin-left: 1rem;
 }
 
 ul.tags li {
@@ -122,7 +122,7 @@ summary {
         max-height: 0;
     }
     to {
-        max-height: 125vh; 
+        max-height: 125vh;
     }
 }
 

@@ -4,9 +4,9 @@
 	    <title>About Nic</title>
         <link rel="stylesheet" type="text/css" href="../../styles.css">
         <link rel="stylesheet" type="text/css" href="styles.css">
-        
+
     </head>
-    <body onload="init()"> 
+    <body onload="init()">
         <header>
             <h1>OBJ Viewer Info</h1>
             <nav>
@@ -18,7 +18,7 @@
             </nav>
         </header>
 
-        <main>            
+        <main>
             <section class="project">
                 <h2>OBJ Viewer App</h2>
                 <!-- for latex parsing-->
@@ -35,7 +35,7 @@
                     <li><a href="https://github.com/Nicholasp3435/OBJViewer">Source code</a></li>
                 </ul>
                 <h3>About</h3>
-                <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned 
+                <p>I started making this after my linear algebra class. We learned a lot about vectors and transformations. One thing that stuck to me were rotation transformations, though we only learned
                     about the 2D rotation matrix:
                 </p>
                 <p>
@@ -60,7 +60,7 @@
                         </script>
                     </div>
                 </div>
-                <p>A then wondered about how 3D rotation matrices would work. I looked it up and they were pretty much what I thought; just the 2D matrix with some padding to just rotate certian planes. The way to do it is exactly what 
+                <p>A then wondered about how 3D rotation matrices would work. I looked it up and they were pretty much what I thought; just the 2D matrix with some padding to just rotate certian planes. The way to do it is exactly what
                      you'd do with 2D, but with one of these silly matrices:
                 </p>
                 <p>
@@ -77,7 +77,7 @@
                 <section id="desmos">
                     <h3>Desmos</h3>
                     <p><em>Each rendering in this section is live with desmos embedded!</em></p>
-                    <p>I wanted to keep basic from the start, like reaaaly basic. I wanted to see if I can rotate a 2D square and project it onto a 1D line. I made 4 points for the corners, then I used a 
+                    <p>I wanted to keep basic from the start, like reaaaly basic. I wanted to see if I can rotate a 2D square and project it onto a 1D line. I made 4 points for the corners, then I used a
                         function to transform each vector with the 2D rotation matrix. Then I projected it onto a line. I used a polygon to draw the line since I can just put the transformed and projeced points into it.
                     </p>
                     <div class="desmosRenderings">
@@ -100,9 +100,9 @@
                             </script>
                         </div>
                     </div>
-                    <p>Yep. Prety straight forward. I also managed any quadrilateral to be "rendered" by just moving the points. All I did was take each coordinate and make a function to multiply each one by the 2D rotation matrix. 
+                    <p>Yep. Prety straight forward. I also managed any quadrilateral to be "rendered" by just moving the points. All I did was take each coordinate and make a function to multiply each one by the 2D rotation matrix.
                         Next, time to make a 3D cube rotate on a 2D screen! The process wasn't too hard. It's really just an extention of what I had just done. This time, I was more systematic though. I made a table of each of the vectors
-                        of a cube. Then I made 3 functions for each of the 3 planes of rotation in 3D. I made a functoin to multiply a matrix by a vector. With these functions, I made another table to go through and go through 
+                        of a cube. Then I made 3 functions for each of the 3 planes of rotation in 3D. I made a functoin to multiply a matrix by a vector. With these functions, I made another table to go through and go through
                         each vector and transform it with each rotation matrix. I then drew a polygon connecting each of the 6 faces together with the transformed vectors.
                     </p>
                     <div class="desmosRenderings">
@@ -116,7 +116,7 @@
                             </script>
                         </div>
                     </div>
-                    <p>This time, not too straight forward. It only works with a cube anyway. I'd have to go in and manually add every face to a table and update each vertex for it to render anything else. 
+                    <p>This time, not too straight forward. It only works with a cube anyway. I'd have to go in and manually add every face to a table and update each vertex for it to render anything else.
                         <em>If only there was a way to get a 3D model's vertices and faces. A neat contained list would be so beneficial...</em> INCOMES THE .OBJ FILE!!
                     </p>
                     <p>The .obj file is a <em>really</em> simple file format. Remember when I said how I wished for a 3D model to have a neat contained list of it's vertices and faces not 17 words ago? Yep! The .obj file is exactly
@@ -137,8 +137,8 @@
     v -1 1 1
     v 1 1 1
 
-    # These are the faces that connect the vertices.    
-    # Ex: f 1 3 4 connects (-1, -1, -1), (-1, 1, -1), and (1, 1, -1)    
+    # These are the faces that connect the vertices.
+    # Ex: f 1 3 4 connects (-1, -1, -1), (-1, 1, -1), and (1, 1, -1)
     f 1 3 4
     f 1 2 4
     f 2 4 8
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                     <p>I also may have started to go a little overboard with the .obj files and took some fun ones. One thing that I wasn't super happy with was that all the renderings were orthographic. That made some of the renderings
-                        look a little bit off; far away things don't get smaller. I consulted with my friend who knows a lot about 3D models and she told me about the <em>perspective matrix</em>. The setup to use a perspective matrix 
+                        look a little bit off; far away things don't get smaller. I consulted with my friend who knows a lot about 3D models and she told me about the <em>perspective matrix</em>. The setup to use a perspective matrix
                         is similar, but slightly different. This time, you'd need a 4th component. There are a few different perspective matrices, but I chose to use this one:
                     </p>
                     <div class="math">
@@ -195,7 +195,7 @@
                         y \\
                         z \\
                         1 \\
-                        \end{bmatrix} = 
+                        \end{bmatrix} =
 
                         \begin{bmatrix}
                         x' \\
@@ -206,7 +206,7 @@
 
                         \end{alignedat}
                     </div>
-                    <p>In short, \(h\) and \(w\) are the height and width of the display and \(\theta\) is the FOV and determines how zoomed in you are. Don't worry about zNear and zFar if you don't know what they are; i'm not worrying 
+                    <p>In short, \(h\) and \(w\) are the height and width of the display and \(\theta\) is the FOV and determines how zoomed in you are. Don't worry about zNear and zFar if you don't know what they are; i'm not worrying
                         about them in my graphs.
                     </p>
                     <p>There is one more step that ust be done before rendering. The perspective matrix only gives a scale factor for each x, y, and z component. To do this, divide the each component by the 4th as follows:</p>
@@ -271,7 +271,7 @@
                             </script>
                         </div>
                     </div>
-                    <p>Keep in mind that order of operations matters; first rotate, then translate. That ensures that the model rotates about the obj's origin. If you translate first, then it will rotate about the graph's 
+                    <p>Keep in mind that order of operations matters; first rotate, then translate. That ensures that the model rotates about the obj's origin. If you translate first, then it will rotate about the graph's
                         orgin. The rendering on the left is rotate first then translate and the right is translate translate first then rotate:
                     </p>
                     <div class="desmosRenderings">
@@ -334,15 +334,15 @@
                 </section>
                 <section id="java">
                     <h3>Java</h3>
-                    <p>With Desmos slowing for large models, I figured an actual program in Java could load them way faster. As a challange, I chose to code all the math myself. I started by making a <code>Vertex</code> and 
-                        a <code>Face</code> class. I then made a <code>OBJReader</code> class to parse .obj files. It uses a <code>BufferedReader</code> and puts all the vertex and face data into arrays. I then made a 
+                    <p>With Desmos slowing for large models, I figured an actual program in Java could load them way faster. As a challange, I chose to code all the math myself. I started by making a <code>Vertex</code> and
+                        a <code>Face</code> class. I then made a <code>OBJReader</code> class to parse .obj files. It uses a <code>BufferedReader</code> and puts all the vertex and face data into arrays. I then made a
                         <code>Matrix</code> class to perform matrix operations. The root of the is a <code>Double[][]</code>. I also added static methods to create new rotation matrices. I also made a method to multiply
                         arbitrary matrices together. I went back to my linear algebra notes and got the formula to calculate the product entrywise and converted it into for loops:
                     </p>
                     <div class="math">
                         \begin{alignedat}{1}
 
-                        (AB)_{ij} = 
+                        (AB)_{ij} =
 
                         \sum_{k=1}^{n}a_{ik}b_{kj}
 
@@ -358,15 +358,15 @@
     *
     * @return Returns the matrix product of A × B.
     */
-    public static Matrix multiply(final Matrix a, final Matrix b) throws DimensionMismatchException {    
+    public static Matrix multiply(final Matrix a, final Matrix b) throws DimensionMismatchException {
 
     // check if compatible
     if (a.col != b.row) {
-        throw new DimensionMismatchException("Incompatible multiplication;" + 
+        throw new DimensionMismatchException("Incompatible multiplication;" +
                                              "columns of A do not match the rows of B; " +
                                               a.col + " != " + b.col);
     } // if
-    
+
     Matrix c = new Matrix(a.row, b.col);
 
     for (int i = 0; i < a.row; i++) {
@@ -378,7 +378,7 @@
     } // for
 
         return c;
-        
+
     } // multiply
                         </code></pre>
                     </div>
@@ -408,7 +408,7 @@
                     </figure>
                     <p>Great! I had a properly <em>working</em> 3D model viewer, the math does what the math should and all, but the UI isn't super great. This is actually what I spent most time on, making the UI.
                         One thing that I spent a while perfecting is using the mouse view from different perspectives. This video demos how the program can rotate, translate, and zoom in/out 3D models with using just
-                        the mouse controls. All the underlaying math is the same as before, just with better controls. The video also demos how the program automatically puts the model, regardless of its size, 
+                        the mouse controls. All the underlaying math is the same as before, just with better controls. The video also demos how the program automatically puts the model, regardless of its size,
                         a respectable distance from the camera so it isn't too zoomed in when it loads.
                     </p>
                     <div style="text-align: center;">
@@ -416,7 +416,7 @@
                             <source src="javaPre/demoVid.mp4">
                         </video>
                     </div>
-                    <p>In the end, I feel like this is as good as I can get the UI. I may come back to this with a library for matrix functions since they may be faster. 
+                    <p>In the end, I feel like this is as good as I can get the UI. I may come back to this with a library for matrix functions since they may be faster.
                     </p>
                 </section>
             </section>
@@ -424,7 +424,7 @@
         <script>
             function updateGradient() {
                 const aspectRatio = window.innerHeight / window.innerWidth;
-                document.body.style = 
+                document.body.style =
                 `background-image: linear-gradient(
                 in Oklab ${Math.PI - Math.atan(aspectRatio)},
                 #33031e 0%,

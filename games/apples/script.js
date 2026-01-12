@@ -192,7 +192,7 @@ function handleMovement() {
             isFlying = true;
     }
     if (upPressed && flyTimer > 0) {
-        flyTimer--;        
+        flyTimer--;
 }
     gravity();
 }
@@ -229,7 +229,7 @@ function appleMovement() {
     appleY = A * Math.sin(B * (appleX - C)) + D;
 }
 
-function respawnApple() { 
+function respawnApple() {
     appleX = 1100;
     A = randnum(100,200);
     B = randnum(0.01, 0.05);
@@ -242,7 +242,7 @@ function isTouching() {
         if (appleY - y <= 208 && appleY - y >= 55) {
             return true;
         }
-    } 
+    }
     if (appleX - x <= 168 && appleX - x >= 84) {
         if (appleY - y <= 208 && appleY - y >= -30) {
             return true;

@@ -80,7 +80,7 @@ body {
         #67f3 80%,
         #67f3 100%
     );
-    
+
     background-image: linear-gradient(
         135deg in Oklab,
         lab(50% 73.82 0.32 / 0.33) 0%,

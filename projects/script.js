@@ -1,6 +1,6 @@
 console.log('Loaded', document.currentScript.src);
 
-const form = document.querySelector("form");
+const filter = document.querySelector("#filter");
 const projects = document.querySelectorAll("#projects .card");
 
 projects.forEach(project => {
@@ -8,9 +8,10 @@ projects.forEach(project => {
     project.querySelector('.heading').setAttribute('tabindex', 0);
 });
 
-if (form) {
-    form.addEventListener('change', (event) => {
-        const inputs = [...event.currentTarget.elements];
+if (filter) {
+    filter.addEventListener('change', (event) => {
+        console.log(event)
+        const inputs = [...event.currentTarget.querySelectorAll("input")];
         const selected = inputs.map(input => {
             if (input.checked) {
                 return input.value;
@@ -41,26 +42,26 @@ document.querySelectorAll('.card').forEach(card => {
             toggle_card(card);
         }
     });
-    
+
 });
 
-function toggle_card(card) 
+function toggle_card(card)
 {
     const details = card.querySelector('.details');
 
     if (details.classList.contains('opening') || details.classList.contains('closing'))
         return;
-    
-    if (details.classList.contains('closed')) 
+
+    if (details.classList.contains('closed'))
     {
         details.classList.remove('closed');
         details.classList.add('opening');
         setTimeout(() =>  { details.classList.remove("opening") }, 250);
-    } 
-    else 
+    }
+    else
     {
         details.classList.add('closing');
-        setTimeout(() => 
+        setTimeout(() =>
         {
             details.classList.remove("closing");
             details.classList.add('closed');
@@ -69,7 +70,7 @@ function toggle_card(card)
 }
 
 
-function checkSubset(parentArray, subsetArray) 
+function checkSubset(parentArray, subsetArray)
 {
     return subsetArray.every((el) => { return parentArray.includes(el) });
 }

@@ -1,4 +1,4 @@
-let do3uir4gmi = 
+let do3uir4gmi =
 {
     "version": 11,
     "randomSeed": "8392598d27b99ba8701a624fe05bce3b",

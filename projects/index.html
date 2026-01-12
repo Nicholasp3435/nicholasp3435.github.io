@@ -14,7 +14,7 @@
 
     <script defer src="/default-script.js"></script>
     <script defer src="script.js"></script>
-    
+
 </head>
 
 <body>
@@ -35,10 +35,10 @@
     <main>
         <h2>Projects</h2>
         <p class="yes-script">Click on a heading to open that project</p>
-        <details class="yes-script"> 
+        <details class="yes-script">
             <summary>Filter by tags</summary>
-            
-            <form>
+
+            <div id="filter">
                 <label>
                     <input type="checkbox" value="personal">
                     Personal
@@ -80,7 +80,7 @@
                     Solo
                 </label>
 
-            </form>
+            </div>
 
         </details>
 
@@ -128,7 +128,7 @@
                     <p>
                         One of my favorite things in the world is birds! I was inspired by products
                         like Bird Buddy, a bird feeder with a built-in camera, to make my own such product!
-                        The main reason is that I wanted to be able to live-stream my bird feeder so 
+                        The main reason is that I wanted to be able to live-stream my bird feeder so
                         that <em>anyone</em> can watch; something Bird Buddy doesn't support.
                     </p>
                     <p>
@@ -150,21 +150,21 @@
                     </p>
                     <p>
                         I tried lots of software solutions like trying to limit the amount of background
-                        processes on the Pi so the power could be available for USB. After a little 
+                        processes on the Pi so the power could be available for USB. After a little
                         research on forum threads, I found the problem is hardware; the Pi 3B+ just has
-                        an inherit USB instability. 
+                        an inherit USB instability.
                     </p>
                     <p>
-                        Thank goodness I kept the receipt because I exchanged the Pi 3B+ for a Pi 4B. 
-                        After nervously watching the video stream, it seemed stable enough to call it 
+                        Thank goodness I kept the receipt because I exchanged the Pi 3B+ for a Pi 4B.
+                        After nervously watching the video stream, it seemed stable enough to call it
                         stable at 720p! It <em>can</em> do 1080p, but then the bitrate and quality really
                         drops.
                     </p>
                     <p>
-                        After some trial and error, I got FFmpeg running on the Pi to stream video to 
-                        the server. The server hosts the stream using HLS segments as well as stores 24 
-                        hours of archived video. At night, the server can run a motion detection 
-                        algorithm to detect bird activity and store bird visitors in a permanent 
+                        After some trial and error, I got FFmpeg running on the Pi to stream video to
+                        the server. The server hosts the stream using HLS segments as well as stores 24
+                        hours of archived video. At night, the server can run a motion detection
+                        algorithm to detect bird activity and store bird visitors in a permanent
                         archive.
                     </p>
 
@@ -174,13 +174,13 @@
                             A good video stream balances bitrate and resolution.
                             <ul>
                                 <li>
-                                    Think of a large canvas drawn quickly in pen; big doesn't 
+                                    Think of a large canvas drawn quickly in pen; big doesn't
                                     always mean better!
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            FFmpeg is a very useful tool for anything video related; it can even offload 
+                            FFmpeg is a very useful tool for anything video related; it can even offload
                             to GPU for higher performance.
                         </li>
                         <li>
@@ -188,7 +188,7 @@
                         </li>
                         <li>
                             Working with hardware is much more different than software. There is much
-                            more to consider than just slapping a Pi in a box and calling it a day. 
+                            more to consider than just slapping a Pi in a box and calling it a day.
                         </li>
                     </ul>
 
@@ -213,38 +213,38 @@
                         <figure>
                             <img alt="" src="imgs/whereUGA/home.jpg" loading="lazy">
                             <figcaption>
-                                The home page of Where UGA. It has the purpose and instructions about 
+                                The home page of Where UGA. It has the purpose and instructions about
                                 the app.
                             </figcaption>
                         </figure>
                         <figure>
                             <img alt="" src="imgs/whereUGA/espresso.jpg" loading="lazy">
                             <figcaption>
-                                The map page showing several pins from other users. 
+                                The map page showing several pins from other users.
                             </figcaption>
                         </figure>
                     </div>
 
                     <h4>About</h4>
                     <p>
-                        Where UGA is the result of a team project for a Web Programming course. We were 
-                        given a prompt to create a React web application that serves to help UGA. A 
-                        friend and I assembled a team with two others to create an app to search and 
-                        upload on campus amenities such as bathrooms or vending machines. 
+                        Where UGA is the result of a team project for a Web Programming course. We were
+                        given a prompt to create a React web application that serves to help UGA. A
+                        friend and I assembled a team with two others to create an app to search and
+                        upload on campus amenities such as bathrooms or vending machines.
                     </p>
                     <p>
-                        As part of our Web Programming course, we used React with Next.js. We started 
-                        with Figma mockups of the app. We designed a home page, two views of the map 
-                        page (one for each logged in and logged out users), a registration page, and 
-                        a login page. 
+                        As part of our Web Programming course, we used React with Next.js. We started
+                        with Figma mockups of the app. We designed a home page, two views of the map
+                        page (one for each logged in and logged out users), a registration page, and
+                        a login page.
                     </p>
                     <p>
-                        We then split up, each doing separate tasks for the app. Some of us made React 
-                        components for each of the pages and others managed a MongoDB database for 
-                        storing user accounts and user submitted amenities. 
+                        We then split up, each doing separate tasks for the app. Some of us made React
+                        components for each of the pages and others managed a MongoDB database for
+                        storing user accounts and user submitted amenities.
                     </p>
                     <p>
-                        The result of our hard work is an app where users can view pins of on campus 
+                        The result of our hard work is an app where users can view pins of on campus
                         amenities provided by registered users. Any user can provide an email address
                         and password to create their own custom pins! The data is hashed and stored
                         using a MongoDB Cloud server.
@@ -261,7 +261,7 @@
                     <h4>What I Learned</h4>
                     <ul>
                         <li>
-                            React with Next.js is quite versatile, being able to do many things that 
+                            React with Next.js is quite versatile, being able to do many things that
                             would be more difficult to do with standard HTML.
                         </li>
                         <li>
@@ -295,7 +295,7 @@
                         <figure>
                             <img alt="" src="imgs/apoli/home.jpg" loading="lazy">
                             <figcaption>
-                                Apoli Systems home page. It displays movies as cards. Clicking a card 
+                                Apoli Systems home page. It displays movies as cards. Clicking a card
                                 reveals a trailer and showing times.
                             </figcaption>
                         </figure>
@@ -319,12 +319,12 @@
                     <p>
                         Apoli Systems is the term project for my Software Engineering course. This project
                         is of me and four others with the task to create a cinema e-booking
-                        system. We were to create both a user and admin frontend, a backend, and a 
-                        database. 
+                        system. We were to create both a user and admin frontend, a backend, and a
+                        database.
                     </p>
                     <p>
                         I was the frontend team lead where we started with a mix of paper and Figma
-                        prototyping. I wasn't too familiar with Figma at the time, so I stuck with 
+                        prototyping. I wasn't too familiar with Figma at the time, so I stuck with
                         paper for a little bit before another team member showed me how to use it.
                     </p>
                     <p>
@@ -336,24 +336,24 @@
                         During the development of the project, we learned lots about Software
                         Engineering. Things like UML diagrams, SOLID principles, different architectural
                         designs, and working as a team were all taught alongside development. I do wish
-                        we were taught some things <em>before</em> major code development, but now I 
+                        we were taught some things <em>before</em> major code development, but now I
                         know for the future!
                     </p>
                     <p>
-                        The result of the term project is an cinema e-booking system aimed for two sets 
+                        The result of the term project is an cinema e-booking system aimed for two sets
                         of users: users who want to buy movie tickets, and admins managing the movies.
                         Those who want to watch movies can view available films and select a showtime
                         before selecting seats. Users must be logged in to purchase tickets, so if one
                         isn't, the system will redirect to the login page where they can login/register.
-                        On registration, the system will hash and store credentials in a MongoDB 
+                        On registration, the system will hash and store credentials in a MongoDB
                         database. After the user is logged in, they are able to purchase tickets. On
                         purchasing tickets, the system will store the selected seats in the database as
                         well.
                     </p>
                     <p>
-                        Any admins who logs in will automatically be redirected to the admin panel, 
+                        Any admins who logs in will automatically be redirected to the admin panel,
                         where they can manage the current movies, current promotions, and current users.
-                        An admin is able to create, update, and delete movies and showtimes. They are 
+                        An admin is able to create, update, and delete movies and showtimes. They are
                         also able to create, update, and delete promotions for movies. An admin is able
                         to send a promotional emails to all users. Finally, an admin is able to promote
                         a general user to an admin. Everything is stored in a MongoDB database.
@@ -363,14 +363,14 @@
                     <ul>
                         <li>
                             Working as a team is very efficient, so long as everyone does their part and
-                            communicates any issues. We struggled a little bit in the beginning with 
+                            communicates any issues. We struggled a little bit in the beginning with
                             communication, but we all got in the swing of things quickly.
                         </li>
                         <li>
-                            I also took on a role of a version controller; I managed the GitHub 
+                            I also took on a role of a version controller; I managed the GitHub
                             repository. This was the first time I had managed a repo for more than just
-                            myself. I found it to be very useful having many different branches for each 
-                            task. 
+                            myself. I found it to be very useful having many different branches for each
+                            task.
                         </li>
                         <li>
                             As the frontend team lead, I had to coordinate with the backend team to make
@@ -390,7 +390,7 @@
             </section>
 
             <section class="card" data-tags="other work, software, lang:c, solo">
-                <div class="heading"> 
+                <div class="heading">
                     <div>
                         <h3>Image Steganography</h3>
                         <small>September 2024</small>
@@ -411,11 +411,11 @@
                                 the original and the right one has an encoded message.
                             </figcaption>
                         </figure>
-                        
+
                         <figure>
                             <img alt="" src="imgs/steganography/rbwo-close.png" loading="lazy">
                             <figcaption>
-                                Very close up, the pixels are subtly different between the two 
+                                Very close up, the pixels are subtly different between the two
                                 images.
                             </figcaption>
                         </figure>
@@ -426,7 +426,7 @@
                         As part of a take-home interview project for the University of Georgia's
                         Small Satellite Research Lab, I was tasked with hiding a text message inside
                         a PNG image without visibly altering it. The task was split into making two
-                        programs: an encoder and decoder. The biggest requirement was that the 
+                        programs: an encoder and decoder. The biggest requirement was that the
                         message must be encoded in such a way so that the decoder can detect errors,
                         bonus points if the decoder can correct errors.
                     </p>
@@ -435,46 +435,46 @@
                         research, I found this general process is called steganography. I then read
                         the wikipedia article of common
                         <a href="https://en.wikipedia.org/wiki/List_of_steganography_techniques" target="_blank" rel="noopener noreferrer">
-                        steganography techniques</a>; I found least 
-                        significant bit (LSB) encoding to be a pretty simple. LSB encoding is 
-                        using the LSB to hide data. As a decimal example, to hide the number 89 in 
+                        steganography techniques</a>; I found least
+                        significant bit (LSB) encoding to be a pretty simple. LSB encoding is
+                        using the LSB to hide data. As a decimal example, to hide the number 89 in
                         the number 614058, use the number 6140<u>89</u>. Since it is changing the
-                        LSB, the overall number doesn't change too much. 
+                        LSB, the overall number doesn't change too much.
                     </p>
                     <p>
-                        Then, I had to deal with how to encode error detection with optional 
+                        Then, I had to deal with how to encode error detection with optional
                         correction. Thankfully, I was ahead of the game and already know a simple
-                        solution: Hamming Codes! Before this project, I watched Grant Sanderson's 
+                        solution: Hamming Codes! Before this project, I watched Grant Sanderson's
                         (3Blue1Brown)
                         <a href="https://youtu.be/X8jsijhllIA" target="_blank" rel="noopener noreferrer">
-                        video about Hamming Codes</a>. In it, Sanderson explained Hamming Codes with 
-                        Hamming(15,&nbsp;11) codes. I wanted to use something similar, but I didn't 
+                        video about Hamming Codes</a>. In it, Sanderson explained Hamming Codes with
+                        Hamming(15,&nbsp;11) codes. I wanted to use something similar, but I didn't
                         want to use 15 bits since that would cause a lot more image distortion. I
-                        also wanted to be able to store 8 bits (1 character) and total length to be 
-                        divisible by 4 so that it can evenly be split in four channels for each 
+                        also wanted to be able to store 8 bits (1 character) and total length to be
+                        divisible by 4 so that it can evenly be split in four channels for each
                         pixel. A way to use 4 bits for parity would be super useful. I had a feeling
-                        it is very similar to how Sanderson explained with Hamming(15,&nbsp;11) 
-                        codes. A small bit of research for Hamming(12,&nbsp;8) codes provided a 
+                        it is very similar to how Sanderson explained with Hamming(15,&nbsp;11)
+                        codes. A small bit of research for Hamming(12,&nbsp;8) codes provided a
                         useful
                         <a href="https://courses.cs.vt.edu/cs2506/Fall2013/Notes/L21.ErrorCodes.pdf" target="_blank" rel="noopener noreferrer">
                         result</a> which showed, yes, it is very similar.
                     </p>
                     <p>
-                        I finally had to decide how to manipulate image data pixel by pixel. I 
-                        researched and found two common PNG libraries: libpng and stb. I chose 
+                        I finally had to decide how to manipulate image data pixel by pixel. I
+                        researched and found two common PNG libraries: libpng and stb. I chose
                         <a href="https://github.com/nothings/stb" target="_blank" rel="noopener noreferrer">
-                        stb</a> because, frankly, it looked a lot more simple to setup and use 
+                        stb</a> because, frankly, it looked a lot more simple to setup and use
                         compared to libpng.
                     </p>
                     <p>
-                        Now that I knew what to do, I just had to do it! The encoding program will 
-                        read an input message file and an input PNG file. It will then apply 
+                        Now that I knew what to do, I just had to do it! The encoding program will
+                        read an input message file and an input PNG file. It will then apply
                         Hamming(12,&nbsp;8) codes to each character in the message. Finally, it will
                         write each character into each pixel of the image file and save it as a new
                         image.
                     </p>
                     <p>
-                        The decoding program is similar, just reversed. It reads an input encoded 
+                        The decoding program is similar, just reversed. It reads an input encoded
                         PNG file. Then, it will extract the character from each pixel, applying any
                         error corrections if needed. Finally, it writes the message to a new file.
                     </p>
@@ -486,11 +486,11 @@
                             Java.
                         </li>
                         <li>
-                            There are lot more error detection and correction algorithms than 
+                            There are lot more error detection and correction algorithms than
                             Hamming Codes, but they are more complicated.
                         </li>
                         <li>
-                            Steganography is a still a thing in common practice and can hide a lot 
+                            Steganography is a still a thing in common practice and can hide a lot
                             more than just text data in images.
                         </li>
                         <li>
@@ -524,7 +524,7 @@
                         <figure>
                             <img alt="" src="imgs/cam/internal.jpg" loading="lazy">
                             <figcaption>
-                                An internal view of the camera by taking one of the side panes out. 
+                                An internal view of the camera by taking one of the side panes out.
                                 The lens projects an image of a house on the back of the camera.
                             </figcaption>
                         </figure>
@@ -550,8 +550,8 @@
                         I didn't make was the glass lenses that I had bought on ebay.
                     </p>
                     <p>
-                        Before committing to a 3D model, I first prototyped with a shoebox! Believe 
-                        it or not, that shoebox was able to take photographs by just taping a lens to 
+                        Before committing to a 3D model, I first prototyped with a shoebox! Believe
+                        it or not, that shoebox was able to take photographs by just taping a lens to
                         the front of it and having a cyanotype on the back! Ultimately, prototyping
                         allowed me to do quick and rough testing to get a general idea of how a fully
                         printed camera could be like.
@@ -569,7 +569,7 @@
                     </p>
                     <p>
                         The biggest drawback to cyanotypes is that the effective ISO is super low, and
-                        even with a 4 inch aperture, it still takes an exposure time on the order of 
+                        even with a 4 inch aperture, it still takes an exposure time on the order of
                         a few hours to get a decent image.
                     </p>
 
@@ -577,13 +577,13 @@
                     <ul>
                         <li>
                             There is value in spending a little time for prototyping. I had a completely
-                            different idea of how I wanted to design the camera before testing with a 
-                            shoebox. Needless to say, if a shoebox can take pictures, I didn't need to 
+                            different idea of how I wanted to design the camera before testing with a
+                            shoebox. Needless to say, if a shoebox can take pictures, I didn't need to
                             complicate the camera model.
                         </li>
                         <li>
                             Allowing a design to have flexibility is better than having fixed components.
-                            This applies to lots of things in the world from programming to 3D modelling. 
+                            This applies to lots of things in the world from programming to 3D modelling.
                         </li>
                         <li>
                             Cameras are not the hard part, photography is.
@@ -637,11 +637,11 @@
                     </p>
                     <p>
                         I started making this after my linear algebra class. We learned a lot about vectors
-                        and transformations. One thing that stuck to me were rotation transformations, 
+                        and transformations. One thing that stuck to me were rotation transformations,
                         though we only learned about the 2D rotation matrix. I went out of my way to learn
                         the 3D rotation (and attempted to learn 4D rotation) matrices. A friend told me how
                         these kind of transformations is how computers render 3D objects. I suddenly had
-                        inspiration to make a 3D object viewer. 
+                        inspiration to make a 3D object viewer.
                     </p>
                     <p>
                         The .OBJ file type is very easy to parse, as it is just a list of the vertices and
@@ -649,13 +649,13 @@
                         and Face object arrays. I harnessed the power of linear algebra and made some utility
                         classes, Matrix and Vector, to perform transformations. That's right, I wanted to
                         code all the math myself and not use a premade library. I didn't learn all the math
-                        for nothing; besides, it helps me to know what's going on under the hood anyway. 
+                        for nothing; besides, it helps me to know what's going on under the hood anyway.
                     </p>
                     <p>
                         After making the utility classes, I made a loop to go through each face and transform
                         the vectors associated with it and then draw the face. Each vector gets rotated
                         about the X, Y, and Z axis; gets translated about the X, Y, and Z axis, gets perspective
-                        transformed, and then gets projected onto the XY plane to be rendered on the screen. 
+                        transformed, and then gets projected onto the XY plane to be rendered on the screen.
                     </p>
                     <p>
                         That's it! Just transform all the vectors and display it by connecting them together!
@@ -663,7 +663,7 @@
                         a z distance away so that it automatically loads with the full model in view. The user
                         can rotate about the X and Y axis by dragging the primary mouse button and can translate
                         about the XY plane by dragging the secondary mouse button. The user can also zoom
-                        in and out with the scroll wheel. 
+                        in and out with the scroll wheel.
                     </p>
 
                     <h4>What I Learned</h4>
@@ -708,7 +708,7 @@
                         <figure>
                             <img alt="" src="imgs/unisex/miller.jpg" loading="lazy">
                             <figcaption>
-                                The same view of the site, but with the search for 
+                                The same view of the site, but with the search for
                                 "Miller".
                             </figcaption>
                         </figure>
@@ -722,7 +722,7 @@
                         public pdf for all the unisex bathrooms on campus, however it
                         isn't super navigable, especially for actually finding the
                         bathrooms in the buildings. For that, I had to cross-reference
-                        the floor maps in an even more unnavigable site. 
+                        the floor maps in an even more unnavigable site.
                     </p>
                     <p>
                         By January 2024, I had enough and started writing a simple html
@@ -732,7 +732,7 @@
                         the unisex bathrooms in their respective maps. I used a software
                         to turn the PDF maps into PNGs and highlighted each of the unisex
                         bathrooms with a painting program. Each PNG was given a proper
-                        indexable filename. I then took the bathroom list PDF and imported 
+                        indexable filename. I then took the bathroom list PDF and imported
                         the table into Microsoft Excel. With Excel, I exported the data
                         as a CSV which was then converted (with the power of notepad++
                         and regular expressions) to a json.
@@ -774,7 +774,7 @@
                     <div>
                         <h3>Weather App</h3>
                         <small>April &ndash; June 2023</small>
-                    </div> 
+                    </div>
                     <ul class="tags">
                         <li>Coursework</li>
                         <li>Software</li>

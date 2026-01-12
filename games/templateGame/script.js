@@ -124,7 +124,7 @@ canvas.addEventListener('mousemove', (e) => {
 });
 function getRelativeMousePosition(ctx, ui) {
     const transform = ctx.getTransform();
-    const invertedTransform = transform.inverse(); 
+    const invertedTransform = transform.inverse();
 
     if (!ui) {
         return {

@@ -25,7 +25,7 @@ export class Sprite {
     }
 
     addAnimation(name, sheetLink, frameWidth, frameHeight, callback) {
-        const animationSheet = new Image(); 
+        const animationSheet = new Image();
         animationSheet.onload = () => {
             const frames = [];
             const numFramesX = animationSheet.width / frameWidth;
@@ -35,9 +35,9 @@ export class Sprite {
                     frames.push({ x: x * frameWidth, y: y * frameHeight, w: frameWidth, h: frameHeight });
                 }
             }
-            this.animations[name] = { frames, image: animationSheet }; 
+            this.animations[name] = { frames, image: animationSheet };
             if (callback) {
-                callback(); 
+                callback();
             }
         };
         animationSheet.src = sheetLink;
@@ -57,14 +57,14 @@ export class Sprite {
             let frame = this.currentAnimation.frames[Math.floor(this.frameIndex)];
             let image = this.currentAnimation.image;
             ctx.drawImage(image, frame.x, frame.y, frame.w, frame.h, this.x, this.y, frame.w, frame.h);
-    
+
             this.frameIndex += dt;
             this.frameIndex %= this.currentAnimation.frames.length;
         } else if (this.image.src) {
             ctx.drawImage(this.image, this.x, this.y);
         }
     }
-    
+
 
     setHitbox(width, height, offsetX = 0, offsetY = 0) {
         this.hitbox.w = width;

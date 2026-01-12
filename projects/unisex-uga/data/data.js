@@ -1,4 +1,4 @@
-/* 
+/*
   data taken from https://www.architects.uga.edu/sites/default/files/documents/field/maps/current/unisex-bathrooms.pdf
   fixed (presumed):
     MLC building number (0672 -> 0081)

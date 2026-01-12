@@ -24,7 +24,7 @@
     80% {--crt-hue: .8turn}
     90% {--crt-hue: .9turn}
     100% {--crt-hue: 1turn}
-    
+
 }
 
 
@@ -61,14 +61,14 @@ body {
     --gradient-top: calc(var(--crt-hue) + 26deg);
     --gradient-mid: calc(var(--crt-hue) - 15deg);
     --gradient-bot: calc(var(--crt-hue) - 77deg);
-    
-    background-image: linear-gradient(in oklab calc(pi * 1rad - atan(9/16)), 
+
+    background-image: linear-gradient(in oklab calc(pi * 1rad - atan(9/16)),
         hsl(var(--gradient-top), 89%, 11%) 0%,
         hsl(var(--gradient-top), 89%, 11%) 25%,
         hsl(var(--gradient-mid), 79%, 11%),
-        hsl(var(--gradient-bot), 92%, 10%) 75%, 
+        hsl(var(--gradient-bot), 92%, 10%) 75%,
         hsl(var(--gradient-bot), 92%, 10%) 100%);
-    
+
 
     background-size: cover;
     background-color: var(--crt-color);
@@ -87,15 +87,15 @@ body {
 
 nav {
     /* style nav to differentiate it from the rest of the page (at least 2
-     * properties ie. background-color …) 
+     * properties ie. background-color …)
      */
     padding: 0.25em;
     background: linear-gradient(to bottom, var(--crt-color) 80%, #0000 100%);
     color: #fff;
     text-shadow: 0 0 1em;
 
-    /* make nav a flex parent and use a flex property to separate your name on 
-     * the left and the contact link on the right  
+    /* make nav a flex parent and use a flex property to separate your name on
+     * the left and the contact link on the right
      */
     display: flex;
     justify-content: space-evenly;
@@ -103,7 +103,7 @@ nav {
 
 footer {
     /* style footer to differentiate it from the rest of the page (at least 2
-     * properties) 
+     * properties)
      */
     padding: 1em;
     background: linear-gradient(to top, var(--crt-color) 80%, #0000 100%);
@@ -139,7 +139,7 @@ section.splash:hover {
 
 h1 {
     /* change the default style (font, font-size, color….) using a Google font
-     * and a color number 
+     * and a color number
      */
     font-family: "Tourney", serif; /* google font */
     font-style: normal;
@@ -194,7 +194,7 @@ hr {
 }
 
 h2 {
-    /* Style the h2 headings of these sections using a Google font and a color 
+    /* Style the h2 headings of these sections using a Google font and a color
      * number
      */
     font-family: "Tourney", serif; /* google font */
@@ -214,7 +214,7 @@ h4 {
   font-family: "Tourney", serif;
 }
 
-/* style the education paragraph as you prefer (you may add additional tags 
+/* style the education paragraph as you prefer (you may add additional tags
  * and/or classes )
  */
 section#education h3 {
@@ -306,15 +306,15 @@ div.content {
 /* Project Cards */
 
 div.three-col {
-    /* style class three-col with display grid that creates a 3 column layout 
+    /* style class three-col with display grid that creates a 3 column layout
      * for its three child 'cards'.  ie. make the 3 card divs a 3 column layout
-     * with some space between each child 
+     * with some space between each child
      */
     display: grid;
     /* I had permission to add more than 3 projects
      * https://piazza.com/class/m5h8dphqc8t6pv/post/37
      */
-    grid-template-columns: repeat(10, 30em); 
+    grid-template-columns: repeat(10, 30em);
     column-gap: 1.5em; /* some space between each child */
     padding-bottom: 2em;
 
@@ -358,8 +358,8 @@ section#projects {
 }
 
 div.card {
-    /* Style a card layout to create a ‘card style’ - visually separated 
-     * (shadow, outline, background color, …)  
+    /* Style a card layout to create a ‘card style’ - visually separated
+     * (shadow, outline, background color, …)
      */
     position: relative;
     top: 0;
@@ -373,8 +373,8 @@ div.card {
 }
 
 div.card img {
-    /* style images within the card to position and appear appropriately within 
-     * the card 
+    /* style images within the card to position and appear appropriately within
+     * the card
      */
     width: 85%;
     height: auto;
@@ -457,7 +457,7 @@ section#contact-header:hover {
 
 form.one-col {
     /* style class one-col that creates a 1 column container for the info, form
-     * and submit button 
+     * and submit button
      */
     display: grid;
     grid-template-columns: 1fr;
@@ -502,7 +502,7 @@ input:focus, textarea:focus {
     padding-left: 0;
     padding-right: 0;
 }
-      
+
 #thanks p, #thanks h1 {
     margin-top: 0;
     display: block;
